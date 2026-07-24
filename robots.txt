@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dyina0128.github.io/sitemap.xml
+Sitemap: https://dyina0128.github.io/benefit-guide/sitemap.xml

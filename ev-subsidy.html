@@ -3,99 +3,488 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026년 자동차 지원 정책 가이드: 전기차 보조금 및 노후차 조기폐차 총정리</title>
+
+    <title>2026 자동차 지원 정책 가이드 | 전기차 보조금·조기폐차·세제 혜택</title>
+
+    <meta name="description"
+          content="2026년 전기차 구매보조금, 노후차 조기폐차 지원, 친환경차 세제 혜택의 대상과 신청 절차를 쉽게 정리한 자동차 지원 정책 가이드입니다.">
+
+    <link rel="stylesheet" href="style.css">
+
     <style>
-        body { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; line-height: 1.7; color: #333333; background-color: #fcfcfc; margin: 0; padding: 0; }
-        .container { max-width: 800px; margin: 40px auto; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
-        h1 { font-size: 26px; color: #1a1a1a; border-bottom: 3px solid #4a90e2; padding-bottom: 15px; margin-bottom: 30px; }
-        h2 { font-size: 20px; color: #2c3e50; margin-top: 35px; border-left: 5px solid #4a90e2; padding-left: 12px; margin-bottom: 15px; }
-        h3 { font-size: 16px; color: #34495e; margin-top: 25px; margin-bottom: 10px; }
-        table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 14px; }
-        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: center; }
-        th { background-color: #f4f6f9; font-weight: bold; color: #2c3e50; }
-        tr:nth-child(even) { background-color: #fafbfc; }
-        .highlight { background-color: #fff3cd; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
-        .info-box { background-color: #e6f2ff; border-left: 4px solid #1890ff; padding: 20px; border-radius: 0 8px 8px 0; margin: 25px 0; }
-        .back-btn { display: inline-block; margin-top: 40px; padding: 10px 20px; background-color: #4a90e2; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: bold; }
-        .back-btn:hover { background-color: #357abd; }
+        body {
+            font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+            line-height: 1.75;
+            color: #334155;
+            background: #f8fafc;
+            margin: 0;
+        }
+
+        .page-header {
+            background: #0076c0;
+            color: white;
+            text-align: center;
+            padding: 42px 20px;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 2rem;
+            line-height: 1.4;
+        }
+
+        .page-header p {
+            margin: 12px 0 0;
+            opacity: 0.92;
+        }
+
+        .top-nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .top-nav a {
+            display: inline-block;
+            margin: 5px 10px;
+            color: #0076c0;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        .article-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+        }
+
+        h2 {
+            color: #1e3a5f;
+            border-left: 5px solid #0076c0;
+            padding-left: 12px;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #334155;
+            margin-top: 25px;
+        }
+
+        .update-date {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #075985;
+            border-radius: 20px;
+            padding: 7px 14px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border-left: 5px solid #2563eb;
+            padding: 18px 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 22px 0;
+        }
+
+        .warning-box {
+            background: #fff7ed;
+            border-left: 5px solid #f97316;
+            padding: 18px 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 22px 0;
+        }
+
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #0076c0;
+            font-weight: bold;
+        }
+
+        .step-list li {
+            margin-bottom: 14px;
+        }
+
+        .official-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .official-links a {
+            display: block;
+            padding: 16px;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            color: #075985;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .official-links a:hover {
+            background: #e0f2fe;
+        }
+
+        details {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 15px 0;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #1e3a5f;
+        }
+
+        .related-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 12px;
+        }
+
+        .related-links a {
+            padding: 15px;
+            border: 1px solid #dbeafe;
+            background: #f8fbff;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #075985;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 22px;
+            background: #0076c0;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            padding: 30px 20px;
+            color: #64748b;
+        }
+
+        footer a {
+            color: #0076c0;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 600px) {
+            .page-header h1 {
+                font-size: 1.55rem;
+            }
+
+            .article-card {
+                padding: 22px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>2026년 정부 자동차 지원 정책 가이드: 전기차 구매 보조금, 조기폐차 지원금 및 세제 감면 완벽 정리</h1>
-    
-    <p>환경부와 국토교통부는 대기 환경 개선과 탄소중립 실현을 가속화하고, 국민의 친환경 모빌리티 전환을 재정적으로 보조하기 위해 매년 개정된 <strong>'자동차 지원 및 복지 정책'</strong>을 시행하고 있습니다. 특히 2026년은 친환경차 보조금의 배터리 안전성 및 성능 매칭 계수가 대폭 개편되었으며, 노후 내연기관 차량의 저감 조치를 유도하기 위한 지원 단가가 현실화되었습니다.</p>
-    
-    <p>정부의 핵심 자동차 지원 사업은 무공해차 보조금 시스템인 '전기차 및 수소차 구매 지원'과 대기오염 물질 배출을 차단하기 위한 '노후 경유차 조기폐차 지원사업'으로 구성됩니다. 본 종합 가이드에서는 2026년 무공해차 통합누리집 기준 최신 조건과 산정 단가를 명확하게 비교 분석해 드립니다.</p>
+<header class="page-header">
+    <h1>🚗 2026년 자동차 지원 정책 가이드</h1>
+    <p>전기차 구매보조금·노후차 조기폐차·친환경차 세제 혜택 정리</p>
+</header>
 
-    <h2>1. 친환경 무공해차 전환 지원: 2026년 전기차 보조금</h2>
-    <p><strong>전기자동차 구매 보조금</strong>은 국비와 지자체 보조금이 결합되어 지급되는 혜택으로, 차량의 성능, 배터리 효율, 제조사의 사후관리 역량 및 가격 구간에 따라 세부 금액이 차등 설계됩니다.</p>
-    
-    <h3>차량 가격별 보조금 지급 비율 및 상한선</h3>
-    <p>2026년 정부 지침에 따른 전기 승용차 가격별 국비 보조금 반영 비율 기준은 다음과 같습니다.</p>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>차량 출고 가격 구간 (기본가격)</th>
-                <th>국비 보조금 지급 비율</th>
-                <th>2026년 정책 특징</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>5,300만 원 미만</strong></td>
-                <td><span class="highlight">100% 전액 지급</span></td>
-                <td>대중형 전기차 보급 활성화를 위한 전액 지원선</td>
-                
-            </tr>
-            <tr>
-                <td><strong>5,300만 원 이상 ~ 8,500만 원 미만</strong></td>
-                <td><strong>50% 감액 지급</strong></td>
-                <td>중고가 및 준대형 전기차 대상 구간</td>
-            </tr>
-            <tr>
-                <td><strong>8,500만 원 이상</strong></td>
-                <td><strong>지급 미대상 (0%)</strong></td>
-                <td>고가 프리미엄 및 럭셔리 전기차 보조금 제외</td>
-            </tr>
-        </tbody>
-    </table>
-    <p>※ 실제 수령하는 총보조금은 국비 최대 금액에 본인이 거주하는 지자체별 매칭 보조금(서울, 인천, 경기 등 지방비)이 합산되어 출고 시 차량 가격에서 차감됩니다.</p>
+<nav class="top-nav">
+    <a href="index.html">메인</a>
+    <a href="about.html">사이트 소개</a>
+    <a href="contact.html">문의하기</a>
+    <a href="privacy.html">개인정보처리방침</a>
+    <a href="terms.html">이용약관</a>
+</nav>
 
-    <h2>2. 대기환경 개선을 위한 보상: 노후 경유차 조기폐차 지원금</h2>
-    <p>배출가스 등급이 높은 노후 내연기관 차량을 운행 중단하고 조기 폐차하는 차주에게 가액에 따른 보상금을 지원하는 제도입니다. 2026년은 기존 4등급, 5등급 경유차뿐만 아니라 일부 배출가스 요건을 초과하는 노후 차량까지 지원 대상 범위가 유연해졌습니다.</p>
-    
-    <h3>차량 등급별 지원 한도액 상한 (총중량 3.5톤 미만 승용차 기준)</h3>
-    <ul>
-        <li><strong>배출가스 5등급 차량:</strong> 조기 폐차 시 <span class="highlight">최대 300만 원</span> 범위 내에서 보험개발원이 산정한 분기별 차량 가액을 기준으로 지원금이 책정됩니다.</li>
-        <li><strong>배출가스 4등급 차량:</strong> 조기 폐차 시 <span class="highlight">최대 800만 원</span> 한도로 지원되며, 매연저감장치(DPF) 장착 미여부에 따른 인센티브 혜택이 차등 부여됩니다.</li>
-        <li><strong>추가 인센티브 구성:</strong> 조기 폐차 후 무공해차(전기차, 수소차)를 신차 또는 중고차로 구매할 경우 <strong>최대 50만 원의 추가 보조금</strong>이 중복 지급됩니다.</li>
-    </ul>
+<main class="container">
 
-    <div class="info-box">
-        <p><strong>💡 2026년 자동차 세제 감면 혜택 Summary:</strong></p>
-        <p>• <strong>전기·수소차 취득세 감면:</strong> 친환경 자동차를 신규 등록할 때 발생하는 취득세를 **최대 140만 원까지 감면** 혜택을 제공합니다.</p>
-        <p>• <strong>개별소비세 감면:</strong> 차량 출고 시 부과되는 개별소비세를 최대 300만 원(교육세 및 부가세 포함 시 최대 429만 원 효과)까지 면제 혜택을 연장 시행합니다.</p>
-    </div>
+    <section class="article-card">
+        <span class="update-date">최종 업데이트: 2026년 7월</span>
 
-    <h2>3. 실패 없는 원스톱 신청 프로세스 및 시스템 활용</h2>
-    <p>모든 자동차 관련 정부 보조금은 전용 전산 시스템을 통해 제조사 대리점 및 한국자동차환경협회를 거쳐 전 과정을 투명하게 진행하게 됩니다.</p>
-    <ol>
-        <li><strong>전기차 보조금 접수 프로세스:</strong> 소비자가 차량 계약 시 제조사 영업사원(대리점)을 통해 지자체에 보조금 공모 신청을 대리 접수합니다. 보조금 자격 승인 후 **2개월 이내에 차량이 반드시 출고**되어야 보조금이 정상 지급되므로 출고 타이밍 조율이 핵심입니다.</li>
-        <li><strong>조기폐차 시스템 접수:</strong> '무공해차 통합누리집(ev.or.kr)' 또는 한국자동차환경협회 공식 채널을 통해 차량 번호를 입력하고 조기폐차 대상 여부 확인서를 발급받은 뒤, 지정된 폐차장에서 폐차 및 신차 등록 증빙을 제출하면 통장으로 지원금이 입금됩니다.</li>
-    </ol>
+        <h2>자동차 지원 정책을 확인해야 하는 이유</h2>
 
-    <div class="info-box">
-        <p><strong>⚠️ 보조금 수혜자 필수 의무 이행 사항</strong></p>
-        <p>정부 보조금을 지원받아 전기차를 신규 등록한 차주는 관련 법령에 따라 해당 지자체 내에서 **'2년간의 의무 운행 기간'**을 반드시 준수해야 합니다. 만약 2년 이내에 차량을 타 지자체 주민에게 매매하거나 폐차(교통사고 등 예외 제외)할 경우, 운행 기간별 잔존 가치를 계산하여 지급된 보조금이 **월할 계산되어 강제 환수**되므로 이 점을 필히 유의하셔야 합니다.</p>
-    </div>
+        <p>
+            자동차 관련 정부 지원은 크게 전기차·수소차 구매보조금,
+            노후차 조기폐차 지원, 친환경차 세제 혜택 등으로 구분할 수 있습니다.
+        </p>
 
-    <p>친환경 자동차로의 패러다임 전환과 노후 차량의 세대교체는 가계의 유지비 절감은 물론 미래 세대를 위한 지속 가능한 환경을 만드는 첫걸음입니다. 환경부와 각 지자체가 2026년 고도화하여 선보인 무공해차 구매 보조 지표와 노후차 보상 제도를 면밀히 활용하시어, 경제적 혜택 속에서 안전하고 스마트한 모빌리티 라이프를 완성하시기 바랍니다.</p>
+        <p>
+            다만 실제 지원 금액과 신청 기간은 차량 종류, 거주 지역,
+            예산 잔액, 출고 시기 등에 따라 달라질 수 있습니다.
+            따라서 이 글에서는 전체적인 제도와 신청 절차를 이해하기 쉽게 설명하고,
+            최종 금액은 공식 시스템에서 확인하도록 안내합니다.
+        </p>
 
-    <a href="./index.html" class="back-btn">← 생활정보 홈으로 가기</a>
-</div>
+        <div class="warning-box">
+            <strong>중요 안내</strong>
+            <p>
+                보조금은 예산이 소진되면 조기에 마감될 수 있습니다.
+                차량 계약 전 거주지 지방자치단체의 최신 공고와
+                차종별 지원 금액을 반드시 확인하세요.
+            </p>
+        </div>
+    </section>
 
-</body>
+    <section class="article-card">
+        <h2>1. 전기차 구매보조금</h2>
+
+        <p>
+            전기자동차 구매보조금은 국비 보조금과 지방자치단체 보조금으로 구성됩니다.
+            같은 차량이라도 거주 지역과 차량의 성능·가격·배터리 특성 등에 따라
+            최종 지원 금액이 달라질 수 있습니다.
+        </p>
+
+        <h3>주요 확인 항목</h3>
+
+        <ul>
+            <li>해당 차량이 보조금 지급 대상 차종인지</li>
+            <li>차종별 국비 보조금 금액</li>
+            <li>거주 지역의 지방비 보조금</li>
+            <li>지자체 접수 물량과 남은 예산</li>
+            <li>출고 가능 시기와 대상자 선정 방식</li>
+            <li>차량 등록 후 의무운행 조건</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>신청 방법</strong>
+            <p>
+                일반적으로 구매자가 전기차 판매점과 계약하면
+                제작사 또는 수입사가 지방자치단체에 보조금 신청을 대행합니다.
+                신청 방식과 대상자 선정 기준은 지자체 공고에 따라 달라질 수 있습니다.
+            </p>
+        </div>
+    </section>
+
+    <section class="article-card">
+        <h2>2. 노후차 조기폐차 지원</h2>
+
+        <p>
+            조기폐차 지원사업은 일정 기준을 충족하는 노후 차량을 정상적으로 폐차할 경우
+            차량 기준가액과 차종, 배출가스 등급 등에 따라 보조금을 지원하는 제도입니다.
+        </p>
+
+        <h3>대표적인 지원 대상</h3>
+
+        <ul>
+            <li>배출가스 4등급 또는 5등급에 해당하는 지원 대상 차량</li>
+            <li>일정 기간 이상 신청 지역에 등록된 차량</li>
+            <li>정기검사 또는 관능검사에서 적합 판정을 받은 차량</li>
+            <li>정상 운행이 가능한 것으로 확인된 차량</li>
+            <li>정부 지원으로 배출가스 저감장치를 부착한 이력이 없는 차량</li>
+        </ul>
+
+        <p>
+            세부 조건은 차량 종류와 지방자치단체 공고에 따라 달라질 수 있으므로
+            자동차 배출가스 종합전산시스템에서 대상 여부를 먼저 확인하는 것이 좋습니다.
+        </p>
+
+        <h3>일반적인 신청 흐름</h3>
+
+        <ol class="step-list">
+            <li><strong>대상 차량 확인:</strong> 차량번호로 배출가스 등급과 지원 가능 여부를 확인합니다.</li>
+            <li><strong>조기폐차 신청:</strong> 온라인 또는 지정된 접수기관을 통해 신청합니다.</li>
+            <li><strong>지급대상 확인:</strong> 차량 상태 및 신청 조건을 확인받습니다.</li>
+            <li><strong>폐차 및 말소등록:</strong> 지정 절차에 따라 폐차하고 말소등록을 완료합니다.</li>
+            <li><strong>보조금 청구:</strong> 필요한 서류를 제출해 기본 보조금을 청구합니다.</li>
+            <li><strong>추가 보조금 확인:</strong> 신차 또는 친환경차 구매 조건을 충족하면 추가 지원 여부를 확인합니다.</li>
+        </ol>
+    </section>
+
+    <section class="article-card">
+        <h2>3. 친환경차 세제 혜택</h2>
+
+        <p>
+            전기차와 수소차 등 친환경자동차는 관련 법령에 따라
+            취득세와 개별소비세 등의 감면을 받을 수 있습니다.
+        </p>
+
+        <p>
+            감면 한도와 적용 기간은 차량 종류와 법령 개정에 따라 달라질 수 있으므로,
+            구매 계약 전 판매점과 지방자치단체 세무부서에서 최신 기준을 확인해야 합니다.
+        </p>
+
+        <div class="warning-box">
+            <strong>주의</strong>
+            <p>
+                보조금과 세금 감면은 서로 다른 제도입니다.
+                보조금 예상액만 보고 차량을 계약하지 말고,
+                차량 가격·보험료·충전비·자동차세 등 전체 유지비를 함께 비교하세요.
+            </p>
+        </div>
+    </section>
+
+    <section class="article-card">
+        <h2>4. 신청 전 준비 체크리스트</h2>
+
+        <ul class="checklist">
+            <li>차량이 정부 보조금 대상 차종인지 확인</li>
+            <li>거주 지역의 전기차 보급 공고 확인</li>
+            <li>국비와 지방비 예상 지원액 확인</li>
+            <li>지자체의 접수 및 선정 방식 확인</li>
+            <li>차량의 실제 출고 가능 시기 확인</li>
+            <li>의무운행 기간과 보조금 환수 조건 확인</li>
+            <li>조기폐차 대상 여부와 배출가스 등급 확인</li>
+            <li>신분증, 자동차등록증, 통장 사본 등 필요 서류 확인</li>
+            <li>공식 접수기관과 지정 폐차장 여부 확인</li>
+        </ul>
+    </section>
+
+    <section class="article-card">
+        <h2>5. 자주 묻는 질문</h2>
+
+        <details>
+            <summary>전기차 보조금은 차량을 구매한 뒤 직접 신청하나요?</summary>
+            <p>
+                대부분 차량 계약 후 제작사나 판매점이 보조금 신청을 대행합니다.
+                다만 지역별 절차가 다를 수 있으므로 계약 전에 확인해야 합니다.
+            </p>
+        </details>
+
+        <details>
+            <summary>전기차 보조금은 전국에서 같은 금액을 받나요?</summary>
+            <p>
+                아닙니다. 국비 지원액 외에 지방비 보조금이 추가되므로
+                거주 지역과 차종에 따라 최종 지원액이 달라질 수 있습니다.
+            </p>
+        </details>
+
+        <details>
+            <summary>보조금 대상 차량이면 언제든 지원받을 수 있나요?</summary>
+            <p>
+                아닙니다. 지자체별 예산과 보급 물량이 정해져 있어
+                접수가 조기에 마감될 수 있습니다.
+            </p>
+        </details>
+
+        <details>
+            <summary>조기폐차는 모든 오래된 경유차가 신청할 수 있나요?</summary>
+            <p>
+                아닙니다. 배출가스 등급, 등록 기간, 검사 결과,
+                저감장치 지원 이력 등 여러 조건을 충족해야 합니다.
+            </p>
+        </details>
+
+        <details>
+            <summary>조기폐차 후 중고차를 구입해도 추가 지원을 받을 수 있나요?</summary>
+            <p>
+                추가 지원 여부는 구매 차량의 종류와 해당 연도·지역의 사업 공고에 따라 달라집니다.
+                폐차 전 지자체 또는 공식 접수기관에 확인하는 것이 안전합니다.
+            </p>
+        </details>
+
+        <details>
+            <summary>보조금을 받은 차량을 바로 판매할 수 있나요?</summary>
+            <p>
+                보조금을 받은 차량에는 의무운행 조건이 적용될 수 있습니다.
+                기간 내 매도·이전·폐차 시 보조금 환수 여부를 반드시 확인해야 합니다.
+            </p>
+        </details>
+    </section>
+
+    <section class="article-card">
+        <h2>6. 공식 사이트에서 최신 정보 확인하기</h2>
+
+        <p>
+            지원금과 신청 일정은 변경될 수 있으므로 아래 공식 사이트에서
+            최종 내용을 확인하세요.
+        </p>
+
+        <div class="official-links">
+            <a href="https://www.ev.or.kr/" target="_blank" rel="noopener noreferrer">
+                무공해차 통합누리집
+            </a>
+
+            <a href="https://www.mecar.or.kr/" target="_blank" rel="noopener noreferrer">
+                자동차 배출가스 종합전산시스템
+            </a>
+
+            <a href="https://www.aea.or.kr/" target="_blank" rel="noopener noreferrer">
+                한국자동차환경협회
+            </a>
+
+            <a href="https://www.gov.kr/" target="_blank" rel="noopener noreferrer">
+                정부24
+            </a>
+        </div>
+    </section>
+
+    <section class="article-card">
+        <h2>관련 복지 정보</h2>
+
+        <div class="related-links">
+            <a href="housing-benefit.html">주거급여 가이드</a>
+            <a href="youth-account-guide.html">청년도약계좌 가이드</a>
+            <a href="work-incentive-guide.html">근로장려금 가이드</a>
+            <a href="energy-voucher-guide.html">에너지바우처 가이드</a>
+        </div>
+    </section>
+
+    <section class="article-card">
+        <h2>정보 이용 안내</h2>
+
+        <p>
+            본 글은 정부 및 공공기관의 공개 자료를 바탕으로
+            자동차 지원 정책을 이해하기 쉽게 정리한 참고용 정보입니다.
+        </p>
+
+        <p>
+            본 사이트는 정부기관이 운영하는 공식 사이트가 아니며,
+            보조금 지급 여부나 지원 금액을 보장하지 않습니다.
+            실제 신청 전에는 반드시 관할 지방자치단체와 공식 홈페이지의
+            최신 공고를 확인하시기 바랍니다.
+        </p>
+
+        <a href="index.html" class="back-btn">← 메인으로 돌아가기</a>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>© 2026 대한민국 혜택 생활 가이드</strong></p>
+
+    <p>
+        <a href="index.html">메인</a>
+        <a href="about.html">사이트 소개</a>
+        <a href="contact.html">문의하기</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="terms.html">이용약관</a>
+    </p>
+</footer>
+
+<script src="benefits-data.js"></script><script src="bookmarks.js"></script></body>
 </html>

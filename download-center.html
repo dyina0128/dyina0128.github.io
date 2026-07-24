@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>다운로드 센터 | 정부지원금 신청 자료</title>
+  <meta name="description" content="청년월세지원, 주거급여, 기초연금 등 정부지원금 신청 전 필요한 체크리스트와 신청순서를 확인하세요.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#f5f7fb">
+  <link rel="canonical" href="https://dyina0128.github.io/benefit-guide/download-center.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="다운로드 센터 | 정부지원금 신청 자료">
+  <meta property="og:description" content="신청 전 필요한 PDF, 체크리스트, 신청순서를 한 곳에서 확인하세요.">
+  <meta property="og:url" content="https://dyina0128.github.io/benefit-guide/download-center.html">
+  <meta property="og:image" content="https://dyina0128.github.io/benefit-guide/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="다운로드 센터 | 정부지원금 신청 자료">
+  <meta name="twitter:description" content="신청 전 필요한 PDF, 체크리스트, 신청순서를 한 곳에서 확인하세요.">
+  <meta name="twitter:image" content="https://dyina0128.github.io/benefit-guide/images/og-image.jpg">
+  <link rel="stylesheet" href="style.css">
+  <script src="download-center.js" defer></script>
+</head>
+<body class="download-center-page">
+  <a class="skip-link" href="#resources">자료 목록으로 건너뛰기</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="index.html" aria-label="지원금 안내 홈">
+        <span class="brand-mark" aria-hidden="true">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M7 3.5h10a3.5 3.5 0 0 1 3.5 3.5v10a3.5 3.5 0 0 1-3.5 3.5H7A3.5 3.5 0 0 1 3.5 17V7A3.5 3.5 0 0 1 7 3.5Z"></path>
+            <path d="m8 12 2.6 2.6L16.5 8.8"></path>
+          </svg>
+        </span>
+        <span>지원금 안내</span>
+      </a>
+
+      <nav aria-label="주요 메뉴">
+        <a href="index.html">홈</a>
+        <a href="seoul-benefits.html">지역별 지원</a>
+        <a href="download-center.html" aria-current="page">다운로드</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="shell hero-inner">
+        <p class="eyebrow">Benefit Resource Library</p>
+        <h1 id="page-title">다운로드 센터</h1>
+        <p class="hero-copy">신청 전 필요한 PDF, 체크리스트, 신청순서를 한 곳에서 확인하세요.</p>
+
+        <form class="search" id="search-form" role="search">
+          <label class="sr-only" for="resource-search">지원제도 자료 검색</label>
+
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"></path>
+          </svg>
+
+          <input
+            id="resource-search"
+            type="search"
+            autocomplete="off"
+            placeholder="어떤 지원제도를 찾으세요?"
+            aria-controls="resource-grid"
+            aria-describedby="search-hint"
+          >
+
+          <kbd aria-hidden="true">/</kbd>
+        </form>
+
+        <p class="search-hint" id="search-hint">예: 청년월세지원, 주거급여, 기초연금, 근로장려금</p>
+      </div>
+    </section>
+
+    <div class="shell page-layout">
+      <section class="featured" aria-labelledby="featured-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Curated resources</p>
+            <h2 id="featured-title">인기 자료</h2>
+          </div>
+          <p>신청 전에 먼저 살펴볼 추천 자료입니다.</p>
+        </div>
+        <div id="featured-grid" class="featured-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="library" id="resources" aria-labelledby="resources-title">
+        <div class="section-heading library-heading">
+          <div>
+            <p class="section-kicker">All resources</p>
+            <h2 id="resources-title">전체 자료 목록</h2>
+          </div>
+          <p id="result-count" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="tabs-wrap">
+          <div class="tabs" role="tablist" aria-label="지원제도 카테고리">
+            <button type="button" role="tab" aria-selected="true" data-category="all">전체</button>
+            <button type="button" role="tab" aria-selected="false" tabindex="-1" data-category="youth">청년</button>
+            <button type="button" role="tab" aria-selected="false" tabindex="-1" data-category="housing">주거</button>
+            <button type="button" role="tab" aria-selected="false" tabindex="-1" data-category="senior">노인</button>
+            <button type="button" role="tab" aria-selected="false" tabindex="-1" data-category="birth">출산</button>
+            <button type="button" role="tab" aria-selected="false" tabindex="-1" data-category="life">생활</button>
+            <button type="button" role="tab" aria-selected="false" tabindex="-1" data-category="jobs">일자리</button>
+          </div>
+        </div>
+
+        <div id="resource-grid" class="resource-grid" aria-live="polite"></div>
+
+        <div id="empty-state" class="empty-state" hidden>
+          <span aria-hidden="true">⌕</span>
+          <h3>검색 결과가 없습니다</h3>
+          <p>검색어를 줄이거나 다른 카테고리를 선택해 보세요.</p>
+          <button class="secondary-button" id="reset-search" type="button">전체 자료 보기</button>
+        </div>
+      </section>
+
+      <aside class="recent" aria-labelledby="recent-title">
+        <div class="section-heading compact">
+          <div>
+            <p class="section-kicker">Recently added</p>
+            <h2 id="recent-title">최근 추가된 자료</h2>
+          </div>
+        </div>
+        <ol id="recent-list"></ol>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div>
+        <strong>지원금 안내 다운로드 센터</strong>
+        <p>신청 전 최신 공고의 대상, 기간과 제출서류를 다시 확인하세요.</p>
+      </div>
+      <div class="footer-links" aria-label="하단 안내">
+        <span aria-disabled="true">소개</span>
+        <span aria-disabled="true">문의</span>
+        <span aria-disabled="true">개인정보처리방침</span>
+        <span aria-disabled="true">이용약관</span>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="preview-dialog" id="preview-dialog" aria-labelledby="preview-title">
+    <div class="dialog-header">
+      <div>
+        <span class="dialog-icon" id="preview-icon" aria-hidden="true"></span>
+        <p class="section-kicker" id="preview-category"></p>
+        <h2 id="preview-title"></h2>
+      </div>
+      <button class="icon-button" type="button" data-close-dialog aria-label="미리보기 닫기">×</button>
+    </div>
+
+    <div class="dialog-body">
+      <p id="preview-description"></p>
+      <section aria-labelledby="checklist-title">
+        <h3 id="checklist-title">신청 체크리스트</h3>
+        <ul class="check-list" id="preview-checklist"></ul>
+      </section>
+      <section aria-labelledby="steps-title">
+        <h3 id="steps-title">신청순서</h3>
+        <ol class="step-list" id="preview-steps"></ol>
+      </section>
+    </div>
+
+    <div class="dialog-actions">
+      <a class="primary-button" id="preview-official" target="_blank" rel="noopener noreferrer">공식 안내 열기</a>
+      <button class="secondary-button" type="button" data-close-dialog>닫기</button>
+    </div>
+  </dialog>
+
+  <noscript>
+    <p class="noscript">자료 검색과 필터를 사용하려면 JavaScript를 활성화해 주세요.</p>
+  </noscript>
+</body>
+</html>

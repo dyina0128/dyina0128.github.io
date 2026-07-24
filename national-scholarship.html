@@ -3,111 +3,745 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026년 국가장학금 신청 자격 조건 및 학자금 지원구간별 지급 금액 총정리</title>
+
+    <title>2026 국가장학금 가이드 | 신청자격·지원금액·성적기준·신청방법</title>
+
+    <meta name="description"
+          content="2026년 국가장학금 1유형, 2유형, 다자녀 장학금의 신청자격, 학자금 지원구간별 금액, 성적기준과 신청방법을 쉽게 정리했습니다.">
+
+    <link rel="stylesheet" href="style.css">
+
     <style>
-        body { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; line-height: 1.7; color: #333333; background-color: #fcfcfc; margin: 0; padding: 0; }
-        .container { max-width: 800px; margin: 40px auto; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
-        h1 { font-size: 26px; color: #1a1a1a; border-bottom: 3px solid #4a90e2; padding-bottom: 15px; margin-bottom: 30px; }
-        h2 { font-size: 20px; color: #2c3e50; margin-top: 35px; border-left: 5px solid #4a90e2; padding-left: 12px; margin-bottom: 15px; }
-        h3 { font-size: 16px; color: #34495e; margin-top: 25px; margin-bottom: 10px; }
-        table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 14px; }
-        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: center; }
-        th { background-color: #f4f6f9; font-weight: bold; color: #2c3e50; }
-        tr:nth-child(even) { background-color: #fafbfc; }
-        .highlight { background-color: #fff3cd; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
-        .info-box { background-color: #e6f2ff; border-left: 4px solid #1890ff; padding: 20px; border-radius: 0 8px 8px 0; margin: 25px 0; }
-        .back-btn { display: inline-block; margin-top: 40px; padding: 10px 20px; background-color: #4a90e2; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: bold; }
-        .back-btn:hover { background-color: #357abd; }
+        body {
+            margin: 0;
+            font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+            line-height: 1.75;
+            color: #334155;
+            background: #f8fafc;
+        }
+
+        .page-header {
+            background: #0076c0;
+            color: white;
+            text-align: center;
+            padding: 42px 20px;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 2rem;
+            line-height: 1.4;
+        }
+
+        .page-header p {
+            margin: 12px 0 0;
+            opacity: 0.92;
+        }
+
+        .top-nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .top-nav a {
+            display: inline-block;
+            margin: 5px 10px;
+            color: #0076c0;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 50px;
+        }
+
+        .article-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #1e3a5f;
+            border-left: 5px solid #0076c0;
+            padding-left: 12px;
+        }
+
+        h3 {
+            color: #334155;
+            margin-top: 26px;
+        }
+
+        .update-date {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #075985;
+            border-radius: 20px;
+            padding: 7px 14px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .summary-box {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .summary-box strong {
+            display: block;
+            color: #075985;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border-left: 5px solid #2563eb;
+            padding: 18px 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 22px 0;
+        }
+
+        .warning-box {
+            background: #fff7ed;
+            border-left: 5px solid #f97316;
+            padding: 18px 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 22px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 22px 0;
+            font-size: 0.95rem;
+        }
+
+        th,
+        td {
+            border: 1px solid #dbe2ea;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #eff6ff;
+            color: #1e3a5f;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        .step-list li {
+            margin-bottom: 14px;
+        }
+
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            position: relative;
+            padding-left: 30px;
+            margin: 11px 0;
+        }
+
+        .checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #0076c0;
+            font-weight: bold;
+        }
+
+        details {
+            padding: 15px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #1e3a5f;
+        }
+
+        .official-links,
+        .related-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .official-links a,
+        .related-links a {
+            display: block;
+            padding: 16px;
+            background: #f8fbff;
+            border: 1px solid #dbeafe;
+            border-radius: 10px;
+            color: #075985;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .official-links a:hover,
+        .related-links a:hover {
+            background: #e0f2fe;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 22px;
+            background: #0076c0;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            padding: 30px 20px;
+            color: #64748b;
+        }
+
+        footer a {
+            color: #0076c0;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 600px) {
+            .page-header h1 {
+                font-size: 1.55rem;
+            }
+
+            .article-card {
+                padding: 22px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>2026년 국가장학금 핵심 가이드: 학자금 지원구간별 지급액, 성적 자격요건 및 다자녀 혜택 총정리</h1>
-    
-    <p>교육부와 한국장학재단은 대학생 가구의 실질적인 등록금 부담을 획기적으로 낮추고, 소득 계층과 상관없이 누구나 공평한 고등교육의 기회를 누릴 수 있도록 맞춤형 <strong>'국가장학금'</strong> 제도를 고도화하여 시행하고 있습니다. 경제적 여건에 구애받지 않고 청년들이 학업에 몰두할 수 있도록 돕는 대표적인 교육 복지 정책입니다.</p>
-    
-    <p>특히 2026년은 중산층 가구의 교육비 경감을 위해 국가장학금 Ⅰ유형의 지원 한도가 대폭 상향되었으며, 다자녀 가구의 셋째 이상 자녀에 대한 등록금 전액 지원선이 한층 더 든튼해졌습니다. 본 종합 가이드에서는 한국장학재단 공식 기준에 맞춘 학자금 지원구간별 연간 지급 금액, 심사를 좌우하는 필수 성적 요건, 그리고 놓치기 쉬운 가구원 동의 프로세스까지 정밀하게 정리해 드립니다.</p>
+<header class="page-header">
+    <h1>🎓 2026년 국가장학금 가이드</h1>
+    <p>신청자격·지원금액·성적기준·신청방법 총정리</p>
+</header>
 
-    <h2>1. 국가장학금 Ⅰ유형 기본 개념 및 자격 요건</h2>
-    <p>국가장학금 Ⅰ유형은 학생이 속한 가구의 소득과 재산을 합산하여 산정한 '학자금 지원구간(소득인정액)'에 연계하여 차등적인 등록금 감면 혜택을 주는 대표적인 정부 주도 장학 복지 상품입니다.</p>
-    
-    <h3>학자금 지원구간별 연간 최대 지급 금액 표</h3>
-    <p>2026년도 기준 1~8구간까지의 소득 구간별 연간 최대 지원 단가는 다음과 같습니다. 등록금 범위 내에서 고지서 감면 형태로 우선 차감됩니다.</p>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>학자금 지원구간 분류</th>
-                <th>경계선 기준 (중위소득 대비)</th>
-                <th>2026년 연간 최대 지원 금액</th>
-                <th>학기당 최대 수령액</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>기초생활수급자 · 차상위계층</strong></td>
-                <td>최하위 저소득 계층</td>
-                <td><span class="highlight">등록금 전액 무상 지원</span></td>
-                <td>첫째·둘째 자녀 구분 없이 전액</td>
-            </tr>
-            <tr>
-                <td><strong>1구간 ~ 3구간</strong></td>
-                <td>기준 중위소득 30% ~ 70% 이하</td>
-                <td><strong>연간 최대 570만 원</strong></td>
-                <td>학기당 285만 원 차감</td>
-            </tr>
-            <tr>
-                <td><strong>4구간 ~ 6구간</strong></td>
-                <td>기준 중위소득 90% ~ 130% 이하</td>
-                <td><strong>연간 최대 420만 원</strong></td>
-                <td>학기당 210만 원 차감</td>
-            </tr>
-            <tr>
-                <td><strong>7구간 ~ 8구간</strong></td>
-                <td>기준 중위소득 150% ~ 200% 이하</td>
-                <td><strong>연간 최대 350만 원</strong></td>
-                <td>학기당 175만 원 차감</td>
-            </tr>
-        </tbody>
-    </table>
-    <p>※ 9구간과 10구간은 고소득층으로 분류되어 Ⅰ유형 지급 대상에서는 제외되지만, 대학 자체 재원으로 지원하는 'Ⅱ유형'이나 장학재단 학자금대출 이자 감면 등 연계 복지 혜택은 별도로 매칭받을 수 있습니다.</p>
+<nav class="top-nav">
+    <a href="index.html">메인</a>
+    <a href="youth-policy-list.html">청년정책</a>
+    <a href="about.html">사이트 소개</a>
+    <a href="contact.html">문의하기</a>
+    <a href="privacy.html">개인정보처리방침</a>
+    <a href="terms.html">이용약관</a>
+</nav>
 
-    <h2>2. 심사를 좌우하는 필수 성적 기준 및 감면 규정</h2>
-    <p>국가장학금은 소득 요건을 충족하더라도, 대학생 본인의 직전 학기 성적 및 이수 학점 지표가 재단이 정한 커트라인을 통과해야 정상 지급됩니다. (단, 신입생·편입생·재입학생의 첫 학기는 성적 심사에서 제외됩니다.)</p>
-    
-    <ul>
-        <li><strong>이수 학점 기준:</strong> 직전 학기에 최소 <span class="highlight">12학점 이상</span>을 이수해야 정상 접수됩니다. (졸업학기 학생은 예외 인정)</li>
-        <li><strong>백분위 성적 기준:</strong> 직전 학기 성적이 <span class="highlight">80점 이상 (B학점 평점 3.0 내외)</span>을 획득해야 장학 머니가 배정됩니다.</li>
-    </ul>
+<main class="container">
 
-    <div class="info-box">
-        <p><strong>💡 저소득층을 위한 'C학점 경고제' 특례 매뉴얼:</strong></p>
-        <p>기초생활수급자, 차상위계층 및 학자금 지원 1~3구간에 속하는 저소득층 학생의 경우, 생계 활동 병행으로 인한 학업 애로를 고려하여 성적이 70점 이상 ~ 80점 미만(C학점 구간)이더라도 **재학 중 총 2회에 한해 경고 후 장학금을 정상 지급**하는 완화 규정을 전면 시행 중입니다.</p>
-    </div>
+    <section class="article-card">
+        <span class="update-date">최종 업데이트: 2026년 7월</span>
 
-    <h2>3. 3인 이상 가구를 위한 파격 혜택: 다자녀 국가장학금</h2>
-    <p>정부는 다자녀 가구의 대학 등록금 부담을 획기적으로 낮추기 위해, 학자금 지원구간 8구간 이하 가구의 모든 자녀에게 한층 두터운 다자녀 장학 인프라를 매칭합니다.</p>
-    <ul>
-        <li><strong>다자녀 가구 정의:</strong> 자녀가 3명 이상인 가구의 모든 대학생 자녀가 혜택 대상입니다. (나이 제한 무관)</li>
-        <li><strong>지급 규모 단가:</strong> 소득 8구간 이하 가구의 첫째 및 둘째 자녀에게는 연간 최대 <span class="highlight">450만 원에서 520만 원</span>을 지원하며, **셋째 이상인 막내 자녀에게는 소득 구간과 상관없이 등록금 전액을 무상 지원**하여 교육비 걱정을 완벽히 덜어줍니다.</li>
-    </ul>
+        <h2>국가장학금이란?</h2>
 
-    <h2>4. 한국장학재단을 통한 원스톱 신청 프로세스</h2>
-    <ol>
-        <li><strong>온라인 신청 접수:</strong> 매 학기 시작 전(1학기는 전년도 11~12월, 2학기는 당해 연도 5~6월)에 '한국장학재단(kosaf.go.kr)' 웹사이트 또는 모바일 앱에 접속하여 공인인증서 로그인 후 신청서를 접수합니다.</li>
-        <li><strong>가구원 정보제공 동의 (필수):</strong> 국가장학금 신청 후 반드시 부모님(미혼) 또는 배우자(기혼)의 금융인증서를 통해 **'가구원 소득·재산 정보제공 동의'**를 완료해야만 소득 구간 심사가 진행됩니다. 이 단계를 누락하면 장학금 지급이 원천 탈락됩니다.</li>
-    </ol>
+        <p>
+            국가장학금은 대학생 가구의 소득과 재산 수준을 확인해
+            등록금 부담을 줄여주는 소득연계형 장학제도입니다.
+        </p>
 
-    <div class="info-box">
-        <p><strong>⚠️ 중복지원 제한 및 등록금 초과 수혜 금지 원칙</strong></p>
-        <p>국가장학금은 학생이 실제로 납부하는 대학 등록금 총액을 초과하여 지원받을 수 없습니다. 기업체 장학금이나 대학 자체 장학금, 공무원 학자금 대부 등과 결합하여 **등록금 범위를 초과하는 금액을 수령할 경우 '중복지원'**으로 분류되어 향후 학기 장학금 신청이 전면 차단되므로 초과분은 반드시 재단에 자진 반환하셔야 합니다.</p>
-    </div>
+        <p>
+            한국장학재단을 통해 신청하며, 신청자의 학자금 지원구간,
+            성적, 재학 상태와 대학의 참여 여부 등에 따라 지원금액이 결정됩니다.
+        </p>
 
-    <p>대학 교육을 통한 역량 강화와 꿈의 실현은 청년들이 당당한 사회 주체로 성장하기 위한 가장 소중한 디딤돌입니다. 한국장학재단이 발표한 2026년 인상된 학자금 지원구간 지표와 완화된 성적 감면 조건을 철저히 분석하시어, 단 한 학기도 등록금 부담 없이 학업의 가치를 높여나가시기 바랍니다.</p>
+        <div class="summary-grid">
+            <div class="summary-box">
+                <strong>신청 대상</strong>
+                대학생·입학예정자
+            </div>
 
-    <a href="./index.html" class="back-btn">← 생활정보 홈으로 가기</a>
-</div>
+            <div class="summary-box">
+                <strong>지원 범위</strong>
+                등록금 범위 내
+            </div>
 
-</body>
+            <div class="summary-box">
+                <strong>신청 기관</strong>
+                한국장학재단
+            </div>
+
+            <div class="summary-box">
+                <strong>지원 기준</strong>
+                소득·재산·성적
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <strong>반드시 학생 본인이 신청해야 합니다</strong>
+
+            <p>
+                부모나 학교가 대신 신청하는 방식이 아니며,
+                학생 본인이 한국장학재단 홈페이지 또는 모바일 앱에서
+                신청해야 합니다.
+            </p>
+        </div>
+    </section>
+
+    <section class="article-card">
+        <h2>1. 국가장학금 종류</h2>
+
+        <h3>국가장학금 Ⅰ유형</h3>
+
+        <p>
+            학생과 가구의 소득·재산 수준에 따라
+            학자금 지원구간별로 등록금을 차등 지원하는 장학금입니다.
+        </p>
+
+        <h3>국가장학금 Ⅱ유형</h3>
+
+        <p>
+            대학의 등록금 부담 완화 노력과 연계해
+            대학별 자체 기준으로 지원하는 장학금입니다.
+        </p>
+
+        <h3>다자녀 국가장학금</h3>
+
+        <p>
+            다자녀 가구 대학생을 대상으로 지원하며,
+            자녀 순서와 학자금 지원구간에 따라 지원금액이 달라질 수 있습니다.
+        </p>
+
+        <div class="info-box">
+            <strong>통합 신청</strong>
+
+            <p>
+                국가장학금을 신청하면 Ⅰ유형, Ⅱ유형,
+                다자녀 장학금의 해당 여부가 함께 심사됩니다.
+            </p>
+        </div>
+    </section>
+
+    <section class="article-card">
+        <h2>2. 2026년 국가장학금 Ⅰ유형 지원금액</h2>
+
+        <p>
+            아래 금액은 2026년 연간 최대 지원금액입니다.
+            실제 지원액은 등록금 범위 안에서 결정됩니다.
+        </p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>학자금 지원구간</th>
+                        <th>연간 최대 지원금액</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>기초생활수급자·차상위계층</td>
+                        <td>등록금 전액</td>
+                    </tr>
+
+                    <tr>
+                        <td>1~3구간</td>
+                        <td>600만 원</td>
+                    </tr>
+
+                    <tr>
+                        <td>4~6구간</td>
+                        <td>440만 원</td>
+                    </tr>
+
+                    <tr>
+                        <td>7~8구간</td>
+                        <td>360만 원</td>
+                    </tr>
+
+                    <tr>
+                        <td>9구간</td>
+                        <td>100만 원</td>
+                    </tr>
+
+                    <tr>
+                        <td>10구간</td>
+                        <td>Ⅰ유형 미지원</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warning-box">
+            <strong>등록금 초과 지원 불가</strong>
+
+            <p>
+                국가장학금과 교내·외 장학금을 합한 금액은
+                실제 등록금을 초과할 수 없습니다.
+            </p>
+        </div>
+    </section>
+
+    <section class="article-card">
+        <h2>3. 다자녀 국가장학금 지원금액</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>지원구간</th>
+                        <th>첫째·둘째</th>
+                        <th>셋째 이상</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>기초·차상위</td>
+                        <td>등록금 전액</td>
+                        <td>등록금 전액</td>
+                    </tr>
+
+                    <tr>
+                        <td>1~3구간</td>
+                        <td>610만 원</td>
+                        <td>등록금 전액</td>
+                    </tr>
+
+                    <tr>
+                        <td>4~6구간</td>
+                        <td>505만 원</td>
+                        <td>등록금 전액</td>
+                    </tr>
+
+                    <tr>
+                        <td>7~8구간</td>
+                        <td>465만 원</td>
+                        <td>등록금 전액</td>
+                    </tr>
+
+                    <tr>
+                        <td>9구간</td>
+                        <td>135만 원</td>
+                        <td>200만 원</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="article-card">
+        <h2>4. 신청 대상</h2>
+
+        <ul>
+            <li>대한민국 국적을 가진 대학생</li>
+            <li>국내 대학에 재학 중인 학생</li>
+            <li>신입생 및 입학예정자</li>
+            <li>편입생</li>
+            <li>재입학생</li>
+            <li>복학생</li>
+            <li>재학생</li>
+        </ul>
+
+        <p>
+            대학과 학과가 국가장학금 지원 대상에 포함되는지도
+            함께 확인해야 합니다.
+        </p>
+    </section>
+
+    <section class="article-card">
+        <h2>5. 성적 기준</h2>
+
+        <h3>재학생 일반 기준</h3>
+
+        <ul>
+            <li>직전 학기 12학점 이상 이수</li>
+            <li>100점 만점 기준 80점 이상</li>
+        </ul>
+
+        <h3>기초·차상위 학생</h3>
+
+        <ul>
+            <li>직전 학기 12학점 이상 이수</li>
+            <li>100점 만점 기준 70점 이상</li>
+        </ul>
+
+        <h3>신입생·편입생·재입학생</h3>
+
+        <p>
+            첫 학기에는 직전 학기 성적 및 이수학점 기준을 적용하지 않습니다.
+        </p>
+
+        <div class="info-box">
+            <strong>C학점 경고제</strong>
+
+            <p>
+                학자금 지원구간이 낮은 학생은 일정 조건에서
+                성적이 70점 이상 80점 미만이어도
+                재학 중 정해진 횟수만큼 지원받을 수 있습니다.
+            </p>
+        </div>
+
+        <p>
+            장애학생, 자립준비청년 등은 별도의 성적 기준이 적용되거나
+            예외가 인정될 수 있으므로 한국장학재단 공지를 확인하세요.
+        </p>
+    </section>
+
+    <section class="article-card">
+        <h2>6. 2026년 신청 일정</h2>
+
+        <h3>2026학년도 2학기 1차</h3>
+
+        <p>
+            2026년 5월 22일 오전 9시부터
+            6월 22일 오후 6시까지 진행됐습니다.
+        </p>
+
+        <h3>2학기 2차 신청</h3>
+
+        <p>
+            2차 신청 일정은 한국장학재단 공지사항에서
+            반드시 최신 날짜를 확인하세요.
+        </p>
+
+        <div class="warning-box">
+            <strong>재학생은 1차 신청이 원칙</strong>
+
+            <p>
+                재학생은 원칙적으로 1차 기간에 신청해야 합니다.
+                2차 신청은 재학 중 제한된 횟수 안에서만
+                구제 신청이 적용될 수 있습니다.
+            </p>
+        </div>
+    </section>
+
+    <section class="article-card">
+        <h2>7. 신청 절차</h2>
+
+        <ol class="step-list">
+            <li>
+                <strong>한국장학재단 회원가입:</strong>
+                홈페이지 또는 모바일 앱에서 본인 인증을 진행합니다.
+            </li>
+
+            <li>
+                <strong>국가장학금 신청:</strong>
+                신청서에 학교, 학적, 가구원 정보를 입력합니다.
+            </li>
+
+            <li>
+                <strong>가구원 정보제공 동의:</strong>
+                부모 또는 배우자가 소득·재산 확인에 동의해야 합니다.
+            </li>
+
+            <li>
+                <strong>서류 제출:</strong>
+                가족관계증명서 등 추가 서류 요청 여부를 확인합니다.
+            </li>
+
+            <li>
+                <strong>학자금 지원구간 산정:</strong>
+                가구의 소득, 재산, 금융재산과 부채 등을 조사합니다.
+            </li>
+
+            <li>
+                <strong>대학 심사:</strong>
+                대학에서 학적과 성적 기준을 확인합니다.
+            </li>
+
+            <li>
+                <strong>선발 결과 확인:</strong>
+                한국장학재단 홈페이지와 앱에서 결과를 확인합니다.
+            </li>
+
+            <li>
+                <strong>장학금 지급:</strong>
+                등록금 고지서에서 감면되거나 대학을 통해 지급됩니다.
+            </li>
+        </ol>
+    </section>
+
+    <section class="article-card">
+        <h2>8. 준비사항 체크리스트</h2>
+
+        <ul class="checklist">
+            <li>본인 명의 공동인증서 또는 금융인증서 준비</li>
+            <li>한국장학재단 회원가입</li>
+            <li>본인의 정확한 학교와 학적 확인</li>
+            <li>부모 또는 배우자의 가구원 동의 준비</li>
+            <li>가족관계증명서 제출 여부 확인</li>
+            <li>직전 학기 성적과 이수학점 확인</li>
+            <li>신청 완료 상태 확인</li>
+            <li>서류제출 대상 여부 확인</li>
+            <li>가구원 동의 완료 여부 확인</li>
+            <li>대학 등록금 납부 일정 확인</li>
+        </ul>
+    </section>
+
+    <section class="article-card">
+        <h2>9. 자주 묻는 질문</h2>
+
+        <details>
+            <summary>신입생도 국가장학금을 신청할 수 있나요?</summary>
+
+            <p>
+                가능합니다. 대학이 확정되지 않았더라도
+                입학예정자로 신청할 수 있으며,
+                이후 소속 대학 정보를 확인해야 합니다.
+            </p>
+        </details>
+
+        <details>
+            <summary>성적이 없어도 신청할 수 있나요?</summary>
+
+            <p>
+                신입생, 편입생, 재입학생의 첫 학기는
+                성적 기준이 적용되지 않습니다.
+            </p>
+        </details>
+
+        <details>
+            <summary>학자금 지원구간은 어떻게 계산하나요?</summary>
+
+            <p>
+                학생 본인과 부모 또는 배우자의 소득,
+                부동산, 자동차, 금융재산과 인정 부채 등을
+                종합해 산정합니다.
+            </p>
+        </details>
+
+        <details>
+            <summary>등록금을 이미 납부한 뒤 선발되면 어떻게 되나요?</summary>
+
+            <p>
+                대학을 통해 학생 본인 계좌로 장학금이 지급되거나,
+                학자금대출을 이용한 경우 대출 상환에 사용될 수 있습니다.
+            </p>
+        </details>
+
+        <details>
+            <summary>다른 장학금과 중복으로 받을 수 있나요?</summary>
+
+            <p>
+                다른 등록금성 장학금과 함께 받을 수 있지만,
+                전체 장학금 합계는 실제 등록금을 초과할 수 없습니다.
+            </p>
+        </details>
+
+        <details>
+            <summary>가구원 동의를 예전에 했어도 다시 해야 하나요?</summary>
+
+            <p>
+                기존 동의가 유효한 경우 다시 하지 않아도 될 수 있습니다.
+                다만 가족관계가 변경됐거나 추가 동의가 필요한 경우
+                다시 진행해야 합니다.
+            </p>
+        </details>
+
+        <details>
+            <summary>휴학생도 신청할 수 있나요?</summary>
+
+            <p>
+                복학 예정자는 신청할 수 있지만,
+                실제 장학금 지급은 해당 학기 재학 여부를 확인한 뒤 결정됩니다.
+            </p>
+        </details>
+    </section>
+
+    <section class="article-card">
+        <h2>10. 공식 사이트</h2>
+
+        <div class="official-links">
+            <a href="https://www.kosaf.go.kr/"
+               target="_blank"
+               rel="noopener noreferrer">
+                한국장학재단
+            </a>
+
+            <a href="https://www.moe.go.kr/"
+               target="_blank"
+               rel="noopener noreferrer">
+                교육부
+            </a>
+        </div>
+
+        <p>
+            국가장학금 상담은 한국장학재단 고객센터
+            <strong>1599-2000</strong>을 이용할 수 있습니다.
+        </p>
+    </section>
+
+    <section class="article-card">
+        <h2>관련 청년정책</h2>
+
+        <div class="related-links">
+            <a href="youth-rent.html">청년월세지원</a>
+            <a href="youth-account-guide.html">청년 자산형성 지원</a>
+            <a href="job-support-guide.html">국민취업지원제도</a>
+            <a href="youth-jeonse-loan.html">청년버팀목 전세대출</a>
+        </div>
+    </section>
+
+    <section class="article-card">
+        <h2>정보 이용 안내</h2>
+
+        <p>
+            본 글은 교육부와 한국장학재단의 공개 자료를 바탕으로
+            국가장학금 제도를 이해하기 쉽게 정리한 참고용 정보입니다.
+        </p>
+
+        <p>
+            실제 장학금 지급 여부와 금액은 학자금 지원구간,
+            성적, 학적, 대학별 심사 결과에 따라 달라질 수 있습니다.
+            신청 전 한국장학재단의 최신 공지를 반드시 확인하세요.
+        </p>
+
+        <a href="youth-policy-list.html" class="back-btn">
+            ← 청년정책 목록으로 돌아가기
+        </a>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>© 2026 대한민국 혜택 생활 가이드</strong></p>
+
+    <p>
+        <a href="index.html">메인</a>
+        <a href="about.html">사이트 소개</a>
+        <a href="contact.html">문의하기</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="terms.html">이용약관</a>
+    </p>
+</footer>
+
+<script src="benefits-data.js"></script><script src="bookmarks.js"></script></body>
 </html>

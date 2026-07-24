@@ -6,34 +6,990 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>대한민국 혜택 생활 가이드로 이동합니다</title>
+    <title>대한민국 혜택 생활 가이드 | 정부 지원금·복지 혜택 정보</title>
+
+    <meta name="description"
+          content="청년, 주거, 출산·육아, 노인, 농어촌, 근로장려금, 자녀장려금 등 대한민국 정부 지원금과 복지 혜택을 쉽게 확인하세요.">
 
     <meta name="robots"
-          content="noindex, follow">
+          content="index, follow">
 
     <link rel="canonical"
           href="https://dyina0128.github.io/benefit-guide/">
 
-    <meta http-equiv="refresh"
-          content="0; url=https://dyina0128.github.io/benefit-guide/">
+    <meta property="og:type"
+          content="website">
 
-    <script>
-        window.location.replace(
-            "https://dyina0128.github.io/benefit-guide/"
-        );
+    <meta property="og:site_name"
+          content="대한민국 혜택 생활 가이드">
+
+    <meta property="og:title"
+          content="대한민국 혜택 생활 가이드 | 정부 지원금·복지 혜택 정보">
+
+    <meta property="og:description"
+          content="청년, 주거, 출산·육아, 노인, 농어촌, 근로장려금 등 나에게 맞는 정부 지원금과 복지 혜택을 쉽게 확인하세요.">
+
+    <meta property="og:url"
+          content="https://dyina0128.github.io/benefit-guide/">
+
+    <meta name="twitter:card"
+          content="summary">
+
+    <meta name="twitter:title"
+          content="대한민국 혜택 생활 가이드">
+
+    <meta name="twitter:description"
+          content="대한민국 정부 지원금과 복지 혜택을 대상별·지역별로 쉽게 확인하세요.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "대한민국 혜택 생활 가이드",
+      "alternateName": "혜택 생활 가이드",
+      "url": "https://dyina0128.github.io/benefit-guide/"
+    }
     </script>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                "Malgun Gothic",
+                "Apple SD Gothic Neo",
+                Arial,
+                sans-serif;
+            line-height: 1.7;
+            color: #334155;
+            background: #f8fafc;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page-header {
+            padding: 52px 20px;
+            text-align: center;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0879bd, #0797c9);
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 2.25rem;
+            line-height: 1.35;
+        }
+
+        .page-header p {
+            max-width: 760px;
+            margin: 14px auto 0;
+            font-size: 1.08rem;
+            opacity: 0.95;
+        }
+
+        .top-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .top-nav a {
+            display: inline-block;
+            margin: 5px 10px;
+            color: #0076c0;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5px 20px 55px;
+        }
+
+        .section-box {
+            margin-bottom: 28px;
+            padding: 28px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+        }
+
+        .section-box h2 {
+            margin: 0 0 16px;
+            padding-left: 13px;
+            color: #1e3a5f;
+            font-size: 1.55rem;
+            line-height: 1.45;
+            border-left: 5px solid #0797c9;
+        }
+
+        .section-description {
+            margin-bottom: 22px;
+            color: #526274;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .featured-card {
+            display: block;
+            padding: 21px;
+            color: #334155;
+            text-decoration: none;
+            background: #f8fcff;
+            border: 1px solid #d7eaf3;
+            border-radius: 12px;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-3px);
+            border-color: #79c2df;
+            box-shadow: 0 9px 22px rgba(15, 23, 42, 0.09);
+        }
+
+        .featured-card strong {
+            display: block;
+            margin-bottom: 7px;
+            color: #126e91;
+            font-size: 1.08rem;
+        }
+
+
+        .region-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .region-card {
+            display: flex;
+            flex-direction: column;
+            padding: 22px;
+            color: #334155;
+            text-decoration: none;
+            background: #ffffff;
+            border: 1px solid #dbe7ee;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .region-card:hover {
+            transform: translateY(-3px);
+            border-color: #79c2df;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.09);
+        }
+
+        .region-card strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #126e91;
+            font-size: 1.15rem;
+        }
+
+        .region-card span {
+            color: #526274;
+            font-size: 0.95rem;
+        }
+
+        .search-area {
+            display: grid;
+            grid-template-columns: minmax(190px, 260px) 1fr;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .search-area select,
+        .search-area input {
+            width: 100%;
+            min-height: 46px;
+            padding: 11px 13px;
+            color: #334155;
+            font: inherit;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .search-area select:focus,
+        .search-area input:focus {
+            border-color: #0797c9;
+            box-shadow: 0 0 0 3px rgba(7, 151, 201, 0.12);
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .benefit-card {
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 9px 22px rgba(15, 23, 42, 0.09);
+        }
+
+        .benefit-card h3 {
+            margin: 0 0 11px;
+            color: #1e3a5f;
+            font-size: 1.22rem;
+        }
+
+        .benefit-card p {
+            flex-grow: 1;
+            margin: 0 0 20px;
+            color: #526274;
+        }
+
+        .detail-btn {
+            display: inline-block;
+            align-self: flex-start;
+            padding: 10px 17px;
+            color: #ffffff;
+            font-weight: 700;
+            text-decoration: none;
+            background: #0076c0;
+            border-radius: 8px;
+        }
+
+        .detail-btn:hover {
+            background: #005f99;
+        }
+
+        .info-list {
+            margin-bottom: 0;
+            padding-left: 22px;
+        }
+
+        .info-list li {
+            margin-bottom: 9px;
+        }
+
+        .notice-box {
+            padding: 22px;
+            background: #fff7e5;
+            border-left: 5px solid #f59e0b;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .notice-box strong {
+            color: #92400e;
+        }
+
+        .notice-box p {
+            margin-bottom: 0;
+        }
+
+        .dynamic-section {
+            margin-top: 28px;
+        }
+
+        #cards.card-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        footer {
+            padding: 34px 20px;
+            text-align: center;
+            color: #64748b;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 20px;
+            margin: 13px 0;
+        }
+
+        .footer-links a {
+            color: #0076c0;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-note {
+            margin-bottom: 0;
+            color: #94a3b8;
+            font-size: 0.84rem;
+        }
+
+        @media (max-width: 1000px) {
+            .featured-grid,
+            .region-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .benefit-grid,
+            #cards.card-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 700px) {
+            .page-header {
+                padding: 40px 18px;
+            }
+
+            .page-header h1 {
+                font-size: 1.7rem;
+            }
+
+            .page-header p {
+                font-size: 0.96rem;
+            }
+
+            .top-nav {
+                padding: 16px 8px;
+            }
+
+            .top-nav a {
+                margin: 5px 7px;
+                font-size: 0.92rem;
+            }
+
+            .container {
+                padding: 4px 13px 42px;
+            }
+
+            .section-box {
+                padding: 22px 18px;
+            }
+
+            .featured-grid,
+            .region-grid,
+            .benefit-grid,
+            #cards.card-container {
+                grid-template-columns: 1fr;
+            }
+
+            .search-area {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "대한민국 혜택 생활 가이드",
+  "alternateName": "혜택 생활 가이드",
+  "url": "https://dyina0128.github.io/benefit-guide/",
+  "description": "대한민국 정부 지원금과 생활 복지 혜택을 쉽게 정리한 정보 사이트",
+  "inLanguage": "ko-KR"
+}
+</script>
 </head>
 
 <body>
-    <p>
-        새 사이트로 이동 중입니다.
-    </p>
 
-    <p>
-        자동으로 이동하지 않으면
-        <a href="https://dyina0128.github.io/benefit-guide/">
-            여기를 눌러주세요.
+<header class="page-header">
+    <h1>대한민국 혜택 생활 가이드</h1>
+
+<p>
+정부 지원금과 생활 복지 혜택을
+쉽고 빠르게 확인하세요.
+</p>
+</header>
+
+<nav class="top-nav"
+     aria-label="주요 메뉴">
+
+    <a href="index.html">메인</a>
+    <a href="youth-policy-list.html">청년정책</a>
+    <a href="about.html">사이트 소개</a>
+    <a href="contact.html">문의하기</a>
+    <a href="privacy.html">개인정보처리방침</a>
+    <a href="terms.html">이용약관</a>
+
+</nav>
+
+<main class="container">
+
+    <section class="section-box">
+        <h2>많이 찾는 정부 지원 혜택</h2>
+
+        <p class="section-description">
+            자주 찾는 대표 복지제도와 지원금을
+            빠르게 확인할 수 있습니다.
+        </p>
+
+        <div class="featured-grid">
+
+            <a href="youth-account-guide.html"
+               class="featured-card">
+
+                <strong>💰 청년도약계좌</strong>
+
+                청년의 중장기 자산 형성을 위한
+                정책형 금융상품
+            </a>
+
+            <a href="housing-benefit.html"
+               class="featured-card">
+
+                <strong>🏠 주거지원</strong>
+
+                주거급여·청년월세·공공임대
+                신청 안내
+            </a>
+
+            <a href="basic-pension-guide.html"
+               class="featured-card">
+
+                <strong>👴 기초연금</strong>
+
+                만 65세 이상 어르신의
+                노후소득 지원제도
+            </a>
+
+            <a href="work-incentive-guide.html"
+               class="featured-card">
+
+                <strong>💼 근로장려금</strong>
+
+                저소득 근로·사업소득 가구의
+                현금 지원제도
+            </a>
+
+
+            <a href="benefit-search.html" class="featured-card">
+                <strong>🔍 지원금 검색</strong>
+                지역·대상·분야별로 지원정보를 빠르게 찾아보세요.
+            </a>
+
+            <a href="benefit-finder.html" class="featured-card">
+                <strong>🎯 내가 받을 수 있는 지원금 찾기</strong>
+                몇 가지 조건을 선택하고 확인해볼 만한 지원정보를 찾아보세요.
+            </a>
+
+            <a href="calendar.html" class="featured-card">
+                <strong>📅 신청 일정 캘린더</strong>
+                이번 달 신청 일정과 마감 정보를 한눈에 확인하세요.
+            </a>
+
+            <a href="top-benefits.html" class="featured-card">
+                <strong>🏆 추천 지원금 TOP10</strong>
+                대표 지원사업과 분야별 추천 정보를 확인하세요.
+            </a>
+
+            <a href="region-ranking.html" class="featured-card">
+                <strong>🗺 지역별 추천 지원정보</strong>
+                17개 시·도별 대표 지원정보를 확인하세요.
+            </a>
+
+            <a href="benefit-compare.html" class="featured-card">
+                <strong>🆚 지원금 비교</strong>
+                두 지원제도의 조건과 특징을 한눈에 비교하세요.
+            </a>
+<a href="bookmarks.html" class="featured-card"><div class="featured-icon">⭐</div><h3>내 즐겨찾기</h3><p>나중에 다시 확인할 지원정보를 브라우저에 저장하세요.</p><span>저장 목록 보기 →</span></a>
+<a href="download-center.html" class="featured-card">
+    <div class="featured-icon">📥</div>
+
+    <strong>다운로드 센터</strong>
+
+    신청 준비서류, 체크리스트와 신청순서를
+    한 곳에서 확인하세요.
+</a>
+
+        </div>
+    </section>
+
+    <section class="section-box">
+        <h2>지역별 혜택 찾기</h2>
+
+        <p class="section-description">
+            거주지역을 선택하거나 혜택 이름을 검색해 보세요.
+        </p>
+
+        <div class="search-area">
+
+            <label>
+                <span style="position:absolute; width:1px; height:1px; overflow:hidden;">
+                    지역 선택
+                </span>
+
+                <select id="region">
+                    <option value="전국">🌐 전국 공통 혜택</option>
+                    <option value="서울">🏙️ 서울특별시</option>
+                    <option value="인천">⚓ 인천광역시</option>
+                    <option value="경기">🌳 경기도</option>
+                    <option value="부산">🌊 부산광역시</option>
+                    <option value="대구">🍎 대구광역시</option>
+                    <option value="광주">✨ 광주광역시</option>
+                    <option value="대전">🔬 대전광역시</option>
+                    <option value="울산">🐳 울산광역시</option>
+                    <option value="세종">🏛️ 세종특별자치시</option>
+                    <option value="강원">🏔️ 강원특별자치도</option>
+                    <option value="충북">🌾 충청북도</option>
+                    <option value="충남">🌅 충청남도</option>
+                    <option value="전북">🍲 전북특별자치도</option>
+                    <option value="전남">⚓ 전라남도</option>
+                    <option value="경북">⛰️ 경상북도</option>
+                    <option value="경남">🚢 경상남도</option>
+                    <option value="제주">🍊 제주특별자치도</option>
+                </select>
+            </label>
+
+            <label>
+                <span style="position:absolute; width:1px; height:1px; overflow:hidden;">
+                    혜택 검색
+                </span>
+
+                <input type="search"
+                       id="searchInput"
+                       placeholder="예: 근로장려금, 주거급여, 기초연금">
+            </label>
+
+        </div>
+
+        <div class="dynamic-section">
+            <div id="cards"
+                 class="card-container"
+                 aria-live="polite">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section-box">
+        <h2>지역별 지원금 가이드</h2>
+
+        <p class="section-description">
+            전국 17개 시·도의 청년, 주거, 출산·육아,
+            일자리와 소상공인 지원 정보를 지역별로 확인하세요.
+        </p>
+
+        <div class="region-grid">
+
+            <a href="seoul-benefits.html" class="region-card">
+                <strong>🏙️ 서울특별시</strong>
+                <span>청년수당, 청년월세, 주거·출산·일자리 지원</span>
+            </a>
+
+            <a href="incheon-benefits.html" class="region-card">
+                <strong>⚓ 인천광역시</strong>
+                <span>드림체크카드, 청년월세, 출산·소상공인 지원</span>
+            </a>
+
+            <a href="gyeonggi-benefits.html" class="region-card">
+                <strong>🌳 경기도</strong>
+                <span>청년기본소득, 면접수당, 노동자통장·주거 지원</span>
+            </a>
+
+            <a href="busan-benefits.html" class="region-card">
+                <strong>🌊 부산광역시</strong>
+                <span>디딤돌카드, 기쁨두배통장, 월세·출산 지원</span>
+            </a>
+
+            <a href="daegu-benefits.html" class="region-card">
+                <strong>🍎 대구광역시</strong>
+                <span>청년희망적금, 주거·출산·소상공인 지원</span>
+            </a>
+
+            <a href="gwangju-benefits.html" class="region-card">
+                <strong>✨ 광주광역시</strong>
+                <span>구직활동수당, 일경험드림, 주거·창업 지원</span>
+            </a>
+
+            <a href="daejeon-benefits.html" class="region-card">
+                <strong>🔬 대전광역시</strong>
+                <span>미래두배통장, 청년월세, 창업·소상공인 지원</span>
+            </a>
+
+            <a href="ulsan-benefits.html" class="region-card">
+                <strong>🐳 울산광역시</strong>
+                <span>청년주거비, 웰스테이, 일자리·창업 지원</span>
+            </a>
+
+            <a href="sejong-benefits.html" class="region-card">
+                <strong>🏛️ 세종특별자치시</strong>
+                <span>임차보증금 이자지원, 도전지원·출산 지원</span>
+            </a>
+
+            <a href="gangwon-benefits.html" class="region-card">
+                <strong>🏔️ 강원특별자치도</strong>
+                <span>취업준비쿠폰, 디딤돌적금, 농촌·소상공인 지원</span>
+            </a>
+
+            <a href="chungbuk-benefits.html" class="region-card">
+                <strong>🌾 충청북도</strong>
+                <span>행복결혼공제, 청년창업, 농촌·소상공인 지원</span>
+            </a>
+
+            <a href="chungnam-benefits.html" class="region-card">
+                <strong>🌅 충청남도</strong>
+                <span>청년창업, 면접비, 청년농·주거 지원</span>
+            </a>
+
+            <a href="jeonbuk-benefits.html" class="region-card">
+                <strong>🍲 전북특별자치도</strong>
+                <span>청년정착, 농촌·주거·창업·소상공인 지원</span>
+            </a>
+
+            <a href="jeonnam-benefits.html" class="region-card">
+                <strong>⚓ 전라남도</strong>
+                <span>청년일자리, 주거·농어촌·창업 지원</span>
+            </a>
+
+            <a href="gyeongbuk-benefits.html" class="region-card">
+                <strong>⛰️ 경상북도</strong>
+                <span>K보듬, 청년주거, 창업·농촌 지원</span>
+            </a>
+
+            <a href="gyeongnam-benefits.html" class="region-card">
+                <strong>🚢 경상남도</strong>
+                <span>청년통장, 경남패스, 주거·창업 지원</span>
+            </a>
+
+            <a href="jeju-benefits.html" class="region-card">
+                <strong>🍊 제주특별자치도</strong>
+                <span>청년월세, 신혼주거, 출산·소상공인 지원</span>
+            </a>
+
+        </div>
+    </section>
+
+    <section class="section-box">
+        <h2>생활 복지 상세 가이드</h2>
+
+        <p class="section-description">
+            신청대상, 지원내용, 준비서류와 신청방법을
+            제도별로 자세히 확인하세요.
+        </p>
+
+        <div class="benefit-grid">
+
+            <article class="benefit-card">
+                <h3>🏠 주거지원</h3>
+
+                <p>
+                    주거급여, 청년월세,
+                    청년 주거급여 분리지급과
+                    공공임대주택을 안내합니다.
+                </p>
+
+                <a href="housing-benefit.html"
+                   class="detail-btn">
+                    자세히 보기
+                </a>
+            </article>
+
+            <article class="benefit-card">
+                <h3>👶 출산·육아</h3>
+
+                <p>
+                    첫만남이용권, 부모급여,
+                    아동수당과 육아휴직 지원을
+                    안내합니다.
+                </p>
+
+                <a href="birth-child.html"
+                   class="detail-btn">
+                    자세히 보기
+                </a>
+            </article>
+
+            <article class="benefit-card">
+                <h3>👵 노인복지</h3>
+
+                <p>
+                    기초연금, 노인일자리,
+                    장기요양보험과 노인맞춤돌봄을
+                    안내합니다.
+                </p>
+
+                <a href="elder-benefit.html"
+                   class="detail-btn">
+                    자세히 보기
+                </a>
+            </article>
+
+            <article class="benefit-card">
+                <h3>🌾 농어촌지원</h3>
+
+                <p>
+                    공익직불금, 농업경영체,
+                    귀농귀촌과 농어업인 지원제도를
+                    안내합니다.
+                </p>
+
+                <a href="farm-support.html"
+                   class="detail-btn">
+                    자세히 보기
+                </a>
+            </article>
+
+            <article class="benefit-card">
+                <h3>💼 근로장려금</h3>
+
+                <p>
+                    가구유형별 소득기준,
+                    재산요건과 정기·기한 후
+                    신청방법을 안내합니다.
+                </p>
+
+                <a href="work-incentive-guide.html"
+                   class="detail-btn">
+                    자세히 보기
+                </a>
+            </article>
+
+            <article class="benefit-card">
+                <h3>👨‍👩‍👧 자녀장려금</h3>
+
+                <p>
+                    부양자녀 조건,
+                    소득·재산기준과 자녀 1명당
+                    지급액을 안내합니다.
+                </p>
+
+                <a href="child-tax-credit.html"
+                   class="detail-btn">
+                    자세히 보기
+                </a>
+            </article>
+
+            <article class="benefit-card">
+                <h3>🎭 문화누리카드</h3>
+
+                <p>
+                    신청대상, 연간 지원금,
+                    발급기간과 문화·관광·체육
+                    사용처를 안내합니다.
+                </p>
+
+                <a href="culture-card-guide.html"
+                   class="detail-btn">
+                    자세히 보기
+                </a>
+            </article>
+
+            <article class="benefit-card">
+                <h3>🎓 국민내일배움카드</h3>
+
+                <p>
+                    발급자격, 훈련비 지원,
+                    본인부담금과 훈련장려금을
+                    안내합니다.
+                </p>
+
+                <a href="training-card-guide.html"
+                   class="detail-btn">
+                    자세히 보기
+                </a>
+            </article>
+
+            <article class="benefit-card">
+                <h3>⚡ 에너지바우처</h3>
+
+                <p>
+                    신청대상, 가구원 수별 지원금과
+                    요금차감·국민행복카드
+                    사용방법을 안내합니다.
+                </p>
+
+                <a href="energy-voucher-guide.html"
+                   class="detail-btn">
+                    자세히 보기
+                </a>
+            </article>
+
+            <article class="benefit-card">
+                <h3>👨‍👧 한부모가족 지원</h3>
+
+                <p>
+                    아동양육비, 교육·주거지원과
+                    양육비 이행지원제도를
+                    안내합니다.
+                </p>
+
+                <a href="single-parent-support.html"
+                   class="detail-btn">
+                    자세히 보기
+                </a>
+            </article>
+
+            <article class="benefit-card">
+                <h3>♿ 장애인복지</h3>
+
+                <p>
+                    장애인연금, 장애수당,
+                    활동지원과 보조기기·요금감면을
+                    안내합니다.
+                </p>
+
+                <a href="disability-benefit.html"
+                   class="detail-btn">
+                    자세히 보기
+                </a>
+            </article>
+
+            <article class="benefit-card">
+                <h3>👴 기초연금</h3>
+
+                <p>
+                    만 65세 이상 신청자격,
+                    소득인정액과 선정기준,
+                    지급액을 안내합니다.
+                </p>
+
+                <a href="basic-pension-guide.html"
+                   class="detail-btn">
+                    자세히 보기
+                </a>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="section-box">
+        <h2>청년정책 바로가기</h2>
+
+        <p class="section-description">
+            청년월세, 청년도약계좌와
+            청년버팀목 전세대출을 한곳에서 확인하세요.
+        </p>
+
+        <a href="youth-policy-list.html"
+           class="detail-btn">
+            청년정책 모아보기
         </a>
-    </p>
+    </section>
+
+    <section class="section-box">
+        <h2>이 사이트에서 확인할 수 있는 정보</h2>
+
+        <ul class="info-list">
+            <li>지원 대상과 소득·재산 조건</li>
+            <li>지원 금액과 지급방식</li>
+            <li>신청기간과 사용기간</li>
+            <li>온라인·방문 신청방법</li>
+            <li>신청할 때 필요한 준비서류</li>
+            <li>중복지원과 변경신고 주의사항</li>
+            <li>공식 신청기관과 상담전화</li>
+        </ul>
+    </section>
+
+    <section class="notice-box">
+        <strong>신청 전 반드시 확인하세요.</strong>
+
+        <p>
+            정부 지원제도의 금액과 신청기간은
+            정부 지침, 예산과 지방자치단체 공고에 따라
+            변경될 수 있습니다. 실제 신청 전에는 각 페이지에 연결된
+            공식 홈페이지에서 최신 내용을 다시 확인하세요.
+        </p>
+    </section>
+
+</main>
+
+<div id="favorites"
+     class="card-container"
+     style="display:none;">
+</div>
+
+<div id="detailBox"
+     style="display:none;">
+
+    <div id="detailContent"></div>
+</div>
+
+<button id="darkModeBtn"
+        type="button"
+        style="display:none;"
+        aria-label="화면 모드 변경">
+    🌓
+</button>
+
+<footer>
+    <div class="footer-inner">
+
+        <p>
+            <strong>
+                © 2026 대한민국 혜택 생활 가이드
+            </strong>
+        </p>
+
+        <div class="footer-links">
+            <a href="index.html">메인</a>
+            <a href="youth-policy-list.html">청년정책</a>
+            <a href="about.html">사이트 소개</a>
+            <a href="contact.html">문의하기</a>
+            <a href="privacy.html">개인정보처리방침</a>
+            <a href="terms.html">이용약관</a>
+        </div>
+
+        <p class="footer-note">
+            본 사이트는 정부와 공공기관의 복지 정보를
+            이해하기 쉽게 정리하여 제공하는 정보 가이드입니다.
+        </p>
+
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
