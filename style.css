@@ -1315,3 +1315,81 @@ body.download-center-page {
     transition: none;
   }
 }
+
+/* ===========================
+   Trust Guide
+=========================== */
+
+.trust-guide{
+    margin:32px 0 8px;
+}
+
+.trust-guide-card{
+    background:#fff;
+    border:1px solid rgba(0,0,0,.08);
+    border-radius:20px;
+    padding:32px;
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
+}
+
+.trust-guide-heading{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:20px;
+}
+
+.trust-guide-icon{
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    background:#22c55e;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    font-weight:700;
+}
+
+.trust-guide-copy{
+    color:#4b5563;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.trust-guide-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:14px;
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+
+.trust-guide-list li{
+    background:#f8fafc;
+    border-radius:14px;
+    padding:16px;
+    font-weight:600;
+    border:1px solid rgba(0,0,0,.05);
+}
+
+.trust-guide-list li::before{
+    content:"✔";
+    color:#16a34a;
+    margin-right:8px;
+}
+
+@media(max-width:768px){
+
+.trust-guide-card{
+    padding:22px;
+}
+
+.trust-guide-heading{
+    flex-direction:column;
+    text-align:center;
+}
+
+}
