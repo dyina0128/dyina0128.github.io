@@ -236,50 +236,10 @@ const categoryIcons = {
    상태와 HTML 요소
 ========================================================= */
 
-const FAVORITES_KEY = "downloadCenterFavorites";
-
 const state = {
   category: "all",
-  query: "",
-  favorites: loadFavorites()
+  query: ""
 };
-
-function loadFavorites() {
-  try {
-    const saved = JSON.parse(
-      localStorage.getItem(FAVORITES_KEY) || "[]"
-    );
-
-    return Array.isArray(saved) ? saved : [];
-  } catch (error) {
-    console.warn("즐겨찾기를 불러오지 못했습니다.", error);
-    return [];
-  }
-}
-
-function saveFavorites() {
-  localStorage.setItem(
-    FAVORITES_KEY,
-    JSON.stringify(state.favorites)
-  );
-}
-
-function isFavorite(resourceId) {
-  return state.favorites.includes(resourceId);
-}
-
-function toggleFavorite(resourceId) {
-  if (isFavorite(resourceId)) {
-    state.favorites = state.favorites.filter(
-      (id) => id !== resourceId
-    );
-  } else {
-    state.favorites.push(resourceId);
-  }
-
-  saveFavorites();
-  renderResources();
-}
 
 const grid = document.querySelector("#resource-grid");
 const featuredGrid = document.querySelector("#featured-grid");
@@ -337,26 +297,14 @@ function resourceCard(resource) {
   return `
     <article class="resource-card" data-id="${resource.id}">
       <div class="card-head">
-  <span class="resource-icon" aria-hidden="true">
-    ${categoryIcons[category]}
-  </span>
+        <span class="resource-icon" aria-hidden="true">
+          ${categoryIcons[category]}
+        </span>
 
-  <div class="card-head-actions">
-    <span class="status-badge${resource.recent ? " new" : ""}">
-      ${resource.recent ? "최근 등록" : "신청 자료"}
-    </span>
-
-    <button
-      class="favorite-button"
-      type="button"
-      data-action="favorite"
-      aria-pressed="${isFavorite(resource.id)}"
-      aria-label="${resource.title} 즐겨찾기"
-    >
-      ${isFavorite(resource.id) ? "★" : "☆"}
-    </button>
-  </div>
-</div>
+        <span class="status-badge${resource.recent ? " new" : ""}">
+          ${resource.recent ? "최근 등록" : "신청 자료"}
+        </span>
+      </div>
 
       <h3>${resource.title}</h3>
 
@@ -427,15 +375,9 @@ function visibleResources() {
   const query = normalize(state.query);
 
   return resources.filter((resource) => {
-    let matchesCategory;
-
-if (state.category === "all") {
-  matchesCategory = true;
-} else if (state.category === "favorites") {
-  matchesCategory = isFavorite(resource.id);
-} else {
-  matchesCategory = resource.categories.includes(state.category);
-}
+    const matchesCategory =
+      state.category === "all" ||
+      resource.categories.includes(state.category);
 
     const searchableText = normalize(
       `${resource.title} ${resource.description} ${categoryLabels(resource)}`
@@ -783,15 +725,6 @@ grid.addEventListener("click", (event) => {
   const resource = resources.find(
     (item) => item.id === card.dataset.id
   );
-
-  if (!resource) {
-    return;
-  }
-
-  if (actionButton.dataset.action === "favorite") {
-    toggleFavorite(resource.id);
-    return;
-  }
 
   openResource(
     resource,
