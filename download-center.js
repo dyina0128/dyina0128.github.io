@@ -326,6 +326,12 @@ function findMatchingResources(queryValue) {
 
   suggestions.hidden = true;
   suggestions.innerHTML = "";
+  suggestions.style.removeProperty("display");
+
+  searchInput.setAttribute(
+    "aria-expanded",
+    "false"
+  );
 }
 
 function renderSuggestions(queryValue) {
@@ -340,7 +346,8 @@ function renderSuggestions(queryValue) {
     return;
   }
 
-  const matches = findMatchingResources(query).slice(0, 5);
+  const matches = findMatchingResources(query)
+    .slice(0, 5);
 
   if (matches.length === 0) {
     hideSuggestions();
@@ -348,27 +355,31 @@ function renderSuggestions(queryValue) {
   }
 
   suggestions.innerHTML = matches
-    .map((resource) => {
-      return `
-        <button
-          class="search-suggestion-item"
-          type="button"
-          role="option"
-          data-resource="${resource.id}"
-        >
-          <span class="search-suggestion-title">
-            ${resource.title}
-          </span>
+    .map((resource) => `
+      <button
+        class="search-suggestion-item"
+        type="button"
+        role="option"
+        data-resource="${resource.id}"
+      >
+        <span class="search-suggestion-title">
+          ${resource.title}
+        </span>
 
-          <span class="search-suggestion-category">
-            ${categoryLabels(resource)}
-          </span>
-        </button>
-      `;
-    })
+        <span class="search-suggestion-category">
+          ${categoryLabels(resource)}
+        </span>
+      </button>
+    `)
     .join("");
 
+  suggestions.style.removeProperty("display");
   suggestions.hidden = false;
+
+  searchInput.setAttribute(
+    "aria-expanded",
+    "true"
+  );
 }
 
   return resources.filter((resource) => {
@@ -761,6 +772,47 @@ searchInput.addEventListener("input", () => {
   state.query = searchInput.value.trim();
   renderResources();
   renderSuggestions(searchInput.value);
+});
+
+suggestions?.addEventListener("click", (event) => {
+  const item = event.target.closest(
+    "[data-resource]"
+  );
+
+  if (!item) {
+    return;
+  }
+
+  const resource = resources.find(
+    (entry) =>
+      entry.id === item.dataset.resource
+  );
+
+  if (!resource) {
+    return;
+  }
+
+  searchInput.value = resource.title;
+  state.query = resource.title;
+
+  hideSuggestions();
+
+  openResource(
+    resource,
+    resource.pageUrl ? "open" : "preview"
+  );
+});
+
+document.addEventListener("click", (event) => {
+  const clickedSearch =
+    searchForm.contains(event.target);
+
+  const clickedSuggestions =
+    suggestions?.contains(event.target);
+
+  if (!clickedSearch && !clickedSuggestions) {
+    hideSuggestions();
+  }
 });
 
 suggestions?.addEventListener("click", (event) => {
