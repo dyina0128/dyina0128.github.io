@@ -74,7 +74,7 @@ const resources = [
     description: "소득과 주거 형태에 따른 주거급여 신청 정보를 확인하세요.",
     featured: true,
     recent: false,
-    pageUrl: "",
+    pageUrl: "housing-benefit.html",
     officialUrl: "https://www.bokjiro.go.kr/",
     checklist: [
       "가구원과 소득인정액 기준 확인",
@@ -114,7 +114,7 @@ const resources = [
     description: "냉난방비 지원 대상과 신청 방법을 확인하세요.",
     featured: false,
     recent: true,
-    pageUrl: "",
+    pageUrl: "energy-voucher-guide.html",
     officialUrl: "https://www.energyv.or.kr/",
     checklist: [
       "세대원 특성과 수급자격 확인",
