@@ -141,7 +141,7 @@ const resources = [
     featured: false,
     recent: false,
     pageUrl: "work-incentive-guide.html",
-    pdfUrl: "pdf/earned-income-credit-checklist.pdf",
+    pdfUrl: "pdf/work-incentive-checklist.pdf",
     officialUrl: "https://www.hometax.go.kr/",
     checklist: [
       "가구 유형과 소득 귀속연도 확인",
@@ -162,7 +162,7 @@ const resources = [
     featured: false,
     recent: true,
     pageUrl: "child-tax-credit.html",
-    pdfUrl: "pdf/child-credit-checklist.pdf",
+    pdfUrl: "pdf/child-tax-credit-checklist.pdf",
     officialUrl: "https://www.hometax.go.kr/",
     checklist: [
       "부양자녀와 주민등록 정보 확인",
