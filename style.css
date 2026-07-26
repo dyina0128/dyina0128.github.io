@@ -307,7 +307,7 @@ body.download-center-page {
 
 .download-center-page .hero {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   padding: 92px 0 72px;
   text-align: center;
   background: radial-gradient(circle at 50% -10%, #dbeaff 0, transparent 45%);
@@ -1452,8 +1452,8 @@ body.download-center-page {
 
 .download-center-page .search-suggestions {
   position: absolute;
-  z-index: 50;
-  top: calc(100% - 82px);
+  z-index: 1000;
+  top: calc(100% + 8px);
   left: 50%;
   width: min(calc(100% - 32px), 720px);
   transform: translateX(-50%);
