@@ -15,7 +15,6 @@ const resources = [
     featured: true,
     recent: false,
     pageUrl: "youth-rent-support-kit.html",
-    pdfUrl: "pdf/youth-rent-support-checklist.pdf",
     officialUrl: "https://www.bokjiro.go.kr/",
     checklist: [
       "거주지와 연령 요건 확인",
@@ -36,7 +35,6 @@ const resources = [
     featured: true,
     recent: false,
     pageUrl: "job-support-guide.html",
-    pdfUrl: "pdf/employment-support-checklist.pdf",
     officialUrl: "https://www.kua.go.kr/",
     checklist: [
       "가구원과 소득·재산 정보 확인",
@@ -57,7 +55,6 @@ const resources = [
     featured: false,
     recent: true,
     pageUrl: "national-scholarship.html",
-    pdfUrl: "pdf/national-scholarship-checklist.pdf",
     officialUrl: "https://www.kosaf.go.kr/",
     checklist: [
       "본인 명의 전자서명 수단 준비",
@@ -78,7 +75,6 @@ const resources = [
     featured: true,
     recent: false,
     pageUrl: "housing-benefit.html",
-    pdfUrl: "pdf/housing-benefit-checklist.pdf",
     officialUrl: "https://www.bokjiro.go.kr/",
     checklist: [
       "가구원과 소득인정액 기준 확인",
@@ -99,7 +95,6 @@ const resources = [
     featured: false,
     recent: false,
     pageUrl: "basic-pension-guide.html",
-    pdfUrl: "pdf/basic-pension-checklist.pdf",
     officialUrl: "https://basicpension.mohw.go.kr/",
     checklist: [
       "만 65세 도달 시점과 주소지 확인",
@@ -120,7 +115,6 @@ const resources = [
     featured: false,
     recent: true,
     pageUrl: "energy-voucher-guide.html",
-    pdfUrl: "pdf/energy-voucher-checklist.pdf",
     officialUrl: "https://www.energyv.or.kr/",
     checklist: [
       "세대원 특성과 수급자격 확인",
@@ -141,7 +135,6 @@ const resources = [
     featured: false,
     recent: false,
     pageUrl: "work-incentive-guide.html",
-    pdfUrl: "pdf/work-incentive-checklist.pdf",
     officialUrl: "https://www.hometax.go.kr/",
     checklist: [
       "가구 유형과 소득 귀속연도 확인",
@@ -162,7 +155,6 @@ const resources = [
     featured: false,
     recent: true,
     pageUrl: "child-tax-credit.html",
-    pdfUrl: "pdf/child-tax-credit-checklist.pdf",
     officialUrl: "https://www.hometax.go.kr/",
     checklist: [
       "부양자녀와 주민등록 정보 확인",
@@ -236,50 +228,11 @@ const categoryIcons = {
    상태와 HTML 요소
 ========================================================= */
 
-const FAVORITES_KEY = "downloadCenterFavorites";
-
 const state = {
   category: "all",
   query: "",
-  favorites: loadFavorites()
+  suggestionIndex: -1
 };
-
-function loadFavorites() {
-  try {
-    const saved = JSON.parse(
-      localStorage.getItem(FAVORITES_KEY) || "[]"
-    );
-
-    return Array.isArray(saved) ? saved : [];
-  } catch (error) {
-    console.warn("즐겨찾기를 불러오지 못했습니다.", error);
-    return [];
-  }
-}
-
-function saveFavorites() {
-  localStorage.setItem(
-    FAVORITES_KEY,
-    JSON.stringify(state.favorites)
-  );
-}
-
-function isFavorite(resourceId) {
-  return state.favorites.includes(resourceId);
-}
-
-function toggleFavorite(resourceId) {
-  if (isFavorite(resourceId)) {
-    state.favorites = state.favorites.filter(
-      (id) => id !== resourceId
-    );
-  } else {
-    state.favorites.push(resourceId);
-  }
-
-  saveFavorites();
-  renderResources();
-}
 
 const grid = document.querySelector("#resource-grid");
 const featuredGrid = document.querySelector("#featured-grid");
@@ -287,8 +240,8 @@ const recentList = document.querySelector("#recent-list");
 const searchForm = document.querySelector("#search-form");
 const searchInput = document.querySelector("#resource-search");
 const searchButton = searchForm?.querySelector("kbd");
-const suggestions = document.querySelector("#search-suggestions");
 const resultCount = document.querySelector("#result-count");
+const suggestions = document.querySelector("#search-suggestions");
 const emptyState = document.querySelector("#empty-state");
 const dialog = document.querySelector("#preview-dialog");
 
@@ -300,6 +253,34 @@ function normalize(value = "") {
   return String(value)
     .toLocaleLowerCase("ko-KR")
     .replace(/\s+/g, "");
+}
+
+function escapeHtml(value = "") {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function highlightMatch(text, queryValue) {
+  const safeText = escapeHtml(text);
+  const query = queryValue.trim();
+
+  if (!query) {
+    return safeText;
+  }
+
+  const escapedQuery = query.replace(
+    /[.*+?^${}()|[\]\\]/g,
+    "\\$&"
+  );
+
+  return safeText.replace(
+    new RegExp(`(${escapedQuery})`, "gi"),
+    "<mark>$1</mark>"
+  );
 }
 
 function primaryCategory(resource) {
@@ -328,65 +309,61 @@ function findMatchingResources(queryValue) {
   });
 }
 
-function hideSuggestions() {
-  if (!suggestions) {
-    return;
-  }
 
-  suggestions.hidden = true;
+
+function closeSuggestions() {
   suggestions.innerHTML = "";
+  suggestions.hidden = true;
+  state.suggestionIndex = -1;
 
-  searchInput.setAttribute(
-    "aria-expanded",
-    "false"
-  );
+  searchInput.removeAttribute("aria-activedescendant");
+
+  suggestions.scrollTop = 0;
 }
 
 function renderSuggestions(queryValue) {
-  if (!suggestions) {
-    return;
-  }
-
   const query = queryValue.trim();
+  const matches = findMatchingResources(query).slice(0, 6);
 
-  if (!query) {
-    hideSuggestions();
-    return;
-  }
+  state.suggestionIndex = -1;
 
-  const matches = findMatchingResources(query)
-    .slice(0, 5);
-
-  if (matches.length === 0) {
-    hideSuggestions();
+  if (!query || matches.length === 0) {
+    closeSuggestions();
     return;
   }
 
   suggestions.innerHTML = matches
-    .map((resource) => `
-      <button
-        class="search-suggestion-item"
-        type="button"
-        role="option"
-        data-resource="${resource.id}"
-      >
-        <span class="search-suggestion-title">
-          ${resource.title}
-        </span>
+    .map((resource, index) => {
+      const category = primaryCategory(resource);
 
-        <span class="search-suggestion-category">
-          ${categoryLabels(resource)}
-        </span>
-      </button>
-    `)
+      return `
+        <button
+          class="search-suggestion"
+          id="search-suggestion-${index}"
+          type="button"
+          role="option"
+          aria-selected="false"
+          data-resource="${resource.id}"
+        >
+          <span class="suggestion-icon" aria-hidden="true">
+            ${categoryIcons[category]}
+          </span>
+
+          <span class="suggestion-content">
+            <strong>
+              ${highlightMatch(resource.title, query)}
+            </strong>
+
+            <small>
+              ${highlightMatch(categoryLabels(resource), query)}
+            </small>
+          </span>
+        </button>
+      `;
+    })
     .join("");
 
   suggestions.hidden = false;
-
-  searchInput.setAttribute(
-    "aria-expanded",
-    "true"
-  );
 }
 
 /* =========================================================
@@ -399,26 +376,14 @@ function resourceCard(resource) {
   return `
     <article class="resource-card" data-id="${resource.id}">
       <div class="card-head">
-  <span class="resource-icon" aria-hidden="true">
-    ${categoryIcons[category]}
-  </span>
+        <span class="resource-icon" aria-hidden="true">
+          ${categoryIcons[category]}
+        </span>
 
-  <div class="card-head-actions">
-    <span class="status-badge${resource.recent ? " new" : ""}">
-      ${resource.recent ? "최근 등록" : "신청 자료"}
-    </span>
-
-    <button
-      class="favorite-button"
-      type="button"
-      data-action="favorite"
-      aria-pressed="${isFavorite(resource.id)}"
-      aria-label="${resource.title} 즐겨찾기"
-    >
-      ${isFavorite(resource.id) ? "★" : "☆"}
-    </button>
-  </div>
-</div>
+        <span class="status-badge${resource.recent ? " new" : ""}">
+          ${resource.recent ? "최근 등록" : "신청 자료"}
+        </span>
+      </div>
 
       <h3>${resource.title}</h3>
 
@@ -433,27 +398,16 @@ function resourceCard(resource) {
       </div>
 
       <div class="actions" aria-label="${resource.title} 자료">
-${
-  resource.pdfUrl
-    ? `
-      <button
-        class="action-button"
-        type="button"
-        data-action="pdf"
-      >
-        PDF 다운로드
-      </button>
-    `
-    : `
-      <button
-        class="action-button is-disabled"
-        type="button"
-        disabled
-      >
-        PDF 준비 중
-      </button>
-    `
-}        <button
+        <button
+          class="action-button is-disabled"
+          type="button"
+          disabled
+          aria-label="${resource.title} PDF 준비 중"
+        >
+          PDF 준비 중
+        </button>
+
+        <button
           class="action-button"
           type="button"
           data-action="checklist"
@@ -489,15 +443,9 @@ function visibleResources() {
   const query = normalize(state.query);
 
   return resources.filter((resource) => {
-    let matchesCategory;
-
-if (state.category === "all") {
-  matchesCategory = true;
-} else if (state.category === "favorites") {
-  matchesCategory = isFavorite(resource.id);
-} else {
-  matchesCategory = resource.categories.includes(state.category);
-}
+    const matchesCategory =
+      state.category === "all" ||
+      resource.categories.includes(state.category);
 
     const searchableText = normalize(
       `${resource.title} ${resource.description} ${categoryLabels(resource)}`
@@ -585,11 +533,6 @@ function openResource(resource, section = "preview") {
     return;
   }
 
-  if (section === "pdf" && resource.pdfUrl) {
-  window.open(resource.pdfUrl, "_blank");
-  return;
-}
-
   if (section === "open" && resource.pageUrl) {
     window.location.href = resource.pageUrl;
     return;
@@ -662,9 +605,10 @@ function runSearch() {
   renderResources();
 
   if (!query) {
-    searchInput.focus();
-    return;
-  }
+  closeSuggestions();
+  searchInput.focus();
+  return;
+}
 
   const matches = findMatchingResources(query);
 
@@ -682,17 +626,23 @@ function runSearch() {
       normalize(resource.title) === normalize(query)
   );
 
+  
+
   const selectedResource =
     exactMatch || matches[0];
 
   if (selectedResource.pageUrl) {
-    window.location.href =
-      selectedResource.pageUrl;
+  closeSuggestions();
 
-    return;
-  }
+  window.location.href =
+    selectedResource.pageUrl;
+
+  return;
+}
 
   openPreview(selectedResource, "preview");
+
+  closeSuggestions();
 }
 
 /* =========================================================
@@ -767,34 +717,111 @@ searchForm.addEventListener("submit", (event) => {
 });
 
 searchInput.addEventListener("input", () => {
-  state.query = searchInput.value.trim();
+  const query = searchInput.value.trim();
+
+  state.query = query;
+
   renderResources();
-  renderSuggestions(searchInput.value);
+  renderSuggestions(query);
 });
 
+searchInput.addEventListener("keydown", (event) => {
+  const items = [
+    ...suggestions.querySelectorAll(".search-suggestion")
+  ];
 
+  if (
+    suggestions.hidden ||
+    items.length === 0
+  ) {
+    return;
+  }
 
-document.addEventListener("click", (event) => {
-  const clickedSearch =
-    searchForm.contains(event.target);
+  if (event.key === "ArrowDown") {
+    event.preventDefault();
 
-  const clickedSuggestions =
-    suggestions?.contains(event.target);
+    updateSuggestionSelection(
+      state.suggestionIndex + 1
+    );
+  }
 
-  if (!clickedSearch && !clickedSuggestions) {
-    hideSuggestions();
+  if (event.key === "ArrowUp") {
+    event.preventDefault();
+
+    updateSuggestionSelection(
+      state.suggestionIndex - 1
+    );
+  }
+
+  if (
+    event.key === "Enter" &&
+    state.suggestionIndex >= 0
+  ) {
+    event.preventDefault();
+
+    selectSuggestion(
+      items[state.suggestionIndex]
+    );
+  }
+
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeSuggestions();
   }
 });
 
-suggestions?.addEventListener("click", (event) => {
-  const item = event.target.closest("[data-resource]");
+suggestions.addEventListener("click", (event) => {
+  const item = event.target.closest(
+    ".search-suggestion"
+  );
 
+  selectSuggestion(item);
+});
+
+function updateSuggestionSelection(index) {
+  const items = [
+    ...suggestions.querySelectorAll(".search-suggestion")
+  ];
+
+  if (items.length === 0) {
+    state.suggestionIndex = -1;
+    return;
+  }
+
+  state.suggestionIndex =
+    (index + items.length) % items.length;
+
+  items.forEach((item, itemIndex) => {
+    const isSelected =
+      itemIndex === state.suggestionIndex;
+
+    item.setAttribute(
+      "aria-selected",
+      String(isSelected)
+    );
+  });
+
+  const selectedItem =
+    items[state.suggestionIndex];
+
+  searchInput.setAttribute(
+    "aria-activedescendant",
+    selectedItem.id
+  );
+
+  selectedItem.scrollIntoView({
+    block: "nearest"
+  });
+}
+
+function selectSuggestion(item) {
   if (!item) {
     return;
   }
 
   const resource = resources.find(
-    (entry) => entry.id === item.dataset.resource
+    (entry) =>
+      entry.id === item.dataset.resource
   );
 
   if (!resource) {
@@ -804,12 +831,13 @@ suggestions?.addEventListener("click", (event) => {
   searchInput.value = resource.title;
   state.query = resource.title;
 
-  hideSuggestions();
+  closeSuggestions();
+
   openResource(
     resource,
     resource.pageUrl ? "open" : "preview"
   );
-});
+}
 
 document
   .querySelector(".tabs")
@@ -824,6 +852,7 @@ document
 document
   .querySelector(".tabs")
   .addEventListener("keydown", (event) => {
+
     const allowedKeys = [
       "ArrowLeft",
       "ArrowRight",
@@ -885,15 +914,6 @@ grid.addEventListener("click", (event) => {
   const resource = resources.find(
     (item) => item.id === card.dataset.id
   );
-
-  if (!resource) {
-    return;
-  }
-
-  if (actionButton.dataset.action === "favorite") {
-    toggleFavorite(resource.id);
-    return;
-  }
 
   openResource(
     resource,

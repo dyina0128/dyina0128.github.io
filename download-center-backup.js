@@ -15,7 +15,6 @@ const resources = [
     featured: true,
     recent: false,
     pageUrl: "youth-rent-support-kit.html",
-    pdfUrl: "pdf/youth-rent-support-checklist.pdf",
     officialUrl: "https://www.bokjiro.go.kr/",
     checklist: [
       "거주지와 연령 요건 확인",
@@ -36,7 +35,6 @@ const resources = [
     featured: true,
     recent: false,
     pageUrl: "job-support-guide.html",
-    pdfUrl: "pdf/employment-support-checklist.pdf",
     officialUrl: "https://www.kua.go.kr/",
     checklist: [
       "가구원과 소득·재산 정보 확인",
@@ -57,7 +55,6 @@ const resources = [
     featured: false,
     recent: true,
     pageUrl: "national-scholarship.html",
-    pdfUrl: "pdf/national-scholarship-checklist.pdf",
     officialUrl: "https://www.kosaf.go.kr/",
     checklist: [
       "본인 명의 전자서명 수단 준비",
@@ -78,7 +75,6 @@ const resources = [
     featured: true,
     recent: false,
     pageUrl: "housing-benefit.html",
-    pdfUrl: "pdf/housing-benefit-checklist.pdf",
     officialUrl: "https://www.bokjiro.go.kr/",
     checklist: [
       "가구원과 소득인정액 기준 확인",
@@ -99,7 +95,6 @@ const resources = [
     featured: false,
     recent: false,
     pageUrl: "basic-pension-guide.html",
-    pdfUrl: "pdf/basic-pension-checklist.pdf",
     officialUrl: "https://basicpension.mohw.go.kr/",
     checklist: [
       "만 65세 도달 시점과 주소지 확인",
@@ -120,7 +115,6 @@ const resources = [
     featured: false,
     recent: true,
     pageUrl: "energy-voucher-guide.html",
-    pdfUrl: "pdf/energy-voucher-checklist.pdf",
     officialUrl: "https://www.energyv.or.kr/",
     checklist: [
       "세대원 특성과 수급자격 확인",
@@ -141,7 +135,6 @@ const resources = [
     featured: false,
     recent: false,
     pageUrl: "work-incentive-guide.html",
-    pdfUrl: "pdf/work-incentive-checklist.pdf",
     officialUrl: "https://www.hometax.go.kr/",
     checklist: [
       "가구 유형과 소득 귀속연도 확인",
@@ -162,7 +155,6 @@ const resources = [
     featured: false,
     recent: true,
     pageUrl: "child-tax-credit.html",
-    pdfUrl: "pdf/child-tax-credit-checklist.pdf",
     officialUrl: "https://www.hometax.go.kr/",
     checklist: [
       "부양자녀와 주민등록 정보 확인",
@@ -319,27 +311,16 @@ function resourceCard(resource) {
       </div>
 
       <div class="actions" aria-label="${resource.title} 자료">
-${
-  resource.pdfUrl
-    ? `
-      <button
-        class="action-button"
-        type="button"
-        data-action="pdf"
-      >
-        PDF 다운로드
-      </button>
-    `
-    : `
-      <button
-        class="action-button is-disabled"
-        type="button"
-        disabled
-      >
-        PDF 준비 중
-      </button>
-    `
-}        <button
+        <button
+          class="action-button is-disabled"
+          type="button"
+          disabled
+          aria-label="${resource.title} PDF 준비 중"
+        >
+          PDF 준비 중
+        </button>
+
+        <button
           class="action-button"
           type="button"
           data-action="checklist"
@@ -464,11 +445,6 @@ function openResource(resource, section = "preview") {
   if (!resource) {
     return;
   }
-
-  if (section === "pdf" && resource.pdfUrl) {
-  window.open(resource.pdfUrl, "_blank");
-  return;
-}
 
   if (section === "open" && resource.pageUrl) {
     window.location.href = resource.pageUrl;
