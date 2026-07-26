@@ -312,16 +312,27 @@ function resourceCard(resource) {
       </div>
 
       <div class="actions" aria-label="${resource.title} 자료">
-        <button
-          class="action-button is-disabled"
-          type="button"
-          disabled
-          aria-label="${resource.title} PDF 준비 중"
-        >
-          PDF 준비 중
-        </button>
-
-        <button
+${
+  resource.pdfUrl
+    ? `
+      <button
+        class="action-button"
+        type="button"
+        data-action="pdf"
+      >
+        PDF 다운로드
+      </button>
+    `
+    : `
+      <button
+        class="action-button is-disabled"
+        type="button"
+        disabled
+      >
+        PDF 준비 중
+      </button>
+    `
+}        <button
           class="action-button"
           type="button"
           data-action="checklist"
@@ -446,6 +457,11 @@ function openResource(resource, section = "preview") {
   if (!resource) {
     return;
   }
+
+  if (section === "pdf" && resource.pdfUrl) {
+  window.open(resource.pdfUrl, "_blank");
+  return;
+}
 
   if (section === "open" && resource.pageUrl) {
     window.location.href = resource.pageUrl;
