@@ -36,7 +36,7 @@ const resources = [
     featured: true,
     recent: false,
     pageUrl: "job-support-guide.html",
-    pdfUrl: "pdf/job-support-checklist.pdf",
+    pdfUrl: "pdf/employment-support-checklist.pdf",
     officialUrl: "https://www.kua.go.kr/",
     checklist: [
       "가구원과 소득·재산 정보 확인",
