@@ -138,7 +138,7 @@ function resourceCard(resource) {
     <article class="resource-card" data-id="${resource.id}">
       <div class="card-head">
         <span class="resource-icon" aria-hidden="true">${categoryIcons[category]}</span>
-        <span class="status-badge${resource.recent f " new" : ""}">${resource.recent ? "최근 등록" : "신청 자료"}</span>
+        <span class="status-badge${resource.recent ? " new" : ""}">${resource.recent ? "최근 등록" : "신청 자료"}</span>
       </div>
       <h3>${resource.title}</h3>
       <p class="resource-description">${resource.description}</p>
