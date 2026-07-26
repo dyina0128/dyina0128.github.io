@@ -36,6 +36,7 @@ const resources = [
     featured: true,
     recent: false,
     pageUrl: "job-support-guide.html",
+    pdfUrl: "pdf/job-support-checklist.pdf",
     officialUrl: "https://www.kua.go.kr/",
     checklist: [
       "가구원과 소득·재산 정보 확인",
@@ -56,6 +57,7 @@ const resources = [
     featured: false,
     recent: true,
     pageUrl: "national-scholarship.html",
+    pdfUrl: "pdf/national-scholarship-checklist.pdf",
     officialUrl: "https://www.kosaf.go.kr/",
     checklist: [
       "본인 명의 전자서명 수단 준비",
@@ -76,6 +78,7 @@ const resources = [
     featured: true,
     recent: false,
     pageUrl: "housing-benefit.html",
+    pdfUrl: "pdf/housing-benefit-checklist.pdf",
     officialUrl: "https://www.bokjiro.go.kr/",
     checklist: [
       "가구원과 소득인정액 기준 확인",
@@ -96,6 +99,7 @@ const resources = [
     featured: false,
     recent: false,
     pageUrl: "basic-pension-guide.html",
+    pdfUrl: "pdf/basic-pension-checklist.pdf",
     officialUrl: "https://basicpension.mohw.go.kr/",
     checklist: [
       "만 65세 도달 시점과 주소지 확인",
@@ -116,6 +120,7 @@ const resources = [
     featured: false,
     recent: true,
     pageUrl: "energy-voucher-guide.html",
+    pdfUrl: "pdf/energy-voucher-checklist.pdf",
     officialUrl: "https://www.energyv.or.kr/",
     checklist: [
       "세대원 특성과 수급자격 확인",
@@ -136,6 +141,7 @@ const resources = [
     featured: false,
     recent: false,
     pageUrl: "work-incentive-guide.html",
+    pdfUrl: "pdf/earned-income-credit-checklist.pdf",
     officialUrl: "https://www.hometax.go.kr/",
     checklist: [
       "가구 유형과 소득 귀속연도 확인",
@@ -156,6 +162,7 @@ const resources = [
     featured: false,
     recent: true,
     pageUrl: "child-tax-credit.html",
+    pdfUrl: "pdf/child-credit-checklist.pdf",
     officialUrl: "https://www.hometax.go.kr/",
     checklist: [
       "부양자녀와 주민등록 정보 확인",
