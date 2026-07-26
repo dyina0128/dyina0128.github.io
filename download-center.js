@@ -34,7 +34,7 @@ const resources = [
     description: "취업지원 서비스와 구직촉진수당 신청 준비사항을 확인하세요.",
     featured: true,
     recent: false,
-    pageUrl: "",
+    pageUrl: "job-support-guide.html",
     officialUrl: "https://www.kua.go.kr/",
     checklist: [
       "가구원과 소득·재산 정보 확인",
@@ -54,7 +54,7 @@ const resources = [
     description: "국가장학금 신청 기간, 준비사항과 신청순서를 확인하세요.",
     featured: false,
     recent: true,
-    pageUrl: "",
+    pageUrl: "national-scholarship.html",
     officialUrl: "https://www.kosaf.go.kr/",
     checklist: [
       "본인 명의 전자서명 수단 준비",
@@ -94,7 +94,7 @@ const resources = [
     description: "기초연금 대상 확인과 신청 준비사항을 확인하세요.",
     featured: false,
     recent: false,
-    pageUrl: "",
+    pageUrl: "basic-pension-guide.html",
     officialUrl: "https://basicpension.mohw.go.kr/",
     checklist: [
       "만 65세 도달 시점과 주소지 확인",
@@ -134,7 +134,7 @@ const resources = [
     description: "근로장려금 신청 대상과 준비사항을 확인하세요.",
     featured: false,
     recent: false,
-    pageUrl: "",
+    pageUrl: "work-incentive-guide.html",
     officialUrl: "https://www.hometax.go.kr/",
     checklist: [
       "가구 유형과 소득 귀속연도 확인",
@@ -154,7 +154,7 @@ const resources = [
     description: "자녀장려금 신청 조건과 신청 절차를 확인하세요.",
     featured: false,
     recent: true,
-    pageUrl: "",
+    pageUrl: "child-tax-credit.html",
     officialUrl: "https://www.hometax.go.kr/",
     checklist: [
       "부양자녀와 주민등록 정보 확인",
