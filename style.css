@@ -1489,3 +1489,13 @@ body.download-center-page {
     transform: translateY(-7px);
   }
 }
+
+.search-suggestion[aria-selected="true"] {
+  background: #eaf4ff;
+  outline: 2px solid #1687d9;
+  outline-offset: -2px;
+}
+
+.search-suggestion[aria-selected="true"] strong {
+  color: #0868ad;
+}
