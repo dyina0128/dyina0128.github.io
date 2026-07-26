@@ -287,6 +287,7 @@ const recentList = document.querySelector("#recent-list");
 const searchForm = document.querySelector("#search-form");
 const searchInput = document.querySelector("#resource-search");
 const searchButton = searchForm?.querySelector("kbd");
+const suggestions = document.querySelector("#search-suggestions");
 const resultCount = document.querySelector("#result-count");
 const emptyState = document.querySelector("#empty-state");
 const dialog = document.querySelector("#preview-dialog");
@@ -317,6 +318,58 @@ function findMatchingResources(queryValue) {
   if (!query) {
     return [];
   }
+
+  function hideSuggestions() {
+  if (!suggestions) {
+    return;
+  }
+
+  suggestions.hidden = true;
+  suggestions.innerHTML = "";
+}
+
+function renderSuggestions(queryValue) {
+  if (!suggestions) {
+    return;
+  }
+
+  const query = queryValue.trim();
+
+  if (!query) {
+    hideSuggestions();
+    return;
+  }
+
+  const matches = findMatchingResources(query).slice(0, 5);
+
+  if (matches.length === 0) {
+    hideSuggestions();
+    return;
+  }
+
+  suggestions.innerHTML = matches
+    .map((resource) => {
+      return `
+        <button
+          class="search-suggestion-item"
+          type="button"
+          role="option"
+          data-resource="${resource.id}"
+        >
+          <span class="search-suggestion-title">
+            ${resource.title}
+          </span>
+
+          <span class="search-suggestion-category">
+            ${categoryLabels(resource)}
+          </span>
+        </button>
+      `;
+    })
+    .join("");
+
+  suggestions.hidden = false;
+}
 
   return resources.filter((resource) => {
     const searchableText = normalize(
@@ -707,6 +760,32 @@ searchForm.addEventListener("submit", (event) => {
 searchInput.addEventListener("input", () => {
   state.query = searchInput.value.trim();
   renderResources();
+  renderSuggestions(searchInput.value);
+});
+
+suggestions?.addEventListener("click", (event) => {
+  const item = event.target.closest("[data-resource]");
+
+  if (!item) {
+    return;
+  }
+
+  const resource = resources.find(
+    (entry) => entry.id === item.dataset.resource
+  );
+
+  if (!resource) {
+    return;
+  }
+
+  searchInput.value = resource.title;
+  state.query = resource.title;
+
+  hideSuggestions();
+  openResource(
+    resource,
+    resource.pageUrl ? "open" : "preview"
+  );
 });
 
 document
