@@ -319,14 +319,22 @@ function findMatchingResources(queryValue) {
     return [];
   }
 
-  function hideSuggestions() {
+  return resources.filter((resource) => {
+    const searchableText = normalize(
+      `${resource.title} ${resource.description} ${categoryLabels(resource)}`
+    );
+
+    return searchableText.includes(query);
+  });
+}
+
+function hideSuggestions() {
   if (!suggestions) {
     return;
   }
 
   suggestions.hidden = true;
   suggestions.innerHTML = "";
-  suggestions.style.removeProperty("display");
 
   searchInput.setAttribute(
     "aria-expanded",
@@ -373,22 +381,12 @@ function renderSuggestions(queryValue) {
     `)
     .join("");
 
-  suggestions.style.removeProperty("display");
   suggestions.hidden = false;
 
   searchInput.setAttribute(
     "aria-expanded",
     "true"
   );
-}
-
-  return resources.filter((resource) => {
-    const searchableText = normalize(
-      `${resource.title} ${resource.description} ${categoryLabels(resource)}`
-    );
-
-    return searchableText.includes(query);
-  });
 }
 
 /* =========================================================
@@ -774,34 +772,7 @@ searchInput.addEventListener("input", () => {
   renderSuggestions(searchInput.value);
 });
 
-suggestions?.addEventListener("click", (event) => {
-  const item = event.target.closest(
-    "[data-resource]"
-  );
 
-  if (!item) {
-    return;
-  }
-
-  const resource = resources.find(
-    (entry) =>
-      entry.id === item.dataset.resource
-  );
-
-  if (!resource) {
-    return;
-  }
-
-  searchInput.value = resource.title;
-  state.query = resource.title;
-
-  hideSuggestions();
-
-  openResource(
-    resource,
-    resource.pageUrl ? "open" : "preview"
-  );
-});
 
 document.addEventListener("click", (event) => {
   const clickedSearch =

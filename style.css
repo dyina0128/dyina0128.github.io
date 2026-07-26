@@ -1395,7 +1395,7 @@ body.download-center-page {
 }
 
 /* 검색 자동완성 */
-.search-suggestions {
+.download-center-page .search-suggestions {
   width: min(100%, 760px);
   margin: 10px auto 0;
   overflow: hidden;
@@ -1444,4 +1444,17 @@ body.download-center-page {
   color: #2788c9;
   font-size: 0.84rem;
   font-weight: 700;
+}
+
+.download-center-page .hero-inner {
+  position: relative;
+}
+
+.download-center-page .search-suggestions {
+  position: absolute;
+  z-index: 50;
+  top: calc(100% - 82px);
+  left: 50%;
+  width: min(calc(100% - 32px), 720px);
+  transform: translateX(-50%);
 }
