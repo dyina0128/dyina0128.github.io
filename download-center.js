@@ -15,6 +15,7 @@ const resources = [
     featured: true,
     recent: false,
     pageUrl: "youth-rent-support-kit.html",
+    pdfUrl: "pdf/youth-rent-support-checklist.pdf",
     officialUrl: "https://www.bokjiro.go.kr/",
     checklist: [
       "거주지와 연령 요건 확인",
