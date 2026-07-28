@@ -323,7 +323,7 @@ function closeSuggestions() {
 
 function renderSuggestions(queryValue) {
   const query = queryValue.trim();
-  const matches = findMatchingResources(query).slice(0, 6);
+  const matches = findMatchingResources(query).slice(0, 5);
 
   state.suggestionIndex = -1;
 
