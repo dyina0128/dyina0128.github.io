@@ -17,6 +17,8 @@ const resources = [
     pageUrl: "youth-rent-support-kit.html",
     officialUrl: "https://www.bokjiro.go.kr/",
     pdf: "pdf/youth-rent-support-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "거주지와 연령 요건 확인",
       "임대차계약서와 월세 납부 증빙 준비",
@@ -38,6 +40,8 @@ const resources = [
     pageUrl: "job-support-guide.html",
     officialUrl: "https://www.kua.go.kr/",
     pdf: "pdf/employment-support-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "가구원과 소득·재산 정보 확인",
       "취업경험과 현재 구직상태 정리",
@@ -59,6 +63,8 @@ const resources = [
     pageUrl: "national-scholarship.html",
     officialUrl: "https://www.kosaf.go.kr/",
     pdf: "pdf/national-scholarship-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "본인 명의 전자서명 수단 준비",
       "학적과 가족관계 정보 확인",
@@ -80,6 +86,8 @@ const resources = [
     pageUrl: "housing-benefit.html",
     officialUrl: "https://www.bokjiro.go.kr/",
     pdf: "pdf/housing-benefit-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "가구원과 소득인정액 기준 확인",
       "임대차계약서 또는 주택 정보 준비",
@@ -101,6 +109,8 @@ const resources = [
     pageUrl: "basic-pension-guide.html",
     officialUrl: "https://basicpension.mohw.go.kr/",
     pdf: "pdf/basic-pension-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "만 65세 도달 시점과 주소지 확인",
       "본인과 배우자의 금융정보 확인",
@@ -122,6 +132,8 @@ const resources = [
     pageUrl: "energy-voucher-guide.html",
     officialUrl: "https://www.energyv.or.kr/",
     pdf: "pdf/energy-voucher-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "세대원 특성과 수급자격 확인",
       "에너지요금 고지서 준비",
@@ -143,6 +155,8 @@ const resources = [
     pageUrl: "work-incentive-guide.html",
     officialUrl: "https://www.hometax.go.kr/",
     pdf: "pdf/work-incentive-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "가구 유형과 소득 귀속연도 확인",
       "가구원 재산 합계 확인",
@@ -164,6 +178,8 @@ const resources = [
     pageUrl: "child-tax-credit.html",
     officialUrl: "https://www.hometax.go.kr/",
     pdf: "pdf/child-tax-credit-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "부양자녀와 주민등록 정보 확인",
       "부부합산 소득 및 재산 기준 확인",
@@ -384,154 +400,107 @@ function resourceCard(resource) {
   const category = primaryCategory(resource);
 
   return `
-    <article class="resource-card" data-id="${resource.id}">
-      <div class="card-head">
+    <article class="resource-card pdf-product-card" data-id="${resource.id}">
+
+      <div class="pdf-product-top">
         <span class="resource-icon" aria-hidden="true">
           ${categoryIcons[category]}
         </span>
 
         <span class="status-badge${resource.recent ? " new" : ""}">
-          ${resource.recent ? "최근 등록" : "신청 자료"}
+          ${resource.recent ? "최근 등록" : "무료 PDF"}
         </span>
       </div>
 
-      <h3>${resource.title}</h3>
+      <div class="pdf-preview">
+        <div class="pdf-preview-paper">
+          <span class="pdf-preview-label">PDF</span>
 
-      <p class="resource-description">
-        ${resource.description}
-      </p>
+          <div class="pdf-preview-icon" aria-hidden="true">
+            📄
+          </div>
 
-      <div class="card-meta">
-        <span class="category-label">
+          <strong class="pdf-preview-title">
+            ${resource.title}
+          </strong>
+
+          <span class="pdf-preview-subtitle">
+            준비서류 체크리스트
+          </span>
+
+          <div class="pdf-preview-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pdf-product-content">
+        <span class="pdf-category">
           ${categoryLabels(resource)}
         </span>
-      </div>
 
-      <div class="actions" aria-label="${resource.title} 자료">
-        <div class="pdf-download-box">
-  <div class="pdf-download-icon" aria-hidden="true">
-    📄
-  </div>
+        <h3>${resource.title}</h3>
 
-  <div class="pdf-download-content">
-    <span class="pdf-download-type">PDF 무료 자료</span>
+        <p class="resource-description">
+          ${resource.description}
+        </p>
 
-    <strong class="pdf-download-title">
-      ${resource.title}
-    </strong>
+        <ul class="pdf-feature-list">
+          <li>신청 전 준비서류 확인</li>
+          <li>단계별 신청순서 안내</li>
+          <li>회원가입 없이 즉시 다운로드</li>
+        </ul>
 
-    <span class="pdf-download-description">
-      준비서류 체크리스트
-    </span>
+        <div class="pdf-file-info">
+          <span>
+            📄 ${resource.pdfSize || "PDF"}
+          </span>
 
-    <span class="pdf-download-meta">
-      ✓ 회원가입 없이 즉시 다운로드
-    </span>
-  </div>
+          <span>
+            📑 ${resource.pdfPages || "체크리스트"}
+          </span>
+        </div>
 
-  <a
-    class="pdf-download-button"
-    href="${resource.pdf}"
-    download
-    aria-label="${resource.title} PDF 다운로드"
-  >
-    다운로드
-    <span aria-hidden="true">↓</span>
-  </a>
-</div>
-
-        <button
-          class="action-button"
-          type="button"
-          data-action="checklist"
+        <a
+          class="pdf-main-download"
+          href="${resource.pdf}"
+          download
+          aria-label="${resource.title} PDF 무료 다운로드"
         >
-          체크리스트
-        </button>
+          <span aria-hidden="true">⬇</span>
+          무료 다운로드
+        </a>
 
-        <button
-          class="action-button"
-          type="button"
-          data-action="steps"
-        >
-          신청순서
-        </button>
+        <div class="pdf-secondary-actions">
+          <button
+            class="pdf-secondary-button"
+            type="button"
+            data-action="checklist"
+          >
+            체크리스트
+          </button>
 
-        <button
-          class="action-button primary"
-          type="button"
-          data-action="open"
-        >
-          ${resource.pageUrl ? "상세보기" : "미리보기"}
-        </button>
+          <button
+            class="pdf-secondary-button"
+            type="button"
+            data-action="steps"
+          >
+            신청순서
+          </button>
+
+          <button
+            class="pdf-secondary-button primary"
+            type="button"
+            data-action="open"
+          >
+            ${resource.pageUrl ? "상세보기" : "미리보기"}
+          </button>
+        </div>
       </div>
     </article>
   `;
-}
-
-/* =========================================================
-   검색 및 렌더링
-========================================================= */
-
-function visibleResources() {
-  const query = normalize(state.query);
-
-  return resources.filter((resource) => {
-    const matchesCategory =
-      state.category === "all" ||
-      resource.categories.includes(state.category);
-
-    const searchableText = normalize(
-      `${resource.title} ${resource.description} ${categoryLabels(resource)}`
-    );
-
-    const matchesQuery =
-      !query || searchableText.includes(query);
-
-    return matchesCategory && matchesQuery;
-  });
-}
-
-function renderResources() {
-  const visible = visibleResources();
-
-  grid.innerHTML = visible
-    .map((resource) => resourceCard(resource))
-    .join("");
-
-  resultCount.textContent = `총 ${visible.length}개 자료`;
-
-  grid.hidden = visible.length === 0;
-  emptyState.hidden = visible.length !== 0;
-}
-
-function renderFeatured() {
-  const featured = resources.filter(
-    (resource) => resource.featured
-  );
-
-  featuredGrid.innerHTML = featured
-    .map((resource) => {
-      const category = primaryCategory(resource);
-
-      return `
-        <button
-          class="featured-card"
-          type="button"
-          data-resource="${resource.id}"
-          aria-label="${resource.title} 열기"
-        >
-          <span class="feature-badge">추천 자료</span>
-
-          <span class="featured-icon" aria-hidden="true">
-            ${categoryIcons[category]}
-          </span>
-
-          <h3>${resource.title}</h3>
-          <p>${resource.description}</p>
-        </button>
-      `;
-    })
-    .join("");
 }
 
 function renderRecent() {

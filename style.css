@@ -1771,3 +1771,379 @@ body.download-center-page {
     margin-top: 2px;
   }
 }
+
+/* =========================================================
+   프리미엄 PDF 다운로드 카드 V2
+========================================================= */
+
+.pdf-product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.08);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.pdf-product-card:hover {
+  transform: translateY(-6px);
+  border-color: #bfdbfe;
+  box-shadow:
+    0 20px 45px rgba(37, 99, 235, 0.15);
+}
+
+.pdf-product-top {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pdf-product-top .resource-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: #2563eb;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 8px 22px rgba(15, 23, 42, 0.12);
+}
+
+.pdf-product-top .resource-icon svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pdf-product-top .status-badge {
+  padding: 7px 11px;
+  border-radius: 999px;
+  color: #1d4ed8;
+  background: rgba(239, 246, 255, 0.96);
+  font-size: 11px;
+  font-weight: 800;
+  box-shadow:
+    0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.pdf-product-top .status-badge.new {
+  color: #047857;
+  background: rgba(236, 253, 245, 0.96);
+}
+
+/* PDF 표지 영역 */
+
+.pdf-preview {
+  min-height: 270px;
+  display: grid;
+  place-items: center;
+  padding: 68px 30px 30px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(96, 165, 250, 0.3),
+      transparent 42%
+    ),
+    linear-gradient(
+      145deg,
+      #eff6ff,
+      #f8fafc
+    );
+}
+
+.pdf-preview-paper {
+  position: relative;
+  width: 165px;
+  min-height: 205px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 18px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow:
+    0 20px 35px rgba(15, 23, 42, 0.18);
+  transform: rotate(-2deg);
+  transition:
+    transform 0.25s ease;
+}
+
+.pdf-product-card:hover .pdf-preview-paper {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.pdf-preview-paper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  background:
+    linear-gradient(
+      225deg,
+      #dbeafe 50%,
+      transparent 50%
+    );
+  border-top-right-radius: 8px;
+}
+
+.pdf-preview-label {
+  align-self: flex-start;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: #ffffff;
+  background: #ef4444;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.pdf-preview-icon {
+  margin-top: 20px;
+  font-size: 36px;
+}
+
+.pdf-preview-title {
+  margin-top: 14px;
+  color: #172033;
+  font-size: 16px;
+  line-height: 1.35;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.pdf-preview-subtitle {
+  margin-top: 7px;
+  color: #64748b;
+  font-size: 11px;
+  text-align: center;
+}
+
+.pdf-preview-lines {
+  width: 100%;
+  display: grid;
+  gap: 7px;
+  margin-top: 20px;
+}
+
+.pdf-preview-lines span {
+  height: 5px;
+  border-radius: 999px;
+  background: #e2e8f0;
+}
+
+.pdf-preview-lines span:nth-child(2) {
+  width: 82%;
+}
+
+.pdf-preview-lines span:nth-child(3) {
+  width: 65%;
+}
+
+/* 내용 영역 */
+
+.pdf-product-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.pdf-category {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.pdf-product-content h3 {
+  margin: 7px 0 8px;
+  color: #172033;
+  font-size: 21px;
+  line-height: 1.35;
+}
+
+.pdf-product-content .resource-description {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.pdf-feature-list {
+  display: grid;
+  gap: 9px;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pdf-feature-list li {
+  position: relative;
+  padding-left: 25px;
+  color: #334155;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.pdf-feature-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #22c55e;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.pdf-file-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  margin-bottom: 16px;
+}
+
+.pdf-file-info span {
+  padding: 7px 10px;
+  border-radius: 9px;
+  color: #64748b;
+  background: #f1f5f9;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* 메인 다운로드 버튼 */
+
+.pdf-main-download {
+  width: 100%;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 18px;
+  border-radius: 15px;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #174ea6
+    );
+  font-size: 15px;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow:
+    0 10px 22px rgba(37, 99, 235, 0.25);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pdf-main-download:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 28px rgba(37, 99, 235, 0.32);
+}
+
+.pdf-main-download:active {
+  transform: translateY(0);
+}
+
+.pdf-main-download:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.25);
+  outline-offset: 3px;
+}
+
+/* 아래 보조 버튼 */
+
+.pdf-secondary-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.pdf-secondary-button {
+  min-height: 40px;
+  padding: 8px 7px;
+  border: 1px solid #dbe3ef;
+  border-radius: 11px;
+  color: #475569;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.pdf-secondary-button:hover {
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+  background: #eff6ff;
+}
+
+.pdf-secondary-button.primary {
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+  background: #eff6ff;
+}
+
+/* 모바일 */
+
+@media (max-width: 640px) {
+  .pdf-preview {
+    min-height: 245px;
+    padding-top: 64px;
+  }
+
+  .pdf-preview-paper {
+    width: 150px;
+    min-height: 190px;
+  }
+
+  .pdf-product-content {
+    padding: 20px;
+  }
+
+  .pdf-product-content h3 {
+    font-size: 19px;
+  }
+
+  .pdf-secondary-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .pdf-secondary-button {
+    min-height: 44px;
+  }
+}
