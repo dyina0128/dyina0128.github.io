@@ -16,6 +16,7 @@ const resources = [
     recent: false,
     pageUrl: "youth-rent-support-kit.html",
     officialUrl: "https://www.bokjiro.go.kr/",
+    pdf: "pdf/youth-rent-support-checklist.pdf",
     checklist: [
       "거주지와 연령 요건 확인",
       "임대차계약서와 월세 납부 증빙 준비",
@@ -36,6 +37,7 @@ const resources = [
     recent: false,
     pageUrl: "job-support-guide.html",
     officialUrl: "https://www.kua.go.kr/",
+    pdf: "pdf/employment-support-checklist.pdf",
     checklist: [
       "가구원과 소득·재산 정보 확인",
       "취업경험과 현재 구직상태 정리",
@@ -56,6 +58,7 @@ const resources = [
     recent: true,
     pageUrl: "national-scholarship.html",
     officialUrl: "https://www.kosaf.go.kr/",
+    pdf: "pdf/national-scholarship-checklist.pdf",
     checklist: [
       "본인 명의 전자서명 수단 준비",
       "학적과 가족관계 정보 확인",
@@ -76,6 +79,7 @@ const resources = [
     recent: false,
     pageUrl: "housing-benefit.html",
     officialUrl: "https://www.bokjiro.go.kr/",
+    pdf: "pdf/housing-benefit-checklist.pdf",
     checklist: [
       "가구원과 소득인정액 기준 확인",
       "임대차계약서 또는 주택 정보 준비",
@@ -96,6 +100,7 @@ const resources = [
     recent: false,
     pageUrl: "basic-pension-guide.html",
     officialUrl: "https://basicpension.mohw.go.kr/",
+    pdf: "pdf/basic-pension-checklist.pdf",
     checklist: [
       "만 65세 도달 시점과 주소지 확인",
       "본인과 배우자의 금융정보 확인",
@@ -116,6 +121,7 @@ const resources = [
     recent: true,
     pageUrl: "energy-voucher-guide.html",
     officialUrl: "https://www.energyv.or.kr/",
+    pdf: "pdf/energy-voucher-checklist.pdf",
     checklist: [
       "세대원 특성과 수급자격 확인",
       "에너지요금 고지서 준비",
@@ -136,6 +142,7 @@ const resources = [
     recent: false,
     pageUrl: "work-incentive-guide.html",
     officialUrl: "https://www.hometax.go.kr/",
+    pdf: "pdf/work-incentive-checklist.pdf",
     checklist: [
       "가구 유형과 소득 귀속연도 확인",
       "가구원 재산 합계 확인",
@@ -156,6 +163,7 @@ const resources = [
     recent: true,
     pageUrl: "child-tax-credit.html",
     officialUrl: "https://www.hometax.go.kr/",
+    pdf: "pdf/child-tax-credit-checklist.pdf",
     checklist: [
       "부양자녀와 주민등록 정보 확인",
       "부부합산 소득 및 재산 기준 확인",
@@ -230,7 +238,8 @@ const categoryIcons = {
 
 const state = {
   category: "all",
-  query: ""
+  query: "",
+  suggestionIndex: -1
 };
 
 const grid = document.querySelector("#resource-grid");
@@ -240,6 +249,7 @@ const searchForm = document.querySelector("#search-form");
 const searchInput = document.querySelector("#resource-search");
 const searchButton = searchForm?.querySelector("kbd");
 const resultCount = document.querySelector("#result-count");
+const suggestions = document.querySelector("#search-suggestions");
 const emptyState = document.querySelector("#empty-state");
 const dialog = document.querySelector("#preview-dialog");
 
@@ -251,6 +261,34 @@ function normalize(value = "") {
   return String(value)
     .toLocaleLowerCase("ko-KR")
     .replace(/\s+/g, "");
+}
+
+function escapeHtml(value = "") {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function highlightMatch(text, queryValue) {
+  const safeText = escapeHtml(text);
+  const query = queryValue.trim();
+
+  if (!query) {
+    return safeText;
+  }
+
+  const escapedQuery = query.replace(
+    /[.*+?^${}()|[\]\\]/g,
+    "\\$&"
+  );
+
+  return safeText.replace(
+    new RegExp(`(${escapedQuery})`, "gi"),
+    "<mark>$1</mark>"
+  );
 }
 
 function primaryCategory(resource) {
@@ -277,6 +315,65 @@ function findMatchingResources(queryValue) {
 
     return searchableText.includes(query);
   });
+}
+
+
+
+function closeSuggestions() {
+  suggestions.innerHTML = "";
+  suggestions.hidden = true;
+  state.suggestionIndex = -1;
+
+  searchInput.removeAttribute("aria-activedescendant");
+
+  suggestions.scrollTop = 0;
+}
+
+function renderSuggestions(queryValue) {
+  const query = queryValue.trim();
+  const matches = findMatchingResources(query).slice(0, 5
+
+  );
+
+  state.suggestionIndex = -1;
+
+  if (!query || matches.length === 0) {
+    closeSuggestions();
+    return;
+  }
+
+  suggestions.innerHTML = matches
+    .map((resource, index) => {
+      const category = primaryCategory(resource);
+
+      return `
+        <button
+          class="search-suggestion"
+          id="search-suggestion-${index}"
+          type="button"
+          role="option"
+          aria-selected="false"
+          data-resource="${resource.id}"
+        >
+          <span class="suggestion-icon" aria-hidden="true">
+            ${categoryIcons[category]}
+          </span>
+
+          <span class="suggestion-content">
+            <strong>
+              ${highlightMatch(resource.title, query)}
+            </strong>
+
+            <small>
+              ${highlightMatch(categoryLabels(resource), query)}
+            </small>
+          </span>
+        </button>
+      `;
+    })
+    .join("");
+
+  suggestions.hidden = false;
 }
 
 /* =========================================================
@@ -311,14 +408,14 @@ function resourceCard(resource) {
       </div>
 
       <div class="actions" aria-label="${resource.title} 자료">
-        <button
-          class="action-button is-disabled"
-          type="button"
-          disabled
-          aria-label="${resource.title} PDF 준비 중"
-        >
-          PDF 준비 중
-        </button>
+        <a
+  class="action-button"
+  href="${resource.pdf}"
+  download
+  aria-label="${resource.title} PDF 다운로드"
+>
+  📄 PDF
+</a>
 
         <button
           class="action-button"
@@ -518,9 +615,10 @@ function runSearch() {
   renderResources();
 
   if (!query) {
-    searchInput.focus();
-    return;
-  }
+  closeSuggestions();
+  searchInput.focus();
+  return;
+}
 
   const matches = findMatchingResources(query);
 
@@ -538,17 +636,23 @@ function runSearch() {
       normalize(resource.title) === normalize(query)
   );
 
+  
+
   const selectedResource =
     exactMatch || matches[0];
 
   if (selectedResource.pageUrl) {
-    window.location.href =
-      selectedResource.pageUrl;
+  closeSuggestions();
 
-    return;
-  }
+  window.location.href =
+    selectedResource.pageUrl;
+
+  return;
+}
 
   openPreview(selectedResource, "preview");
+
+  closeSuggestions();
 }
 
 /* =========================================================
@@ -623,9 +727,127 @@ searchForm.addEventListener("submit", (event) => {
 });
 
 searchInput.addEventListener("input", () => {
-  state.query = searchInput.value.trim();
+  const query = searchInput.value.trim();
+
+  state.query = query;
+
   renderResources();
+  renderSuggestions(query);
 });
+
+searchInput.addEventListener("keydown", (event) => {
+  const items = [
+    ...suggestions.querySelectorAll(".search-suggestion")
+  ];
+
+  if (
+    suggestions.hidden ||
+    items.length === 0
+  ) {
+    return;
+  }
+
+  if (event.key === "ArrowDown") {
+    event.preventDefault();
+
+    updateSuggestionSelection(
+      state.suggestionIndex + 1
+    );
+  }
+
+  if (event.key === "ArrowUp") {
+    event.preventDefault();
+
+    updateSuggestionSelection(
+      state.suggestionIndex - 1
+    );
+  }
+
+  if (
+    event.key === "Enter" &&
+    state.suggestionIndex >= 0
+  ) {
+    event.preventDefault();
+
+    selectSuggestion(
+      items[state.suggestionIndex]
+    );
+  }
+
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeSuggestions();
+  }
+});
+
+suggestions.addEventListener("click", (event) => {
+  const item = event.target.closest(
+    ".search-suggestion"
+  );
+
+  selectSuggestion(item);
+});
+
+function updateSuggestionSelection(index) {
+  const items = [
+    ...suggestions.querySelectorAll(".search-suggestion")
+  ];
+
+  if (items.length === 0) {
+    state.suggestionIndex = -1;
+    return;
+  }
+
+  state.suggestionIndex =
+    (index + items.length) % items.length;
+
+  items.forEach((item, itemIndex) => {
+    const isSelected =
+      itemIndex === state.suggestionIndex;
+
+    item.setAttribute(
+      "aria-selected",
+      String(isSelected)
+    );
+  });
+
+  const selectedItem =
+    items[state.suggestionIndex];
+
+  searchInput.setAttribute(
+    "aria-activedescendant",
+    selectedItem.id
+  );
+
+  selectedItem.scrollIntoView({
+    block: "nearest"
+  });
+}
+
+function selectSuggestion(item) {
+  if (!item) {
+    return;
+  }
+
+  const resource = resources.find(
+    (entry) =>
+      entry.id === item.dataset.resource
+  );
+
+  if (!resource) {
+    return;
+  }
+
+  searchInput.value = resource.title;
+  state.query = resource.title;
+
+  closeSuggestions();
+
+  openResource(
+    resource,
+    resource.pageUrl ? "open" : "preview"
+  );
+}
 
 document
   .querySelector(".tabs")
@@ -640,6 +862,7 @@ document
 document
   .querySelector(".tabs")
   .addEventListener("keydown", (event) => {
+
     const allowedKeys = [
       "ArrowLeft",
       "ArrowRight",
