@@ -408,14 +408,37 @@ function resourceCard(resource) {
       </div>
 
       <div class="actions" aria-label="${resource.title} 자료">
-        <a
-  class="action-button"
-  href="${resource.pdf}"
-  download
-  aria-label="${resource.title} PDF 다운로드"
->
-  📄 PDF
-</a>
+        <div class="pdf-download-box">
+  <div class="pdf-download-icon" aria-hidden="true">
+    📄
+  </div>
+
+  <div class="pdf-download-content">
+    <span class="pdf-download-type">PDF 무료 자료</span>
+
+    <strong class="pdf-download-title">
+      ${resource.title}
+    </strong>
+
+    <span class="pdf-download-description">
+      준비서류 체크리스트
+    </span>
+
+    <span class="pdf-download-meta">
+      ✓ 회원가입 없이 즉시 다운로드
+    </span>
+  </div>
+
+  <a
+    class="pdf-download-button"
+    href="${resource.pdf}"
+    download
+    aria-label="${resource.title} PDF 다운로드"
+  >
+    다운로드
+    <span aria-hidden="true">↓</span>
+  </a>
+</div>
 
         <button
           class="action-button"
