@@ -16,6 +16,7 @@ const resources = [
     recent: false,
     pageUrl: "youth-rent-support-kit.html",
     officialUrl: "https://www.bokjiro.go.kr/",
+    pdf: "pdf/youth-rent-support-checklist.pdf",
     checklist: [
       "거주지와 연령 요건 확인",
       "임대차계약서와 월세 납부 증빙 준비",
@@ -36,6 +37,7 @@ const resources = [
     recent: false,
     pageUrl: "job-support-guide.html",
     officialUrl: "https://www.kua.go.kr/",
+    pdf: "pdf/employment-support-checklist.pdf",
     checklist: [
       "가구원과 소득·재산 정보 확인",
       "취업경험과 현재 구직상태 정리",
@@ -56,6 +58,7 @@ const resources = [
     recent: true,
     pageUrl: "national-scholarship.html",
     officialUrl: "https://www.kosaf.go.kr/",
+    pdf: "pdf/national-scholarship-checklist.pdf",
     checklist: [
       "본인 명의 전자서명 수단 준비",
       "학적과 가족관계 정보 확인",
@@ -76,6 +79,7 @@ const resources = [
     recent: false,
     pageUrl: "housing-benefit.html",
     officialUrl: "https://www.bokjiro.go.kr/",
+    pdf: "pdf/housing-benefit-checklist.pdf",
     checklist: [
       "가구원과 소득인정액 기준 확인",
       "임대차계약서 또는 주택 정보 준비",
@@ -96,6 +100,7 @@ const resources = [
     recent: false,
     pageUrl: "basic-pension-guide.html",
     officialUrl: "https://basicpension.mohw.go.kr/",
+    pdf: "pdf/basic-pension-checklist.pdf",
     checklist: [
       "만 65세 도달 시점과 주소지 확인",
       "본인과 배우자의 금융정보 확인",
@@ -116,6 +121,7 @@ const resources = [
     recent: true,
     pageUrl: "energy-voucher-guide.html",
     officialUrl: "https://www.energyv.or.kr/",
+    pdf: "pdf/energy-voucher-checklist.pdf",
     checklist: [
       "세대원 특성과 수급자격 확인",
       "에너지요금 고지서 준비",
@@ -136,6 +142,7 @@ const resources = [
     recent: false,
     pageUrl: "work-incentive-guide.html",
     officialUrl: "https://www.hometax.go.kr/",
+    pdf: "pdf/work-incentive-checklist.pdf",
     checklist: [
       "가구 유형과 소득 귀속연도 확인",
       "가구원 재산 합계 확인",
@@ -156,6 +163,7 @@ const resources = [
     recent: true,
     pageUrl: "child-tax-credit.html",
     officialUrl: "https://www.hometax.go.kr/",
+    pdf: "pdf/child-tax-credit-checklist.pdf",
     checklist: [
       "부양자녀와 주민등록 정보 확인",
       "부부합산 소득 및 재산 기준 확인",
@@ -323,7 +331,9 @@ function closeSuggestions() {
 
 function renderSuggestions(queryValue) {
   const query = queryValue.trim();
-  const matches = findMatchingResources(query).slice(0, 5);
+  const matches = findMatchingResources(query).slice(0, 5
+
+  );
 
   state.suggestionIndex = -1;
 
@@ -398,14 +408,14 @@ function resourceCard(resource) {
       </div>
 
       <div class="actions" aria-label="${resource.title} 자료">
-        <button
-          class="action-button is-disabled"
-          type="button"
-          disabled
-          aria-label="${resource.title} PDF 준비 중"
-        >
-          PDF 준비 중
-        </button>
+        <a
+  class="action-button"
+  href="${resource.pdf}"
+  download
+  aria-label="${resource.title} PDF 다운로드"
+>
+  📄 PDF
+</a>
 
         <button
           class="action-button"
