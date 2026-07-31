@@ -503,6 +503,72 @@ function resourceCard(resource) {
   `;
 }
 
+/* =========================================================
+   검색 및 렌더링
+========================================================= */
+
+function visibleResources() {
+  const query = normalize(state.query);
+
+  return resources.filter((resource) => {
+    const matchesCategory =
+      state.category === "all" ||
+      resource.categories.includes(state.category);
+
+    const searchableText = normalize(
+      `${resource.title} ${resource.description} ${categoryLabels(resource)}`
+    );
+
+    const matchesQuery =
+      !query || searchableText.includes(query);
+
+    return matchesCategory && matchesQuery;
+  });
+}
+
+function renderResources() {
+  const visible = visibleResources();
+
+  grid.innerHTML = visible
+    .map((resource) => resourceCard(resource))
+    .join("");
+
+  resultCount.textContent = `총 ${visible.length}개 자료`;
+
+  grid.hidden = visible.length === 0;
+  emptyState.hidden = visible.length !== 0;
+}
+
+function renderFeatured() {
+  const featured = resources.filter(
+    (resource) => resource.featured
+  );
+
+  featuredGrid.innerHTML = featured
+    .map((resource) => {
+      const category = primaryCategory(resource);
+
+      return `
+        <button
+          class="featured-card"
+          type="button"
+          data-resource="${resource.id}"
+          aria-label="${resource.title} 열기"
+        >
+          <span class="feature-badge">추천 자료</span>
+
+          <span class="featured-icon" aria-hidden="true">
+            ${categoryIcons[category]}
+          </span>
+
+          <h3>${resource.title}</h3>
+          <p>${resource.description}</p>
+        </button>
+      `;
+    })
+    .join("");
+}
+
 function renderRecent() {
   const recent = resources.filter(
     (resource) => resource.recent
