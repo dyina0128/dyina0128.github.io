@@ -1943,6 +1943,8 @@ body.download-center-page {
   outline-offset: 3px;
 }
 
+}
+
 /* 모바일 */
 @media (max-width: 520px) {
   .pdf-download-box {
