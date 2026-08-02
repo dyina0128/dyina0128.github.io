@@ -2,11 +2,11 @@
 
 /* =========================================================
    다운로드 센터 자료
-   pageUrl이 있는 자료는 검색 후 해당 상세 페이지로 이동합니다.
+   pageUrl이 있는 자료는 검색 시 해당 상세 페이지로 이동합니다.
    pageUrl이 비어 있으면 미리보기 창을 엽니다.
 ========================================================= */
 
-const resources = [
+const RESOURCE_DATA = [
   {
     id: "youth-rent",
     categories: ["youth", "housing"],
@@ -17,6 +17,8 @@ const resources = [
     pageUrl: "youth-rent-support-kit.html",
     officialUrl: "https://www.bokjiro.go.kr/",
     pdf: "pdf/youth-rent-support-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "거주지와 연령 요건 확인",
       "임대차계약서와 월세 납부 증빙 준비",
@@ -38,6 +40,8 @@ const resources = [
     pageUrl: "job-support-guide.html",
     officialUrl: "https://www.kua.go.kr/",
     pdf: "pdf/employment-support-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "가구원과 소득·재산 정보 확인",
       "취업경험과 현재 구직상태 정리",
@@ -59,6 +63,8 @@ const resources = [
     pageUrl: "national-scholarship.html",
     officialUrl: "https://www.kosaf.go.kr/",
     pdf: "pdf/national-scholarship-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "본인 명의 전자서명 수단 준비",
       "학적과 가족관계 정보 확인",
@@ -67,7 +73,7 @@ const resources = [
     steps: [
       "한국장학재단에서 현재 신청기간 확인",
       "온라인 신청서 작성",
-      "가구원 동의와 요청된 추가서류 제출"
+      "가구원 동의와 필요한 추가서류 제출"
     ]
   },
   {
@@ -80,6 +86,8 @@ const resources = [
     pageUrl: "housing-benefit.html",
     officialUrl: "https://www.bokjiro.go.kr/",
     pdf: "pdf/housing-benefit-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "가구원과 소득인정액 기준 확인",
       "임대차계약서 또는 주택 정보 준비",
@@ -101,6 +109,8 @@ const resources = [
     pageUrl: "basic-pension-guide.html",
     officialUrl: "https://basicpension.mohw.go.kr/",
     pdf: "pdf/basic-pension-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "만 65세 도달 시점과 주소지 확인",
       "본인과 배우자의 금융정보 확인",
@@ -122,6 +132,8 @@ const resources = [
     pageUrl: "energy-voucher-guide.html",
     officialUrl: "https://www.energyv.or.kr/",
     pdf: "pdf/energy-voucher-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "세대원 특성과 수급자격 확인",
       "에너지요금 고지서 준비",
@@ -143,6 +155,8 @@ const resources = [
     pageUrl: "work-incentive-guide.html",
     officialUrl: "https://www.hometax.go.kr/",
     pdf: "pdf/work-incentive-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "가구 유형과 소득 귀속연도 확인",
       "가구원 재산 합계 확인",
@@ -151,7 +165,7 @@ const resources = [
     steps: [
       "홈택스에서 신청 가능 여부 확인",
       "정기 또는 반기 신청 구분 확인",
-      "연락처와 계좌를 확인한 뒤 제출"
+      "연락처와 계좌를 확인하고 제출"
     ]
   },
   {
@@ -164,6 +178,8 @@ const resources = [
     pageUrl: "child-tax-credit.html",
     officialUrl: "https://www.hometax.go.kr/",
     pdf: "pdf/child-tax-credit-checklist.pdf",
+    pdfSize: "PDF",
+    pdfPages: "체크리스트",
     checklist: [
       "부양자녀와 주민등록 정보 확인",
       "부부합산 소득 및 재산 기준 확인",
@@ -181,7 +197,7 @@ const resources = [
    카테고리 이름과 아이콘
 ========================================================= */
 
-const categoryNames = {
+const CATEGORY_NAMES = {
   all: "전체",
   youth: "청년",
   housing: "주거",
@@ -191,7 +207,7 @@ const categoryNames = {
   jobs: "일자리"
 };
 
-const categoryIcons = {
+const CATEGORY_ICONS = {
   youth: `
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
@@ -233,8 +249,61 @@ const categoryIcons = {
 };
 
 /* =========================================================
-   상태와 HTML 요소
+   상수와 상태
 ========================================================= */
+
+const SELECTORS = {
+  grid: "#resource-grid",
+  featuredGrid: "#featured-grid",
+  recentList: "#recent-list",
+  searchForm: "#search-form",
+  searchInput: "#resource-search",
+  resultCount: "#result-count",
+  suggestions: "#search-suggestions",
+  emptyState: "#empty-state",
+  dialog: "#preview-dialog",
+  previewIcon: "#preview-icon",
+  previewCategory: "#preview-category",
+  previewTitle: "#preview-title",
+  previewDescription: "#preview-description",
+  previewChecklist: "#preview-checklist",
+  previewSteps: "#preview-steps",
+  previewOfficial: "#preview-official",
+  checklistTitle: "#checklist-title",
+  stepsTitle: "#steps-title",
+  resourcesSection: "#resources",
+  resetSearch: "#reset-search",
+  tabs: ".tabs",
+  tab: "[role='tab']",
+  closeDialog: "[data-close-dialog]",
+  resourceCard: ".resource-card",
+  suggestion: ".search-suggestion",
+  action: "[data-action]",
+  resourceTarget: "[data-resource]"
+};
+
+const ACTIONS = {
+  open: "open",
+  preview: "preview",
+  checklist: "checklist",
+  steps: "steps"
+};
+
+const KEYBOARD_KEYS = {
+  arrowDown: "ArrowDown",
+  arrowLeft: "ArrowLeft",
+  arrowRight: "ArrowRight",
+  arrowUp: "ArrowUp",
+  end: "End",
+  enter: "Enter",
+  escape: "Escape",
+  home: "Home",
+  searchFocus: "/",
+  space: " "
+};
+
+const MAX_SUGGESTIONS = 5;
+const EMPTY_RESOURCE_COUNT_TEXT = "총 0개 자료";
 
 const state = {
   category: "all",
@@ -242,25 +311,73 @@ const state = {
   suggestionIndex: -1
 };
 
-const grid = document.querySelector("#resource-grid");
-const featuredGrid = document.querySelector("#featured-grid");
-const recentList = document.querySelector("#recent-list");
-const searchForm = document.querySelector("#search-form");
-const searchInput = document.querySelector("#resource-search");
-const searchButton = searchForm?.querySelector("kbd");
-const resultCount = document.querySelector("#result-count");
-const suggestions = document.querySelector("#search-suggestions");
-const emptyState = document.querySelector("#empty-state");
-const dialog = document.querySelector("#preview-dialog");
-
 /* =========================================================
-   공통 함수
+   DOM 캐시
 ========================================================= */
 
-function normalize(value = "") {
-  return String(value)
-    .toLocaleLowerCase("ko-KR")
-    .replace(/\s+/g, "");
+const dom = {
+  grid: document.querySelector(SELECTORS.grid),
+  featuredGrid: document.querySelector(SELECTORS.featuredGrid),
+  recentList: document.querySelector(SELECTORS.recentList),
+  searchForm: document.querySelector(SELECTORS.searchForm),
+  searchInput: document.querySelector(SELECTORS.searchInput),
+  resultCount: document.querySelector(SELECTORS.resultCount),
+  suggestions: document.querySelector(SELECTORS.suggestions),
+  emptyState: document.querySelector(SELECTORS.emptyState),
+  dialog: document.querySelector(SELECTORS.dialog),
+  tabs: document.querySelector(SELECTORS.tabs),
+  resetSearch: document.querySelector(SELECTORS.resetSearch),
+  resourcesSection: document.querySelector(SELECTORS.resourcesSection)
+};
+
+dom.searchButton = dom.searchForm?.querySelector("kbd") ?? null;
+dom.preview = {
+  icon: document.querySelector(SELECTORS.previewIcon),
+  category: document.querySelector(SELECTORS.previewCategory),
+  title: document.querySelector(SELECTORS.previewTitle),
+  description: document.querySelector(SELECTORS.previewDescription),
+  checklist: document.querySelector(SELECTORS.previewChecklist),
+  steps: document.querySelector(SELECTORS.previewSteps),
+  official: document.querySelector(SELECTORS.previewOfficial),
+  checklistTitle: document.querySelector(SELECTORS.checklistTitle),
+  stepsTitle: document.querySelector(SELECTORS.stepsTitle)
+};
+
+/* =========================================================
+   자료 인덱스
+   나중에 resources.json으로 옮겨도 이 준비 함수만 유지하면 됩니다.
+========================================================= */
+
+const resources = prepareResources(RESOURCE_DATA);
+const resourceById = new Map(resources.map((resource) => [resource.id, resource]));
+
+function prepareResources(rawResources) {
+  return rawResources.map((resource) => {
+    const categories = Array.isArray(resource.categories)
+      ? resource.categories
+      : [];
+    const categoryLabelText = getCategoryLabels(categories);
+    const searchableText = normalizeText([
+      resource.title,
+      resource.description,
+      categoryLabelText
+    ].join(" "));
+
+    return {
+      ...resource,
+      categories,
+      categoryLabelText,
+      searchableText
+    };
+  });
+}
+
+/* =========================================================
+   공통 유틸리티
+========================================================= */
+
+function normalizeText(value = "") {
+  return String(value).toLocaleLowerCase("ko-KR").replace(/\s+/g, "");
 }
 
 function escapeHtml(value = "") {
@@ -272,6 +389,56 @@ function escapeHtml(value = "") {
     .replaceAll("'", "&#039;");
 }
 
+function escapeAttribute(value = "") {
+  return escapeHtml(value).replaceAll("`", "&#096;");
+}
+
+function getPrimaryCategory(resource) {
+  return resource?.categories?.[0] ?? "life";
+}
+
+function getCategoryLabels(categories = []) {
+  return categories
+    .map((category) => CATEGORY_NAMES[category])
+    .filter(Boolean)
+    .join(" · ");
+}
+
+function getCategoryIcon(category) {
+  return CATEGORY_ICONS[category] ?? CATEGORY_ICONS.life ?? "";
+}
+
+function getResourceFromElement(element, datasetKey = "resource") {
+  const resourceId = element?.dataset?.[datasetKey];
+  return resourceId ? resourceById.get(resourceId) : null;
+}
+
+function getSearchQuery() {
+  return dom.searchInput?.value.trim() ?? "";
+}
+
+function setElementHidden(element, isHidden) {
+  if (element) {
+    element.hidden = isHidden;
+  }
+}
+
+function setHtml(element, html) {
+  if (element) {
+    element.innerHTML = html;
+  }
+}
+
+function setText(element, text) {
+  if (element) {
+    element.textContent = text;
+  }
+}
+
+function scrollToElement(element, options = { block: "start" }) {
+  element?.scrollIntoView(options);
+}
+
 function highlightMatch(text, queryValue) {
   const safeText = escapeHtml(text);
   const query = queryValue.trim();
@@ -280,60 +447,91 @@ function highlightMatch(text, queryValue) {
     return safeText;
   }
 
-  const escapedQuery = query.replace(
-    /[.*+?^${}()|[\]\\]/g,
-    "\\$&"
-  );
-
-  return safeText.replace(
-    new RegExp(`(${escapedQuery})`, "gi"),
-    "<mark>$1</mark>"
-  );
+  const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return safeText.replace(new RegExp(`(${escapedQuery})`, "gi"), "<mark>$1</mark>");
 }
 
-function primaryCategory(resource) {
-  return resource.categories[0];
-}
-
-function categoryLabels(resource) {
-  return resource.categories
-    .map((category) => categoryNames[category])
-    .join(" · ");
-}
+/* =========================================================
+   검색과 필터링
+========================================================= */
 
 function findMatchingResources(queryValue) {
-  const query = normalize(queryValue);
+  const query = normalizeText(queryValue);
 
   if (!query) {
     return [];
   }
 
-  return resources.filter((resource) => {
-    const searchableText = normalize(
-      `${resource.title} ${resource.description} ${categoryLabels(resource)}`
-    );
+  return resources.filter((resource) => resource.searchableText.includes(query));
+}
 
-    return searchableText.includes(query);
+function getVisibleResources() {
+  const query = normalizeText(state.query);
+
+  return resources.filter((resource) => {
+    const matchesCategory =
+      state.category === "all" || resource.categories.includes(state.category);
+    const matchesQuery = !query || resource.searchableText.includes(query);
+
+    return matchesCategory && matchesQuery;
   });
 }
 
+function runSearch() {
+  const query = getSearchQuery();
 
+  state.query = query;
+  renderResources();
+
+  if (!query) {
+    closeSuggestions();
+    dom.searchInput?.focus();
+    return;
+  }
+
+  const matches = findMatchingResources(query);
+
+  if (matches.length === 0) {
+    scrollToElement(dom.resourcesSection, {
+      behavior: "smooth",
+      block: "start"
+    });
+    return;
+  }
+
+  const normalizedQuery = normalizeText(query);
+  const exactMatch = matches.find(
+    (resource) => normalizeText(resource.title) === normalizedQuery
+  );
+  const selectedResource = exactMatch ?? matches[0];
+
+  closeSuggestions();
+  openResource(selectedResource, selectedResource.pageUrl ? ACTIONS.open : ACTIONS.preview);
+}
+
+/* =========================================================
+   검색 제안
+========================================================= */
 
 function closeSuggestions() {
-  suggestions.innerHTML = "";
-  suggestions.hidden = true;
+  if (!dom.suggestions) {
+    return;
+  }
+
+  dom.suggestions.innerHTML = "";
+  dom.suggestions.hidden = true;
+  dom.suggestions.scrollTop = 0;
   state.suggestionIndex = -1;
-
-  searchInput.removeAttribute("aria-activedescendant");
-
-  suggestions.scrollTop = 0;
+  dom.searchInput?.removeAttribute("aria-activedescendant");
 }
 
 function renderSuggestions(queryValue) {
-  const query = queryValue.trim();
-  const matches = findMatchingResources(query).slice(0, 5
+  if (!dom.suggestions) {
+    return;
+  }
 
-  );
+  const query = queryValue.trim();
+  const matches = findMatchingResources(query).slice(0, MAX_SUGGESTIONS);
 
   state.suggestionIndex = -1;
 
@@ -342,208 +540,260 @@ function renderSuggestions(queryValue) {
     return;
   }
 
-  suggestions.innerHTML = matches
-    .map((resource, index) => {
-      const category = primaryCategory(resource);
+  dom.suggestions.innerHTML = matches.map(renderSuggestionButton).join("");
+  dom.suggestions.hidden = false;
+}
 
-      return `
-        <button
-          class="search-suggestion"
-          id="search-suggestion-${index}"
-          type="button"
-          role="option"
-          aria-selected="false"
-          data-resource="${resource.id}"
-        >
-          <span class="suggestion-icon" aria-hidden="true">
-            ${categoryIcons[category]}
-          </span>
+function renderSuggestionButton(resource, index) {
+  const category = getPrimaryCategory(resource);
 
-          <span class="suggestion-content">
-            <strong>
-              ${highlightMatch(resource.title, query)}
-            </strong>
+  return `
+    <button
+      class="search-suggestion"
+      id="search-suggestion-${index}"
+      type="button"
+      role="option"
+      aria-selected="false"
+      data-resource="${escapeAttribute(resource.id)}"
+    >
+      <span class="suggestion-icon" aria-hidden="true">
+        ${getCategoryIcon(category)}
+      </span>
 
-            <small>
-              ${highlightMatch(categoryLabels(resource), query)}
-            </small>
-          </span>
-        </button>
-      `;
-    })
-    .join("");
+      <span class="suggestion-content">
+        <strong>
+          ${highlightMatch(resource.title, getSearchQuery())}
+        </strong>
 
-  suggestions.hidden = false;
+        <small>
+          ${highlightMatch(resource.categoryLabelText, getSearchQuery())}
+        </small>
+      </span>
+    </button>
+  `;
+}
+
+function getSuggestionItems() {
+  return [...(dom.suggestions?.querySelectorAll(SELECTORS.suggestion) ?? [])];
+}
+
+function updateSuggestionSelection(index) {
+  const items = getSuggestionItems();
+
+  if (items.length === 0) {
+    state.suggestionIndex = -1;
+    return;
+  }
+
+  state.suggestionIndex = (index + items.length) % items.length;
+
+  items.forEach((item, itemIndex) => {
+    const isSelected = itemIndex === state.suggestionIndex;
+    item.setAttribute("aria-selected", String(isSelected));
+  });
+
+  const selectedItem = items[state.suggestionIndex];
+  dom.searchInput?.setAttribute("aria-activedescendant", selectedItem.id);
+  scrollToElement(selectedItem, { block: "nearest" });
+}
+
+function selectSuggestion(item) {
+  const resource = getResourceFromElement(item);
+
+  if (!resource) {
+    return;
+  }
+
+  if (dom.searchInput) {
+    dom.searchInput.value = resource.title;
+  }
+
+  state.query = resource.title;
+  closeSuggestions();
+  openResource(resource, resource.pageUrl ? ACTIONS.open : ACTIONS.preview);
 }
 
 /* =========================================================
-   자료 카드
+   렌더링
 ========================================================= */
 
-function resourceCard(resource) {
-  const category = primaryCategory(resource);
+function renderResources() {
+  const visible = getVisibleResources();
+
+  setHtml(dom.grid, visible.map(renderResourceCard).join(""));
+  setText(dom.resultCount, `총 ${visible.length}개 자료`);
+
+  setElementHidden(dom.grid, visible.length === 0);
+  setElementHidden(dom.emptyState, visible.length !== 0);
+}
+
+function renderFeatured() {
+  const featuredResources = resources.filter((resource) => resource.featured);
+  setHtml(dom.featuredGrid, featuredResources.map(renderFeaturedCard).join(""));
+}
+
+function renderRecent() {
+  const recentResources = resources.filter((resource) => resource.recent);
+  setHtml(dom.recentList, recentResources.map(renderRecentItem).join(""));
+}
+
+function renderResourceCard(resource) {
+  const category = getPrimaryCategory(resource);
+  const hasPdf = Boolean(resource.pdf);
+  const downloadAttributes = hasPdf
+    ? `href="${escapeAttribute(resource.pdf)}" download`
+    : `href="#" aria-disabled="true" data-missing-pdf="true"`;
 
   return `
-    <article class="resource-card" data-id="${resource.id}">
-      <div class="card-head">
+    <article class="resource-card pdf-product-card" data-id="${escapeAttribute(resource.id)}">
+
+      <div class="pdf-product-top">
         <span class="resource-icon" aria-hidden="true">
-          ${categoryIcons[category]}
+          ${getCategoryIcon(category)}
         </span>
 
         <span class="status-badge${resource.recent ? " new" : ""}">
-          ${resource.recent ? "최근 등록" : "신청 자료"}
+          ${resource.recent ? "최근 등록" : "무료 PDF"}
         </span>
       </div>
 
-      <h3>${resource.title}</h3>
+      <div class="pdf-preview">
+        <div class="pdf-preview-paper">
+          <span class="pdf-preview-label">PDF</span>
 
-      <p class="resource-description">
-        ${resource.description}
-      </p>
+          <div class="pdf-preview-icon" aria-hidden="true">
+            📄
+          </div>
 
-      <div class="card-meta">
-        <span class="category-label">
-          ${categoryLabels(resource)}
-        </span>
+          <strong class="pdf-preview-title">
+            ${escapeHtml(resource.title)}
+          </strong>
+
+          <span class="pdf-preview-subtitle">
+            준비서류 체크리스트
+          </span>
+
+          <div class="pdf-preview-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </div>
 
-      <div class="actions" aria-label="${resource.title} 자료">
+      <div class="pdf-product-content">
+        <span class="pdf-category">
+          ${escapeHtml(resource.categoryLabelText)}
+        </span>
+
+        <h3>${escapeHtml(resource.title)}</h3>
+
+        <p class="resource-description">
+          ${escapeHtml(resource.description)}
+        </p>
+
+        <ul class="pdf-feature-list">
+          <li>신청 전 준비서류 확인</li>
+          <li>단계별 신청순서 안내</li>
+          <li>회원가입 없이 즉시 다운로드</li>
+        </ul>
+
+        <div class="pdf-file-info">
+          <span>
+            📄 ${escapeHtml(resource.pdfSize || "PDF")}
+          </span>
+
+          <span>
+            📋 ${escapeHtml(resource.pdfPages || "체크리스트")}
+          </span>
+        </div>
+
         <a
-  class="action-button"
-  href="${resource.pdf}"
-  download
-  aria-label="${resource.title} PDF 다운로드"
->
-  📄 PDF
-</a>
-
-        <button
-          class="action-button"
-          type="button"
-          data-action="checklist"
+          class="pdf-main-download"
+          ${downloadAttributes}
+          aria-label="${escapeAttribute(resource.title)} PDF 무료 다운로드"
         >
-          체크리스트
-        </button>
+          <span aria-hidden="true">⬇</span>
+          무료 다운로드
+        </a>
 
-        <button
-          class="action-button"
-          type="button"
-          data-action="steps"
-        >
-          신청순서
-        </button>
+        <div class="pdf-secondary-actions">
+          <button
+            class="pdf-secondary-button"
+            type="button"
+            data-action="checklist"
+          >
+            체크리스트
+          </button>
 
-        <button
-          class="action-button primary"
-          type="button"
-          data-action="open"
-        >
-          ${resource.pageUrl ? "상세보기" : "미리보기"}
-        </button>
+          <button
+            class="pdf-secondary-button"
+            type="button"
+            data-action="steps"
+          >
+            신청순서
+          </button>
+
+          <button
+            class="pdf-secondary-button primary"
+            type="button"
+            data-action="open"
+          >
+            ${resource.pageUrl ? "상세보기" : "미리보기"}
+          </button>
+        </div>
       </div>
     </article>
   `;
 }
 
-/* =========================================================
-   검색 및 렌더링
-========================================================= */
+function renderFeaturedCard(resource) {
+  const category = getPrimaryCategory(resource);
 
-function visibleResources() {
-  const query = normalize(state.query);
+  return `
+    <button
+      class="featured-card"
+      type="button"
+      data-resource="${escapeAttribute(resource.id)}"
+      aria-label="${escapeAttribute(resource.title)} 열기"
+    >
+      <span class="feature-badge">추천 자료</span>
 
-  return resources.filter((resource) => {
-    const matchesCategory =
-      state.category === "all" ||
-      resource.categories.includes(state.category);
+      <span class="featured-icon" aria-hidden="true">
+        ${getCategoryIcon(category)}
+      </span>
 
-    const searchableText = normalize(
-      `${resource.title} ${resource.description} ${categoryLabels(resource)}`
-    );
-
-    const matchesQuery =
-      !query || searchableText.includes(query);
-
-    return matchesCategory && matchesQuery;
-  });
+      <h3>${escapeHtml(resource.title)}</h3>
+      <p>${escapeHtml(resource.description)}</p>
+    </button>
+  `;
 }
 
-function renderResources() {
-  const visible = visibleResources();
+function renderRecentItem(resource) {
+  const category = getPrimaryCategory(resource);
 
-  grid.innerHTML = visible
-    .map((resource) => resourceCard(resource))
-    .join("");
+  return `
+    <li data-resource="${escapeAttribute(resource.id)}">
+      <span class="mini-icon" aria-hidden="true">
+        ${getCategoryIcon(category)}
+      </span>
 
-  resultCount.textContent = `총 ${visible.length}개 자료`;
-
-  grid.hidden = visible.length === 0;
-  emptyState.hidden = visible.length !== 0;
-}
-
-function renderFeatured() {
-  const featured = resources.filter(
-    (resource) => resource.featured
-  );
-
-  featuredGrid.innerHTML = featured
-    .map((resource) => {
-      const category = primaryCategory(resource);
-
-      return `
-        <button
-          class="featured-card"
-          type="button"
-          data-resource="${resource.id}"
-          aria-label="${resource.title} 열기"
-        >
-          <span class="feature-badge">추천 자료</span>
-
-          <span class="featured-icon" aria-hidden="true">
-            ${categoryIcons[category]}
-          </span>
-
-          <h3>${resource.title}</h3>
-          <p>${resource.description}</p>
-        </button>
-      `;
-    })
-    .join("");
-}
-
-function renderRecent() {
-  const recent = resources.filter(
-    (resource) => resource.recent
-  );
-
-  recentList.innerHTML = recent
-    .map((resource) => {
-      const category = primaryCategory(resource);
-
-      return `
-        <li data-resource="${resource.id}">
-          <span class="mini-icon" aria-hidden="true">
-            ${categoryIcons[category]}
-          </span>
-
-          <strong>${resource.title}</strong>
-          <span class="recent-label">최근 등록</span>
-        </li>
-      `;
-    })
-    .join("");
+      <strong>${escapeHtml(resource.title)}</strong>
+      <span class="recent-label">최근 등록</span>
+    </li>
+  `;
 }
 
 /* =========================================================
-   페이지 이동 또는 미리보기
+   상세 페이지 이동 또는 미리보기
 ========================================================= */
 
-function openResource(resource, section = "preview") {
+function openResource(resource, section = ACTIONS.preview) {
   if (!resource) {
     return;
   }
 
-  if (section === "open" && resource.pageUrl) {
+  if (section === ACTIONS.open && resource.pageUrl) {
     window.location.href = resource.pageUrl;
     return;
   }
@@ -551,473 +801,316 @@ function openResource(resource, section = "preview") {
   openPreview(resource, section);
 }
 
-function openPreview(resource, section) {
-  if (!resource || !dialog) {
+function openPreview(resource, section = ACTIONS.preview) {
+  if (!resource || !dom.dialog) {
     return;
   }
 
-  const category = primaryCategory(resource);
+  const category = getPrimaryCategory(resource);
 
-  document.querySelector("#preview-icon").innerHTML =
-    categoryIcons[category];
+  setHtml(dom.preview.icon, getCategoryIcon(category));
+  setText(dom.preview.category, resource.categoryLabelText);
+  setText(dom.preview.title, resource.title);
+  setText(dom.preview.description, resource.description);
+  setHtml(dom.preview.checklist, renderListItems(resource.checklist));
+  setHtml(dom.preview.steps, renderListItems(resource.steps));
 
-  document.querySelector("#preview-category").textContent =
-    categoryLabels(resource);
-
-  document.querySelector("#preview-title").textContent =
-    resource.title;
-
-  document.querySelector("#preview-description").textContent =
-    resource.description;
-
-  document.querySelector("#preview-checklist").innerHTML =
-    resource.checklist
-      .map((item) => `<li>${item}</li>`)
-      .join("");
-
-  document.querySelector("#preview-steps").innerHTML =
-    resource.steps
-      .map((item) => `<li>${item}</li>`)
-      .join("");
-
-  const officialLink =
-    document.querySelector("#preview-official");
-
-  officialLink.href = resource.officialUrl;
-
-  dialog.showModal();
-
-  if (section === "checklist") {
-    document
-      .querySelector("#checklist-title")
-      .scrollIntoView({
-        block: "start"
-      });
+  if (dom.preview.official) {
+    dom.preview.official.href = resource.officialUrl || "#";
+    dom.preview.official.toggleAttribute("aria-disabled", !resource.officialUrl);
   }
 
-  if (section === "steps") {
-    document
-      .querySelector("#steps-title")
-      .scrollIntoView({
-        block: "start"
-      });
-  }
+  dom.dialog.showModal();
+  scrollPreviewSection(section);
 }
 
-/* =========================================================
-   검색 실행
-========================================================= */
-
-function runSearch() {
-  const query = searchInput.value.trim();
-
-  state.query = query;
-  renderResources();
-
-  if (!query) {
-  closeSuggestions();
-  searchInput.focus();
-  return;
+function renderListItems(items = []) {
+  return items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
 }
 
-  const matches = findMatchingResources(query);
-
-  if (matches.length === 0) {
-    document.querySelector("#resources").scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-
-    return;
+function scrollPreviewSection(section) {
+  if (section === ACTIONS.checklist) {
+    scrollToElement(dom.preview.checklistTitle, { block: "start" });
   }
 
-  const exactMatch = matches.find(
-    (resource) =>
-      normalize(resource.title) === normalize(query)
-  );
-
-  
-
-  const selectedResource =
-    exactMatch || matches[0];
-
-  if (selectedResource.pageUrl) {
-  closeSuggestions();
-
-  window.location.href =
-    selectedResource.pageUrl;
-
-  return;
-}
-
-  openPreview(selectedResource, "preview");
-
-  closeSuggestions();
+  if (section === ACTIONS.steps) {
+    scrollToElement(dom.preview.stepsTitle, { block: "start" });
+  }
 }
 
 /* =========================================================
    카테고리 선택과 초기화
 ========================================================= */
 
+function getTabs() {
+  return [...document.querySelectorAll(SELECTORS.tab)];
+}
+
 function selectCategory(tab) {
-  document
-    .querySelectorAll("[role='tab']")
-    .forEach((item) => {
-      const isSelected = item === tab;
+  if (!tab) {
+    return;
+  }
 
-      item.setAttribute(
-        "aria-selected",
-        String(isSelected)
-      );
+  getTabs().forEach((item) => {
+    const isSelected = item === tab;
+    item.setAttribute("aria-selected", String(isSelected));
+    item.tabIndex = isSelected ? 0 : -1;
+  });
 
-      item.tabIndex = isSelected ? 0 : -1;
-    });
-
-  state.category = tab.dataset.category;
+  state.category = tab.dataset.category || "all";
   renderResources();
 }
 
 function resetFilters() {
-  const allTab = document.querySelector(
-    "[role='tab'][data-category='all']"
-  );
+  const allTab = document.querySelector(`${SELECTORS.tab}[data-category="all"]`);
 
   state.query = "";
-  searchInput.value = "";
+
+  if (dom.searchInput) {
+    dom.searchInput.value = "";
+  }
 
   selectCategory(allTab);
-  searchInput.focus();
+  closeSuggestions();
+  dom.searchInput?.focus();
 }
 
 /* =========================================================
-   검색창 오른쪽을 검색 버튼으로 변경
+   검색창 오른쪽 kbd를 검색 버튼처럼 동작하게 설정
 ========================================================= */
 
-if (searchButton) {
-  searchButton.textContent = "검색";
-  searchButton.setAttribute("role", "button");
-  searchButton.setAttribute("tabindex", "0");
-  searchButton.setAttribute("aria-label", "지원제도 검색");
-
-  searchButton.style.cursor = "pointer";
-  searchButton.style.userSelect = "none";
-
-  searchButton.addEventListener("click", () => {
-    runSearch();
-  });
-
-  searchButton.addEventListener("keydown", (event) => {
-    if (
-      event.key === "Enter" ||
-      event.key === " "
-    ) {
-      event.preventDefault();
-      runSearch();
-    }
-  });
-}
-
-/* =========================================================
-   이벤트
-========================================================= */
-
-searchForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  runSearch();
-});
-
-searchInput.addEventListener("input", () => {
-  const query = searchInput.value.trim();
-
-  state.query = query;
-
-  renderResources();
-  renderSuggestions(query);
-});
-
-searchInput.addEventListener("keydown", (event) => {
-  const items = [
-    ...suggestions.querySelectorAll(".search-suggestion")
-  ];
-
-  if (
-    suggestions.hidden ||
-    items.length === 0
-  ) {
+function setupSearchButton() {
+  if (!dom.searchButton) {
     return;
   }
 
-  if (event.key === "ArrowDown") {
-    event.preventDefault();
+  dom.searchButton.textContent = "검색";
+  dom.searchButton.setAttribute("role", "button");
+  dom.searchButton.setAttribute("tabindex", "0");
+  dom.searchButton.setAttribute("aria-label", "지원제도 검색");
+  dom.searchButton.style.cursor = "pointer";
+  dom.searchButton.style.userSelect = "none";
 
-    updateSuggestionSelection(
-      state.suggestionIndex + 1
-    );
+  dom.searchButton.addEventListener("click", runSearch);
+  dom.searchButton.addEventListener("keydown", handleSearchButtonKeydown);
+}
+
+function handleSearchButtonKeydown(event) {
+  if (event.key !== KEYBOARD_KEYS.enter && event.key !== KEYBOARD_KEYS.space) {
+    return;
   }
 
-  if (event.key === "ArrowUp") {
-    event.preventDefault();
+  event.preventDefault();
+  runSearch();
+}
 
-    updateSuggestionSelection(
-      state.suggestionIndex - 1
-    );
+/* =========================================================
+   이벤트 핸들러
+========================================================= */
+
+function bindEvents() {
+  dom.searchForm?.addEventListener("submit", handleSearchSubmit);
+  dom.searchInput?.addEventListener("input", handleSearchInput);
+  dom.searchInput?.addEventListener("keydown", handleSearchInputKeydown);
+  dom.suggestions?.addEventListener("click", handleSuggestionClick);
+  dom.tabs?.addEventListener("click", handleTabClick);
+  dom.tabs?.addEventListener("keydown", handleTabKeydown);
+  dom.grid?.addEventListener("click", handleResourceGridClick);
+  dom.featuredGrid?.addEventListener("click", handleFeaturedClick);
+  dom.recentList?.addEventListener("click", handleRecentClick);
+  dom.resetSearch?.addEventListener("click", resetFilters);
+  dom.dialog?.addEventListener("click", handleDialogBackdropClick);
+  document.addEventListener("keydown", handleDocumentKeydown);
+
+  document.querySelectorAll(SELECTORS.closeDialog).forEach((button) => {
+    button.addEventListener("click", closeDialog);
+  });
+}
+
+function handleSearchSubmit(event) {
+  event.preventDefault();
+  runSearch();
+}
+
+function handleSearchInput() {
+  const query = getSearchQuery();
+
+  state.query = query;
+  renderResources();
+  renderSuggestions(query);
+}
+
+function handleSearchInputKeydown(event) {
+  const items = getSuggestionItems();
+
+  if (dom.suggestions?.hidden || items.length === 0) {
+    return;
   }
 
-  if (
-    event.key === "Enter" &&
-    state.suggestionIndex >= 0
-  ) {
+  if (event.key === KEYBOARD_KEYS.arrowDown) {
     event.preventDefault();
-
-    selectSuggestion(
-      items[state.suggestionIndex]
-    );
+    updateSuggestionSelection(state.suggestionIndex + 1);
+    return;
   }
 
-  if (event.key === "Escape") {
+  if (event.key === KEYBOARD_KEYS.arrowUp) {
+    event.preventDefault();
+    updateSuggestionSelection(state.suggestionIndex - 1);
+    return;
+  }
+
+  if (event.key === KEYBOARD_KEYS.enter && state.suggestionIndex >= 0) {
+    event.preventDefault();
+    selectSuggestion(items[state.suggestionIndex]);
+    return;
+  }
+
+  if (event.key === KEYBOARD_KEYS.escape) {
     event.preventDefault();
     closeSuggestions();
   }
-});
+}
 
-suggestions.addEventListener("click", (event) => {
-  const item = event.target.closest(
-    ".search-suggestion"
-  );
+function handleSuggestionClick(event) {
+  selectSuggestion(event.target.closest(SELECTORS.suggestion));
+}
 
-  selectSuggestion(item);
-});
+function handleTabClick(event) {
+  const tab = event.target.closest(SELECTORS.tab);
 
-function updateSuggestionSelection(index) {
-  const items = [
-    ...suggestions.querySelectorAll(".search-suggestion")
+  if (tab) {
+    selectCategory(tab);
+  }
+}
+
+function handleTabKeydown(event) {
+  const allowedKeys = [
+    KEYBOARD_KEYS.arrowLeft,
+    KEYBOARD_KEYS.arrowRight,
+    KEYBOARD_KEYS.home,
+    KEYBOARD_KEYS.end
   ];
 
-  if (items.length === 0) {
-    state.suggestionIndex = -1;
+  if (!allowedKeys.includes(event.key)) {
     return;
   }
 
-  state.suggestionIndex =
-    (index + items.length) % items.length;
+  event.preventDefault();
 
-  items.forEach((item, itemIndex) => {
-    const isSelected =
-      itemIndex === state.suggestionIndex;
+  const tabs = getTabs();
+  if (tabs.length === 0) {
+    return;
+  }
 
-    item.setAttribute(
-      "aria-selected",
-      String(isSelected)
-    );
-  });
+  let index = tabs.indexOf(document.activeElement);
 
-  const selectedItem =
-    items[state.suggestionIndex];
+  if (index < 0) {
+    index = 0;
+  }
 
-  searchInput.setAttribute(
-    "aria-activedescendant",
-    selectedItem.id
-  );
+  if (event.key === KEYBOARD_KEYS.arrowRight) {
+    index = (index + 1) % tabs.length;
+  }
 
-  selectedItem.scrollIntoView({
-    block: "nearest"
-  });
+  if (event.key === KEYBOARD_KEYS.arrowLeft) {
+    index = (index - 1 + tabs.length) % tabs.length;
+  }
+
+  if (event.key === KEYBOARD_KEYS.home) {
+    index = 0;
+  }
+
+  if (event.key === KEYBOARD_KEYS.end) {
+    index = tabs.length - 1;
+  }
+
+  tabs[index].focus();
+  selectCategory(tabs[index]);
 }
 
-function selectSuggestion(item) {
-  if (!item) {
-    return;
-  }
-
-  const resource = resources.find(
-    (entry) =>
-      entry.id === item.dataset.resource
-  );
-
-  if (!resource) {
-    return;
-  }
-
-  searchInput.value = resource.title;
-  state.query = resource.title;
-
-  closeSuggestions();
-
-  openResource(
-    resource,
-    resource.pageUrl ? "open" : "preview"
-  );
-}
-
-document
-  .querySelector(".tabs")
-  .addEventListener("click", (event) => {
-    const tab = event.target.closest("[role='tab']");
-
-    if (tab) {
-      selectCategory(tab);
-    }
-  });
-
-document
-  .querySelector(".tabs")
-  .addEventListener("keydown", (event) => {
-
-    const allowedKeys = [
-      "ArrowLeft",
-      "ArrowRight",
-      "Home",
-      "End"
-    ];
-
-    if (!allowedKeys.includes(event.key)) {
-      return;
-    }
-
-    event.preventDefault();
-
-    const tabs = [
-      ...document.querySelectorAll("[role='tab']")
-    ];
-
-    let index = tabs.indexOf(
-      document.activeElement
-    );
-
-    if (event.key === "ArrowRight") {
-      index = (index + 1) % tabs.length;
-    }
-
-    if (event.key === "ArrowLeft") {
-      index =
-        (index - 1 + tabs.length) %
-        tabs.length;
-    }
-
-    if (event.key === "Home") {
-      index = 0;
-    }
-
-    if (event.key === "End") {
-      index = tabs.length - 1;
-    }
-
-    tabs[index].focus();
-    selectCategory(tabs[index]);
-  });
-
-grid.addEventListener("click", (event) => {
-  const actionButton =
-    event.target.closest("[data-action]");
+function handleResourceGridClick(event) {
+  const actionButton = event.target.closest(SELECTORS.action);
 
   if (!actionButton) {
+    if (event.target.closest("[data-missing-pdf]")) {
+      event.preventDefault();
+    }
     return;
   }
 
-  const card =
-    actionButton.closest(".resource-card");
+  const card = actionButton.closest(SELECTORS.resourceCard);
+  const resourceId = card?.dataset?.id;
+  const resource = resourceId ? resourceById.get(resourceId) : null;
 
-  if (!card) {
-    return;
+  openResource(resource, actionButton.dataset.action);
+}
+
+function handleFeaturedClick(event) {
+  const card = event.target.closest(SELECTORS.resourceTarget);
+  const resource = getResourceFromElement(card);
+
+  openResource(resource, resource?.pageUrl ? ACTIONS.open : ACTIONS.preview);
+}
+
+function handleRecentClick(event) {
+  const item = event.target.closest(SELECTORS.resourceTarget);
+  const resource = getResourceFromElement(item);
+
+  openResource(resource, resource?.pageUrl ? ACTIONS.open : ACTIONS.preview);
+}
+
+function closeDialog() {
+  if (dom.dialog?.open) {
+    dom.dialog.close();
   }
+}
 
-  const resource = resources.find(
-    (item) => item.id === card.dataset.id
-  );
-
-  openResource(
-    resource,
-    actionButton.dataset.action
-  );
-});
-
-featuredGrid.addEventListener("click", (event) => {
-  const card =
-    event.target.closest("[data-resource]");
-
-  if (!card) {
-    return;
+function handleDialogBackdropClick(event) {
+  if (event.target === dom.dialog) {
+    closeDialog();
   }
+}
 
-  const resource = resources.find(
-    (item) =>
-      item.id === card.dataset.resource
-  );
+function handleDocumentKeydown(event) {
+  const activeTag = document.activeElement?.tagName || "";
+  const isTyping = /^(INPUT|TEXTAREA|SELECT)$/.test(activeTag);
 
-  openResource(
-    resource,
-    resource.pageUrl ? "open" : "preview"
-  );
-});
-
-recentList.addEventListener("click", (event) => {
-  const item =
-    event.target.closest("[data-resource]");
-
-  if (!item) {
-    return;
-  }
-
-  const resource = resources.find(
-    (entry) =>
-      entry.id === item.dataset.resource
-  );
-
-  openResource(
-    resource,
-    resource.pageUrl ? "open" : "preview"
-  );
-});
-
-document
-  .querySelector("#reset-search")
-  .addEventListener("click", resetFilters);
-
-document
-  .querySelectorAll("[data-close-dialog]")
-  .forEach((button) => {
-    button.addEventListener("click", () => {
-      dialog.close();
-    });
-  });
-
-dialog.addEventListener("click", (event) => {
-  if (event.target === dialog) {
-    dialog.close();
-  }
-});
-
-document.addEventListener("keydown", (event) => {
-  const activeTag =
-    document.activeElement?.tagName || "";
-
-  const isTyping =
-    /^(INPUT|TEXTAREA|SELECT)$/.test(activeTag);
-
-  if (
-    event.key === "/" &&
-    !isTyping &&
-    !dialog.open
-  ) {
+  if (event.key === KEYBOARD_KEYS.searchFocus && !isTyping && !dom.dialog?.open) {
     event.preventDefault();
-    searchInput.focus();
+    dom.searchInput?.focus();
+    return;
   }
 
   if (
-    event.key === "Escape" &&
-    document.activeElement === searchInput &&
-    searchInput.value
+    event.key === KEYBOARD_KEYS.escape &&
+    document.activeElement === dom.searchInput &&
+    dom.searchInput?.value
   ) {
     state.query = "";
-    searchInput.value = "";
+    dom.searchInput.value = "";
     renderResources();
+    closeSuggestions();
   }
-});
+}
 
 /* =========================================================
-   처음 화면 실행
+   초기 실행
 ========================================================= */
 
-renderFeatured();
-renderResources();
-renderRecent();
+function init() {
+  setupSearchButton();
+  bindEvents();
+  renderFeatured();
+  renderResources();
+  renderRecent();
+
+  if (!dom.resultCount) {
+    return;
+  }
+
+  if (!resources.length) {
+    dom.resultCount.textContent = EMPTY_RESOURCE_COUNT_TEXT;
+  }
+}
+
+init();
