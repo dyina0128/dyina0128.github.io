@@ -3828,7 +3828,7 @@ body.download-center-page {
 }
 
 .region-card {
-    min-height: 96px;
+    min-height: 80px;
     padding: 18px;
     display: flex;
     flex-direction: column;
@@ -3885,10 +3885,12 @@ body.download-center-page {
 }
 
 .region-card.disabled small {
-    padding: 5px 9px;
-    color: #7a879a;
-    background: #e9eef4;
+    padding: 6px 12px;
+    color: #475569;
+    background: #eef2f7;
+    border: 1px solid #d9e2ec;
     border-radius: 999px;
+    font-weight: 700;
 }
 
 
