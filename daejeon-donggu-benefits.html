@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>2026 대전광역시 지원금 총정리 | 청년월세·미래두배통장·출산·소상공인</title>
+    <title>2026 대전 동구 지원금 총정리 | 청년·주거·출산·일자리·소상공인 지원</title>
 
     <meta name="description"
-          content="2026년 대전광역시 청년월세 지원, 미래두배 청년통장, 청년 주거·네트워크, 출산·돌봄, 창업·소상공인 지원 정보를 한눈에 확인하세요.">
+          content="2026년 대전광역시 동구 청년, 주거, 출산·육아, 취업·일자리, 창업, 소상공인 지원정보를 한눈에 확인하세요.">
 
     <meta name="keywords"
-          content="2026 대전 지원금, 대전 청년월세, 대전 미래두배 청년통장, 대전 청년 주거지원, 대전 출산지원, 대전 소상공인 지원, 대전 창업지원">
+          content="2026 대전 동구 지원금, 대전 동구 청년지원, 대전 동구 주거지원, 대전 동구 출산지원, 대전 동구 일자리, 대전 동구 창업지원, 대전 동구 소상공인">
 
     <meta name="robots" content="index, follow">
 
     <link rel="canonical"
-          href="https://dyina0128.github.io/benefit-guide/daejeon-benefits.html">
+          href="https://dyina0128.github.io/daejeon-donggu-benefits.html">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="2026 대전광역시 지원금 총정리">
+    <meta property="og:title" content="2026 대전 동구 지원금 총정리">
     <meta property="og:description"
-          content="대전광역시의 청년·주거·출산·돌봄·창업·소상공인 지원을 분야별로 확인하세요.">
+          content="대전 동구의 청년·주거·출산·일자리·창업·소상공인 지원정보를 확인하세요.">
     <meta property="og:url"
-          content="https://dyina0128.github.io/benefit-guide/daejeon-benefits.html">
+          content="https://dyina0128.github.io/daejeon-donggu-benefits.html">
 
     <link rel="stylesheet" href="style.css">
 
@@ -108,8 +108,17 @@
 
         .intro-box p,
         .content-section p,
-        .source-box p {
-            margin: 12px 0;
+        .source-box p { margin: 12px 0; }
+
+        .section-badge {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 5px 10px;
+            color: #075985;
+            font-size: 0.78rem;
+            font-weight: 700;
+            background: #e0f2fe;
+            border-radius: 999px;
         }
 
         .quick-menu {
@@ -129,6 +138,8 @@
             border: 1px solid #cce7f2;
             border-radius: 999px;
         }
+
+        .quick-menu a:hover { background: #dff3fa; }
 
         .status-box {
             margin: 22px 0;
@@ -216,7 +227,6 @@
         }
 
         .policy-info div:last-child { margin-bottom: 0; }
-
         .policy-info strong { color: #31546b; }
 
         .button-group,
@@ -294,6 +304,31 @@
 
         .faq-item p { margin: 0; }
 
+        .region-links {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .region-link {
+            display: block;
+            padding: 16px 10px;
+            color: #126e91;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            background: #f5fbfe;
+            border: 1px solid #dcebf2;
+            border-radius: 10px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .region-link:hover {
+            transform: translateY(-2px);
+            border-color: #79c3df;
+        }
+
         .source-box ul {
             margin-bottom: 0;
             padding-left: 22px;
@@ -334,82 +369,6 @@
             text-decoration: none;
         }
 
-
-        /* 대전광역시 5개 자치구 바로가기 */
-        .region-grid-section {
-            margin: 28px 0;
-            padding: 26px;
-            background: #f8fbff;
-            border: 1px solid #dceaf3;
-            border-radius: 16px;
-        }
-
-        .region-section-heading { margin-bottom: 20px; }
-
-        .region-section-heading h2 {
-            margin: 10px 0 8px;
-            padding: 0;
-            color: #1e3a5f;
-            font-size: 1.45rem;
-            line-height: 1.4;
-            border-left: 0;
-        }
-
-        .region-section-heading p {
-            margin: 0;
-            color: #64748b;
-        }
-
-        .section-badge {
-            display: inline-block;
-            padding: 5px 10px;
-            font-size: 0.78rem;
-            font-weight: 700;
-            border-radius: 999px;
-        }
-
-        .section-badge.blue {
-            color: #075985;
-            background: #e0f2fe;
-        }
-
-        .region-grid {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: 12px;
-        }
-
-        .region-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 105px;
-            padding: 18px 14px;
-            text-align: center;
-            text-decoration: none;
-            background: #ffffff;
-            border: 1px solid #dce8ee;
-            border-radius: 12px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-        }
-
-        .region-card:hover {
-            transform: translateY(-3px);
-            border-color: #79c3df;
-            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-        }
-
-        .region-card strong {
-            margin-bottom: 5px;
-            color: #126e91;
-            font-size: 1.08rem;
-        }
-
-        .region-card span {
-            color: #64748b;
-            font-size: 0.82rem;
-        }
-
         @media (max-width: 760px) {
             .page-header { padding: 40px 18px; }
             .page-header h1 { font-size: 1.65rem; }
@@ -421,9 +380,7 @@
             .policy-grid { grid-template-columns: 1fr; }
             .button-group, .bottom-buttons { flex-direction: column; }
             .btn { width: 100%; }
-            .region-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .region-grid-section { padding: 20px 15px; }
-            .region-card { min-height: 90px; padding: 15px 10px; }
+            .region-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
     </style>
 
@@ -431,13 +388,13 @@
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "2026 대전광역시 지원금 총정리",
-        "description": "대전 청년월세, 미래두배 청년통장, 출산돌봄, 창업과 소상공인 지원 안내",
+        "headline": "2026 대전광역시 동구 지원금 총정리",
+        "description": "대전 동구 청년, 주거, 출산육아, 일자리, 창업 및 소상공인 지원정보",
         "inLanguage": "ko-KR",
         "dateModified": "2026-08-08",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://dyina0128.github.io/benefit-guide/daejeon-benefits.html"
+            "@id": "https://dyina0128.github.io/daejeon-donggu-benefits.html"
         }
     }
     </script>
@@ -446,87 +403,51 @@
 <body>
 
 <header class="page-header">
-    <h1>🔬 2026년 대전광역시 지원금 총정리</h1>
-
+    <h1>✨ 2026년 대전 동구 지원금 총정리</h1>
     <p>
-        청년월세·미래두배 청년통장·주거·출산돌봄·
-        창업과 소상공인 지원을 분야별로 확인하세요.
+        청년·주거·출산육아·취업·창업·소상공인까지
+        대전광역시 동구에서 확인해야 할 주요 지원정보를 정리했습니다.
     </p>
 </header>
 
 <nav class="top-nav" aria-label="주요 메뉴">
     <a href="index.html">메인</a>
+    <a href="daejeon-benefits.html">대전 지원정보</a>
     <a href="youth-policy-list.html">청년정책</a>
     <a href="about.html">사이트 소개</a>
     <a href="contact.html">문의하기</a>
     <a href="privacy.html">개인정보처리방침</a>
-    <a href="terms.html">이용약관</a>
 </nav>
 
 <main class="container">
 
     <section class="intro-box">
-        <h2>대전광역시 지원제도, 어디서 찾을까요?</h2>
+        <span class="section-badge">대전 동구 지원정보</span>
+
+        <h2>대전 동구 지원제도, 어디서 찾아야 할까요?</h2>
 
         <p>
-            대전시는 청년, 무주택 가구, 임산부와 양육가정,
-            구직자, 예비창업자와 소상공인을 위한 다양한 지원사업을 운영합니다.
+            대전 동구 주민은 대전광역시 전체 지원사업과 함께
+            동구에서 별도로 운영하는 복지·청년·일자리·창업·소상공인 사업을
+            함께 확인하는 것이 좋습니다.
         </p>
 
         <p>
-            대전시 전체 사업과 함께 동구·중구·서구·유성구·대덕구의
-            추가지원도 함께 확인하면 더 많은 혜택을 찾을 수 있습니다.
+            특히 모집형 사업은 접수기간과 예산이 정해져 있어
+            같은 2026년 사업이라도 8월 현재 접수가 끝났거나
+            다음 차수 공고를 기다려야 할 수 있습니다.
         </p>
-
-
-        <!-- 대전광역시 5개 자치구 바로가기 -->
-        <section class="region-grid-section">
-            <div class="region-section-heading">
-                <div>
-                    <span class="section-badge blue">지역별 지원정보</span>
-                    <h2>📍 대전광역시 5개 자치구 지원정보</h2>
-                    <p>
-                        거주하고 있는 자치구를 선택하면 해당 지역의
-                        청년·주거·출산·일자리·창업·소상공인 지원정보를 확인할 수 있습니다.
-                    </p>
-                </div>
-            </div>
-
-            <div class="region-grid">
-                <a href="daejeon-donggu-benefits.html" class="region-card">
-                    <strong>동구</strong>
-                    <span>지원정보 보기 →</span>
-                </a>
-
-                <a href="daejeon-junggu-benefits.html" class="region-card">
-                    <strong>중구</strong>
-                    <span>지원정보 보기 →</span>
-                </a>
-
-                <a href="daejeon-seogu-benefits.html" class="region-card">
-                    <strong>서구</strong>
-                    <span>지원정보 보기 →</span>
-                </a>
-
-                <a href="daejeon-yuseonggu-benefits.html" class="region-card">
-                    <strong>유성구</strong>
-                    <span>지원정보 보기 →</span>
-                </a>
-
-                <a href="daejeon-daedeokgu-benefits.html" class="region-card">
-                    <strong>대덕구</strong>
-                    <span>지원정보 보기 →</span>
-                </a>
-            </div>
-        </section>
 
         <div class="status-box">
-            <strong>2026년 핵심 확인사항</strong>
-
+            <strong>📌 2026년 8월 8일 기준 확인 포인트</strong>
             <p>
-                청년월세 지원은 2026년부터 계속사업으로 전환됐으며,
-                소상공인 경영회복 지원과 초저금리 특별자금은
-                접수기간과 예산 소진 여부를 반드시 확인해야 합니다.
+                대전시 청년월세, 미래두배 청년통장, 청년 주거지원,
+                출산·돌봄, 소상공인 금융지원과 함께
+                동구청에서 별도로 공고하는 지역사업을 확인하세요.
+            </p>
+            <p>
+                동구 자체 사업의 구체적인 지원금액과 모집기간은
+                최신 동구청 공고문을 기준으로 확인하는 것이 안전합니다.
             </p>
         </div>
 
@@ -542,14 +463,14 @@
     </section>
 
     <section class="content-section" id="youth">
-        <h2>1. 대전 청년 지원</h2>
+        <h2>1. 대전 동구 청년 지원</h2>
 
         <div class="policy-grid">
 
             <article class="policy-card">
                 <div class="card-top">
                     <h3>🏦 미래두배 청년통장</h3>
-                    <span class="badge badge-green">저축액 1:1 매칭</span>
+                    <span class="badge badge-green">대전시 공통</span>
                 </div>
 
                 <p>
@@ -561,47 +482,64 @@
                     <div><strong>저축 방식:</strong> 월 10만 원 또는 15만 원</div>
                     <div><strong>기간:</strong> 2년 또는 3년</div>
                     <div><strong>지원:</strong> 본인 저축액과 동일한 금액 매칭</div>
-                    <div><strong>신청:</strong> 연 1회 모집공고 확인</div>
+                    <div><strong>신청:</strong> 해당 연도 모집공고 확인</div>
                 </div>
 
                 <div class="button-group">
-                    <a href="https://www.daejeon.go.kr/drh/open/drhDataOpen/drhDataOpenBoardView.do?boardSeq=1909&menuSeq=1449"
+                    <a href="https://www.daejeon.go.kr/"
                        class="btn"
                        target="_blank"
-                       rel="noopener noreferrer">
-                        공식 안내 확인
-                    </a>
-
-                    <a href="youth-account-guide.html" class="btn btn-light">
-                        청년 자산형성 가이드
-                    </a>
+                       rel="noopener noreferrer">대전시 확인</a>
                 </div>
             </article>
 
             <article class="policy-card">
                 <div class="card-top">
-                    <h3>🤝 청년 네트워크 활성화 지원</h3>
-                    <span class="badge badge-check">연도별 모집</span>
+                    <h3>🤝 청년 네트워크·활동 지원</h3>
+                    <span class="badge badge-check">공고별 모집</span>
                 </div>
 
                 <p>
-                    대전 청년들이 공통 관심사를 바탕으로
-                    협업 프로젝트와 교류활동을 진행하도록 지원합니다.
+                    대전 청년의 커뮤니티 활동과 프로젝트,
+                    지역 참여를 지원하는 청년정책을 확인할 수 있습니다.
                 </p>
 
                 <div class="policy-info">
-                    <div><strong>지원:</strong> 청년 프로젝트·커뮤니티 활동</div>
-                    <div><strong>대상:</strong> 대전 청년단체와 참여청년</div>
-                    <div><strong>신청:</strong> 대전청년내일재단 모집공고 확인</div>
+                    <div><strong>지원:</strong> 청년 프로젝트·교류활동 등</div>
+                    <div><strong>대상:</strong> 대전 청년 및 청년단체 등</div>
+                    <div><strong>확인:</strong> 대전청년포털·대전시 공고</div>
                 </div>
 
                 <div class="button-group">
-                    <a href="https://www.daejeon.go.kr/drh/depart/board/boardNormalView.do?boardId=normal_0096&menuSeq=1480&ntatcSeq=1507819223&pageIndex=1"
+                    <a href="https://www.daejeonyouthportal.kr/"
                        class="btn"
                        target="_blank"
-                       rel="noopener noreferrer">
-                        2026 공고 확인
-                    </a>
+                       rel="noopener noreferrer">대전청년포털</a>
+                </div>
+            </article>
+
+            <article class="policy-card">
+                <div class="card-top">
+                    <h3>📚 동구 청년 취업준비 지원</h3>
+                    <span class="badge">동구 공고 확인</span>
+                </div>
+
+                <p>
+                    동구 청년을 대상으로 하는 취업교육·상담·자격증·
+                    지역 일자리 연계 사업은 연도별 공고를 확인하세요.
+                </p>
+
+                <div class="policy-info">
+                    <div><strong>분야:</strong> 취업교육·상담·직무역량</div>
+                    <div><strong>대상:</strong> 개별 사업의 청년 요건 충족자</div>
+                    <div><strong>신청:</strong> 동구청 최신 공고 확인</div>
+                </div>
+
+                <div class="button-group">
+                    <a href="https://www.donggu.go.kr/"
+                       class="btn"
+                       target="_blank"
+                       rel="noopener noreferrer">동구청 확인</a>
                 </div>
             </article>
 
@@ -609,7 +547,7 @@
     </section>
 
     <section class="content-section" id="housing">
-        <h2>2. 대전 청년·신혼부부 주거지원</h2>
+        <h2>2. 대전 동구 주거 지원</h2>
 
         <div class="policy-grid">
 
@@ -621,27 +559,24 @@
 
                 <p>
                     부모와 별도로 거주하는 무주택 청년의
-                    월세 부담을 줄이기 위한 계속사업입니다.
+                    월세 부담을 줄이기 위한 대전시 주거지원입니다.
                 </p>
 
                 <div class="policy-info">
                     <div><strong>대상:</strong> 만 19~34세 무주택 청년</div>
                     <div><strong>지원:</strong> 월 최대 20만 원</div>
                     <div><strong>기간:</strong> 최대 24개월</div>
-                    <div><strong>소득:</strong> 청년가구 중위소득 60% 이하 등</div>
+                    <div><strong>주의:</strong> 소득·주거 요건 확인</div>
                 </div>
 
                 <div class="button-group">
-                    <a href="https://www.daejeon.go.kr/drh/depart/board/boardNormalView.do?boardId=normal_0189&menuSeq=1632&ntatcSeq=1510391837&pageIndex=5"
+                    <a href="https://www.daejeon.go.kr/"
                        class="btn"
                        target="_blank"
-                       rel="noopener noreferrer">
-                        2026 공식 안내
-                    </a>
+                       rel="noopener noreferrer">대전시 확인</a>
 
-                    <a href="youth-rent-guide.html" class="btn btn-light">
-                        청년월세 가이드
-                    </a>
+                    <a href="youth-rent-guide.html"
+                       class="btn btn-light">청년월세 가이드</a>
                 </div>
             </article>
 
@@ -653,7 +588,7 @@
 
                 <p>
                     무주택 청년의 전·월세 임차보증금 대출이자 부담을
-                    낮춰 안정적인 주거 정착을 돕습니다.
+                    낮춰 안정적인 주거 정착을 돕는 사업입니다.
                 </p>
 
                 <div class="policy-info">
@@ -666,44 +601,35 @@
                     <a href="https://www.daejeon.go.kr/"
                        class="btn"
                        target="_blank"
-                       rel="noopener noreferrer">
-                        대전시 공고 확인
-                    </a>
+                       rel="noopener noreferrer">주거정책 확인</a>
 
-                    <a href="youth-jeonse-loan.html" class="btn btn-light">
-                        전세대출 가이드
-                    </a>
+                    <a href="youth-jeonse-loan.html"
+                       class="btn btn-light">전세대출 가이드</a>
                 </div>
             </article>
 
             <article class="policy-card">
                 <div class="card-top">
-                    <h3>🏢 대전형 임대주택</h3>
-                    <span class="badge">수시 공고</span>
+                    <h3>🏢 공공임대·대전형 임대주택</h3>
+                    <span class="badge">입주공고 확인</span>
                 </div>
 
                 <p>
-                    청년과 신혼부부 등 주거취약계층을 위한
-                    공공임대와 대전형 임대주택 정보를 확인합니다.
+                    청년·신혼부부·주거취약계층은
+                    공공임대와 행복주택 등 입주자 모집공고를 확인하세요.
                 </p>
 
                 <div class="policy-info">
                     <div><strong>대상:</strong> 청년·신혼부부·주거취약계층</div>
                     <div><strong>지원:</strong> 공공임대·행복주택 등</div>
-                    <div><strong>신청:</strong> 개별 입주자 모집공고 확인</div>
+                    <div><strong>신청:</strong> 개별 입주자 모집공고</div>
                 </div>
 
                 <div class="button-group">
                     <a href="https://www.dcco.kr/"
                        class="btn"
                        target="_blank"
-                       rel="noopener noreferrer">
-                        대전도시공사 확인
-                    </a>
-
-                    <a href="housing-benefit.html" class="btn btn-light">
-                        주거지원 가이드
-                    </a>
+                       rel="noopener noreferrer">대전도시공사 확인</a>
                 </div>
             </article>
 
@@ -711,24 +637,24 @@
     </section>
 
     <section class="content-section" id="family">
-        <h2>3. 대전 출산·육아·돌봄 지원</h2>
+        <h2>3. 대전 동구 출산·육아·돌봄 지원</h2>
 
         <div class="policy-grid">
 
             <article class="policy-card">
                 <div class="card-top">
                     <h3>👶 대전형 양육기본수당</h3>
-                    <span class="badge badge-check">연령·거주요건 확인</span>
+                    <span class="badge badge-green">대전시 공통</span>
                 </div>
 
                 <p>
                     영유아 양육가정의 경제적 부담을 덜기 위해
-                    대전시가 운영하는 지역형 양육지원입니다.
+                    대전시에서 운영하는 지역형 양육지원입니다.
                 </p>
 
                 <div class="policy-info">
                     <div><strong>대상:</strong> 대전 거주 영유아 양육가정</div>
-                    <div><strong>지원:</strong> 연령과 거주요건에 따른 수당</div>
+                    <div><strong>지원:</strong> 연령·거주요건에 따른 수당</div>
                     <div><strong>신청:</strong> 주소지 행정복지센터 등</div>
                 </div>
 
@@ -736,40 +662,53 @@
                     <a href="https://www.daejeon.go.kr/"
                        class="btn"
                        target="_blank"
-                       rel="noopener noreferrer">
-                        출산·양육 안내
-                    </a>
+                       rel="noopener noreferrer">대전시 확인</a>
 
-                    <a href="birth-child.html" class="btn btn-light">
-                        출산·육아 가이드
-                    </a>
+                    <a href="birth-child.html"
+                       class="btn btn-light">출산·육아 가이드</a>
                 </div>
             </article>
 
             <article class="policy-card">
                 <div class="card-top">
-                    <h3>🧸 다함께돌봄 원스톱 지원</h3>
+                    <h3>🤰 임신·출산 건강지원</h3>
+                    <span class="badge">대상별 지원</span>
+                </div>
+
+                <p>
+                    임신·출산 과정에서 필요한 건강관리와 의료비,
+                    산모·신생아 건강관리 등 지원을 확인할 수 있습니다.
+                </p>
+
+                <div class="policy-info">
+                    <div><strong>분야:</strong> 임신·출산·산후 건강관리</div>
+                    <div><strong>신청:</strong> 보건소·행정복지센터</div>
+                    <div><strong>추가:</strong> 동구 자체 출산·양육사업 확인</div>
+                </div>
+
+                <div class="button-group">
+                    <a href="https://www.donggu.go.kr/"
+                       class="btn"
+                       target="_blank"
+                       rel="noopener noreferrer">동구청 확인</a>
+                </div>
+            </article>
+
+            <article class="policy-card">
+                <div class="card-top">
+                    <h3>🧸 돌봄 지원</h3>
                     <span class="badge">돌봄 통합안내</span>
                 </div>
 
                 <p>
-                    돌봄기관 검색부터 예약과 체험정보까지
-                    양육가정이 필요한 서비스를 한곳에서 확인합니다.
+                    아동과 양육가정은 지역 돌봄기관과
+                    아이돌봄·다함께돌봄 등 관련 서비스를 확인할 수 있습니다.
                 </p>
 
                 <div class="policy-info">
-                    <div><strong>지원:</strong> 돌봄기관·체험기관·의료정보</div>
+                    <div><strong>지원:</strong> 돌봄기관·서비스 안내</div>
                     <div><strong>대상:</strong> 아동과 양육가정</div>
-                    <div><strong>이용:</strong> 대전시 돌봄 통합안내 확인</div>
-                </div>
-
-                <div class="button-group">
-                    <a href="https://www.daejeon.go.kr/"
-                       class="btn"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        돌봄정보 확인
-                    </a>
+                    <div><strong>확인:</strong> 대전시·동구청·복지로</div>
                 </div>
             </article>
 
@@ -777,14 +716,14 @@
     </section>
 
     <section class="content-section" id="jobs">
-        <h2>4. 대전 취업·일자리 지원</h2>
+        <h2>4. 대전 동구 취업·일자리 지원</h2>
 
         <div class="policy-grid">
 
             <article class="policy-card">
                 <div class="card-top">
                     <h3>💼 대전 일자리카페 꿈터</h3>
-                    <span class="badge">월별 프로그램</span>
+                    <span class="badge">대전시 공통</span>
                 </div>
 
                 <p>
@@ -795,20 +734,17 @@
                 <div class="policy-info">
                     <div><strong>지원:</strong> 상담·특강·취업교육</div>
                     <div><strong>대상:</strong> 대전 청년 구직자</div>
-                    <div><strong>신청:</strong> 월별 프로그램 공고 확인</div>
+                    <div><strong>신청:</strong> 프로그램별 공고 확인</div>
                 </div>
 
                 <div class="button-group">
                     <a href="https://www.daejeon.go.kr/"
                        class="btn"
                        target="_blank"
-                       rel="noopener noreferrer">
-                        프로그램 확인
-                    </a>
+                       rel="noopener noreferrer">대전시 확인</a>
 
-                    <a href="job-support.html" class="btn btn-light">
-                        취업지원 가이드
-                    </a>
+                    <a href="job-support.html"
+                       class="btn btn-light">취업지원 가이드</a>
                 </div>
             </article>
 
@@ -819,8 +755,8 @@
                 </div>
 
                 <p>
-                    구직단념 청년의 자신감 회복과 취업 재진입을 위해
-                    상담·교육·참여수당 등을 지원합니다.
+                    구직단념 청년의 자신감 회복과 노동시장 재진입을 위해
+                    상담·교육·취업연계 등을 지원합니다.
                 </p>
 
                 <div class="policy-info">
@@ -833,9 +769,32 @@
                     <a href="https://www.work24.go.kr/"
                        class="btn"
                        target="_blank"
-                       rel="noopener noreferrer">
-                        고용24 확인
-                    </a>
+                       rel="noopener noreferrer">고용24 확인</a>
+                </div>
+            </article>
+
+            <article class="policy-card">
+                <div class="card-top">
+                    <h3>👷 동구 지역 일자리사업</h3>
+                    <span class="badge badge-check">공고별 모집</span>
+                </div>
+
+                <p>
+                    동구에서 별도로 운영하는 공공·지역 맞춤형 일자리 사업은
+                    모집기간과 참여조건이 사업마다 다릅니다.
+                </p>
+
+                <div class="policy-info">
+                    <div><strong>분야:</strong> 지역 일자리·공공일자리</div>
+                    <div><strong>대상:</strong> 사업별 조건 충족 주민</div>
+                    <div><strong>신청:</strong> 동구청 최신 모집공고</div>
+                </div>
+
+                <div class="button-group">
+                    <a href="https://www.donggu.go.kr/"
+                       class="btn"
+                       target="_blank"
+                       rel="noopener noreferrer">동구청 공고 확인</a>
                 </div>
             </article>
 
@@ -843,61 +802,57 @@
     </section>
 
     <section class="content-section" id="startup">
-        <h2>5. 대전 창업·기업 지원</h2>
+        <h2>5. 대전 동구 창업 지원</h2>
 
         <div class="policy-grid">
 
             <article class="policy-card">
                 <div class="card-top">
-                    <h3>🚀 청년내일가게 조성사업</h3>
-                    <span class="badge badge-check">청년단체 공모</span>
+                    <h3>🚀 청년 창업·지역상권 지원</h3>
+                    <span class="badge badge-check">공고별 모집</span>
                 </div>
 
                 <p>
-                    청년이 지역상권에서 창업과 활동을 이어갈 수 있도록
-                    공간과 프로젝트 운영을 지원합니다.
+                    예비·초기 창업자는 대전시와 동구에서 모집하는
+                    창업교육·공간·사업화·지역상권 연계 사업을 함께 확인하세요.
                 </p>
 
                 <div class="policy-info">
-                    <div><strong>지원:</strong> 공간·월세·운영 프로그램 등</div>
-                    <div><strong>대상:</strong> 공고요건을 충족한 청년단체</div>
-                    <div><strong>기간:</strong> 사업평가에 따라 연장 가능</div>
+                    <div><strong>분야:</strong> 창업교육·공간·사업화·상권연계</div>
+                    <div><strong>대상:</strong> 사업별 조건 충족 예비·초기 창업자</div>
+                    <div><strong>확인:</strong> 대전시·동구청 최신 공고</div>
                 </div>
 
                 <div class="button-group">
-                    <a href="https://www.daejeon.go.kr/drh/depart/board/boardNormalView.do?boardId=normal_0096&menuSeq=1480&ntatcSeq=1512421094&pageIndex=1"
+                    <a href="https://www.donggu.go.kr/"
                        class="btn"
                        target="_blank"
-                       rel="noopener noreferrer">
-                        2026 공고 확인
-                    </a>
+                       rel="noopener noreferrer">동구청 확인</a>
                 </div>
             </article>
 
             <article class="policy-card">
                 <div class="card-top">
                     <h3>🏭 중소기업 창업·경쟁력강화자금</h3>
-                    <span class="badge badge-check">상·하반기 공고</span>
+                    <span class="badge">대전시 공통</span>
                 </div>
 
                 <p>
-                    대전 중소기업의 창업과 시설투자,
-                    경쟁력 강화를 위한 정책자금을 지원합니다.
+                    대전 소재 중소기업의 창업과 시설투자,
+                    경쟁력 강화를 위한 정책자금을 확인할 수 있습니다.
                 </p>
 
                 <div class="policy-info">
                     <div><strong>지원:</strong> 창업·시설·경쟁력강화 자금</div>
                     <div><strong>대상:</strong> 대전 소재 중소기업</div>
-                    <div><strong>신청:</strong> 사업자금 공고 확인</div>
+                    <div><strong>신청:</strong> 해당 자금 공고 확인</div>
                 </div>
 
                 <div class="button-group">
-                    <a href="https://www.daejeon.go.kr/drh/drhGosiView.do?conifmenddt=2026-12-31&conifmstdt=2026-01-01&gosigbn=A&menuSeq=1908&pageIndex=1&sno=54085&title="
+                    <a href="https://www.daejeon.go.kr/"
                        class="btn"
                        target="_blank"
-                       rel="noopener noreferrer">
-                        2026 자금 공고
-                    </a>
+                       rel="noopener noreferrer">대전시 자금공고</a>
                 </div>
             </article>
 
@@ -905,89 +860,59 @@
     </section>
 
     <section class="content-section" id="small-business">
-        <h2>6. 대전 소상공인 지원</h2>
+        <h2>6. 대전 동구 소상공인 지원</h2>
 
         <div class="policy-grid">
 
             <article class="policy-card">
                 <div class="card-top">
-                    <h3>🏪 소상공인 경영회복 지원</h3>
-                    <span class="badge badge-green">업체당 최대 30만 원</span>
+                    <h3>🏪 동구 소상공인·전통시장 지원</h3>
+                    <span class="badge badge-check">공고별 모집</span>
                 </div>
 
                 <p>
-                    고물가·고금리로 어려움을 겪는 대전 소상공인의
-                    경영비용 부담을 덜기 위한 지원사업입니다.
+                    동구 소재 소상공인과 전통시장 사업자는
+                    경영안정·상권활성화·판로·시설개선 관련
+                    동구 자체 사업을 확인하세요.
                 </p>
 
                 <div class="policy-info">
-                    <div><strong>대상:</strong> 대전에서 사업장을 운영 중인 소상공인</div>
-                    <div><strong>매출 기준:</strong> 2025년 매출액 1억 400만 원 미만</div>
-                    <div><strong>지원:</strong> 업체당 최대 30만 원</div>
-                    <div><strong>주의:</strong> 지출증빙과 접수기간 확인</div>
+                    <div><strong>분야:</strong> 경영안정·상권·판로·시설개선 등</div>
+                    <div><strong>대상:</strong> 동구 소재 소상공인·시장상인 등</div>
+                    <div><strong>신청:</strong> 동구청 사업별 공고 확인</div>
                 </div>
 
                 <div class="button-group">
-                    <a href="https://www.sinbo.or.kr/sub04_01_01/view/id/4343"
+                    <a href="https://www.donggu.go.kr/"
                        class="btn"
                        target="_blank"
-                       rel="noopener noreferrer">
-                        공식 공고 확인
-                    </a>
+                       rel="noopener noreferrer">동구청 공고 확인</a>
                 </div>
             </article>
 
             <article class="policy-card">
                 <div class="card-top">
-                    <h3>💳 대전형 초저금리 특별자금</h3>
-                    <span class="badge badge-check">회차별 접수</span>
+                    <h3>💳 대전 소상공인 금융·보증 지원</h3>
+                    <span class="badge badge-green">대전시 공통</span>
                 </div>
 
                 <p>
-                    대전 소상공인의 금융비용을 줄이기 위해
-                    초저금리 특별자금과 보증을 연계합니다.
+                    운영자금이 필요한 소상공인은
+                    대전신용보증재단의 저금리 자금·보증·컨설팅 지원을
+                    함께 확인하는 것이 좋습니다.
                 </p>
 
                 <div class="policy-info">
-                    <div><strong>지원:</strong> 저금리 대출·신용보증</div>
-                    <div><strong>대상:</strong> 대전 소재 소상공인</div>
-                    <div><strong>신청:</strong> 회차별 공고와 접수일 확인</div>
+                    <div><strong>지원:</strong> 정책자금·신용보증·컨설팅</div>
+                    <div><strong>대상:</strong> 사업별 조건 충족 소상공인</div>
+                    <div><strong>주의:</strong> 회차별 접수·예산 소진 여부 확인</div>
                 </div>
 
                 <div class="button-group">
-                    <a href="https://www.sinbo.or.kr/sub02_06_05"
+                    <a href="https://www.sinbo.or.kr/"
                        class="btn"
                        target="_blank"
-                       rel="noopener noreferrer">
-                        특별자금 확인
-                    </a>
-                </div>
-            </article>
-
-            <article class="policy-card">
-                <div class="card-top">
-                    <h3>📈 경영지도 종합지원 패키지</h3>
-                    <span class="badge">교육·컨설팅·보증</span>
-                </div>
-
-                <p>
-                    예비창업자와 소상공인에게 교육,
-                    컨설팅·멘토링과 특례보증 연계를 제공합니다.
-                </p>
-
-                <div class="policy-info">
-                    <div><strong>대상:</strong> 대전 예비창업자와 소상공인</div>
-                    <div><strong>지원:</strong> 교육·컨설팅·멘토링</div>
-                    <div><strong>연계:</strong> 심사 후 최대 1억 원 특례보증 가능</div>
-                </div>
-
-                <div class="button-group">
-                    <a href="https://www.sinbo.or.kr/main"
-                       class="btn"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        대전신용보증재단
-                    </a>
+                       rel="noopener noreferrer">대전신용보증재단</a>
                 </div>
             </article>
 
@@ -998,22 +923,23 @@
         <h2>7. 신청 전 확인할 사항</h2>
 
         <ul class="check-list">
-            <li>신청일 현재 대전광역시 주민등록과 거주기간</li>
-            <li>연령과 취업·재직·사업자등록 상태</li>
+            <li>신청일 현재 대전 동구 주민등록과 실제 거주 여부</li>
+            <li>연령 기준</li>
+            <li>취업·재직 상태</li>
             <li>가구소득과 재산기준</li>
             <li>무주택 여부와 임대차계약 조건</li>
-            <li>근무 또는 사업장의 대전 소재 여부</li>
-            <li>자치구별 추가지원 여부</li>
-            <li>중앙정부·대전시 유사사업 중복 제한</li>
-            <li>접수기간과 제출서류</li>
+            <li>사업자등록 및 사업장 소재지</li>
+            <li>대전시 사업과 동구 사업의 중복지원 제한</li>
+            <li>8월 현재 모집 중인지 또는 접수가 종료됐는지 여부</li>
+            <li>신청에 필요한 제출서류</li>
         </ul>
 
         <div class="tip-box">
-            <strong>대전은 자치구별 지원도 확인하세요.</strong>
-
+            <strong>💡 대전시와 동구청 공고를 함께 확인하세요.</strong>
             <p>
-                출산지원, 청년사업, 창업지원과 소상공인 정책은
-                동구·중구·서구·유성구·대덕구에서 별도로 운영될 수 있습니다.
+                대전시 전체 지원사업과 동구 자체 사업은
+                신청대상과 모집기간이 서로 다를 수 있습니다.
+                두 곳의 공고를 함께 확인하면 놓치는 혜택을 줄일 수 있습니다.
             </p>
         </div>
     </section>
@@ -1022,50 +948,65 @@
         <h2>8. 자주 묻는 질문</h2>
 
         <div class="faq-item">
-            <h3>Q. 대전 청년월세는 얼마나 받을 수 있나요?</h3>
+            <h3>Q. 대전 동구 주민도 청년월세 지원을 신청할 수 있나요?</h3>
             <p>
-                2026년 공식 안내 기준 월 최대 20만 원씩 최대 24개월간 지원됩니다.
+                대전시 청년월세 사업의 연령·소득·주거 요건을 충족하면
+                동구 주민도 신청 대상이 될 수 있습니다.
             </p>
         </div>
 
         <div class="faq-item">
-            <h3>Q. 미래두배 청년통장은 어떻게 적립되나요?</h3>
+            <h3>Q. 미래두배 청년통장도 동구 주민이 신청할 수 있나요?</h3>
             <p>
-                청년이 월 10만 원 또는 15만 원을 2년이나 3년간 저축하면
-                대전시가 같은 금액을 추가 적립하는 구조입니다.
+                대전시 거주 청년을 대상으로 하는 사업이므로
+                동구 주민도 해당 연도 모집조건을 충족하면 신청할 수 있습니다.
             </p>
         </div>
 
         <div class="faq-item">
-            <h3>Q. 대전에 직장만 있고 다른 지역에 살면 신청 가능한가요?</h3>
+            <h3>Q. 동구에서만 따로 모집하는 사업도 있나요?</h3>
             <p>
-                주민등록상 대전 거주를 요구하는 사업이 많아
-                근무지만 대전인 경우 제한될 수 있습니다.
+                네. 지역 일자리, 복지, 출산·양육, 소상공인·상권 관련 사업은
+                동구청에서 별도로 공고되는 경우가 있습니다.
             </p>
         </div>
 
         <div class="faq-item">
-            <h3>Q. 대전형 양육기본수당은 누구나 받을 수 있나요?</h3>
+            <h3>Q. 2026년 사업이면 지금 8월에도 신청할 수 있나요?</h3>
             <p>
-                아동의 연령과 대전 거주기간 등 사업요건을 충족해야 하므로
-                최신 안내를 확인해야 합니다.
+                반드시 그렇지는 않습니다. 연중사업도 있지만
+                상반기에 접수가 끝난 사업이나 차수별로 모집하는 사업도 있으므로
+                최신 공고의 접수기간을 확인해야 합니다.
             </p>
         </div>
 
         <div class="faq-item">
-            <h3>Q. 소상공인 경영회복 지원은 자동 지급되나요?</h3>
+            <h3>Q. 대전시 지원과 동구 지원을 동시에 받을 수 있나요?</h3>
             <p>
-                아닙니다. 매출액과 사업장 요건을 충족하고
-                경영비용 지출증빙을 제출해 신청해야 합니다.
+                서로 목적이 다른 사업은 함께 이용할 수 있는 경우도 있지만,
+                동일 목적의 현금성 지원이나 비용지원은 중복 제한이 있을 수 있습니다.
             </p>
         </div>
 
         <div class="faq-item">
-            <h3>Q. 초저금리 특별자금은 언제든 신청할 수 있나요?</h3>
+            <h3>Q. 소상공인 사업은 어디서 확인하는 게 좋나요?</h3>
             <p>
-                회차별로 접수하며 조기 마감될 수 있으므로
-                대전신용보증재단 공고를 확인해야 합니다.
+                동구청의 지역사업과 대전신용보증재단의 금융·보증사업을
+                함께 확인하는 것이 좋습니다.
             </p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>📍 대전 다른 자치구 지원정보</h2>
+        <p>대전광역시 다른 자치구의 지원정보도 확인할 수 있습니다.</p>
+
+        <div class="region-links">
+            <a href="daejeon-donggu-benefits.html" class="region-link">동구</a>
+            <a href="daejeon-junggu-benefits.html" class="region-link">중구</a>
+            <a href="daejeon-seogu-benefits.html" class="region-link">서구</a>
+            <a href="daejeon-yuseonggu-benefits.html" class="region-link">유성구</a>
+            <a href="daejeon-daedeokgu-benefits.html" class="region-link">대덕구</a>
         </div>
     </section>
 
@@ -1074,74 +1015,59 @@
 
         <ul>
             <li>
+                <a href="https://www.donggu.go.kr/"
+                   target="_blank"
+                   rel="noopener noreferrer">대전광역시 동구청</a>
+                — 동구 복지·일자리·지역경제·고시공고
+            </li>
+
+            <li>
                 <a href="https://www.daejeon.go.kr/"
                    target="_blank"
-                   rel="noopener noreferrer">
-                    대전광역시청
-                </a>
-                — 시정·청년·주거·출산·공고
+                   rel="noopener noreferrer">대전광역시청</a>
+                — 대전시 청년·주거·출산·일자리·공고
             </li>
 
             <li>
                 <a href="https://www.daejeonyouthportal.kr/"
                    target="_blank"
-                   rel="noopener noreferrer">
-                    대전청년포털
-                </a>
+                   rel="noopener noreferrer">대전청년포털</a>
                 — 청년정책·활동·일자리·주거
             </li>
 
             <li>
                 <a href="https://www.dcco.kr/"
                    target="_blank"
-                   rel="noopener noreferrer">
-                    대전도시공사
-                </a>
+                   rel="noopener noreferrer">대전도시공사</a>
                 — 공공임대·주거지원
             </li>
 
             <li>
                 <a href="https://www.sinbo.or.kr/"
                    target="_blank"
-                   rel="noopener noreferrer">
-                    대전신용보증재단
-                </a>
+                   rel="noopener noreferrer">대전신용보증재단</a>
                 — 소상공인 금융·보증·컨설팅
             </li>
-
-            <li>대전광역시 콜센터: 042-120</li>
         </ul>
 
         <p>
-            대전광역시 지원사업은 예산과 자치구 정책에 따라
-            신청기간, 대상과 지원내용이 변경될 수 있습니다.
-            실제 신청 전에는 반드시 공식 공고문을 확인하세요.
+            지원사업은 예산과 정책에 따라 신청기간, 대상과 지원내용이 변경될 수 있습니다.
+            실제 신청 전에는 반드시 해당 기관의 최신 공고문을 확인하세요.
         </p>
     </section>
 
     <div class="bottom-buttons">
-        <a href="https://www.daejeon.go.kr/"
+        <a href="https://www.donggu.go.kr/"
            class="btn"
            target="_blank"
-           rel="noopener noreferrer">
-            대전 지원사업 확인
-        </a>
+           rel="noopener noreferrer">대전 동구청 확인</a>
 
-        <a href="https://www.sinbo.or.kr/"
-           class="btn"
-           target="_blank"
-           rel="noopener noreferrer">
-            대전 소상공인 지원 확인
-        </a>
+        <a href="daejeon-benefits.html" class="btn">대전 전체 지원정보</a>
 
-        <a href="index.html" class="btn btn-light">
-            ← 메인으로 돌아가기
-        </a>
+        <a href="index.html" class="btn btn-light">← 메인으로 돌아가기</a>
     </div>
 
-    <p class="updated">
-        최종 내용 확인: 2026년 8월 8일
-    </p>
+    <p class="updated">최종 내용 확인: 2026년 8월 8일</p>
 
 </main>
 
@@ -1150,6 +1076,7 @@
 
     <div class="footer-links">
         <a href="index.html">메인</a>
+        <a href="daejeon-benefits.html">대전 지원정보</a>
         <a href="youth-policy-list.html">청년정책</a>
         <a href="about.html">사이트 소개</a>
         <a href="contact.html">문의하기</a>
@@ -1158,5 +1085,8 @@
     </div>
 </footer>
 
-<script src="benefits-data.js"></script><script src="bookmarks.js"></script></body>
+<script src="benefits-data.js"></script>
+<script src="bookmarks.js"></script>
+
+</body>
 </html>
