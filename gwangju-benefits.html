@@ -334,6 +334,85 @@
             text-decoration: none;
         }
 
+
+
+        /* 광주광역시 5개 자치구 바로가기 */
+        .region-grid-section {
+            margin: 28px 0;
+            padding: 26px;
+            background: #f8fbff;
+            border: 1px solid #dceaf3;
+            border-radius: 16px;
+        }
+
+        .region-section-heading {
+            margin-bottom: 20px;
+        }
+
+        .region-section-heading h2 {
+            margin: 10px 0 8px;
+            padding: 0;
+            color: #1e3a5f;
+            font-size: 1.45rem;
+            line-height: 1.4;
+            border-left: 0;
+        }
+
+        .region-section-heading p {
+            margin: 0;
+            color: #64748b;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            border-radius: 999px;
+        }
+
+        .section-badge.blue {
+            color: #075985;
+            background: #e0f2fe;
+        }
+
+        .region-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .region-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 105px;
+            padding: 18px 14px;
+            text-align: center;
+            text-decoration: none;
+            background: #ffffff;
+            border: 1px solid #dce8ee;
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .region-card:hover {
+            transform: translateY(-3px);
+            border-color: #79c3df;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+        }
+
+        .region-card strong {
+            margin-bottom: 5px;
+            color: #126e91;
+            font-size: 1.08rem;
+        }
+
+        .region-card span {
+            color: #64748b;
+            font-size: 0.82rem;
+        }
+
         @media (max-width: 760px) {
             .page-header { padding: 40px 18px; }
             .page-header h1 { font-size: 1.65rem; }
@@ -345,6 +424,9 @@
             .policy-grid { grid-template-columns: 1fr; }
             .button-group, .bottom-buttons { flex-direction: column; }
             .btn { width: 100%; }
+            .region-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .region-grid-section { padding: 20px 15px; }
+            .region-card { min-height: 90px; padding: 15px 10px; }
         }
     </style>
 
@@ -355,7 +437,7 @@
         "headline": "2026 광주광역시 지원금 총정리",
         "description": "광주 청년 구직활동수당, 일경험드림, 주거, 출산육아, 창업과 소상공인 지원 안내",
         "inLanguage": "ko-KR",
-        "dateModified": "2026-07-12",
+        "dateModified": "2026-08-08",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://dyina0128.github.io/benefit-guide/gwangju-benefits.html"
@@ -398,6 +480,49 @@
             광주시 전체 사업과 함께 동구·서구·남구·북구·광산구의
             추가지원도 함께 확인하면 더 많은 혜택을 찾을 수 있습니다.
         </p>
+
+
+
+        <!-- 광주광역시 5개 자치구 바로가기 -->
+        <section class="region-grid-section">
+            <div class="region-section-heading">
+                <div>
+                    <span class="section-badge blue">지역별 지원정보</span>
+                    <h2>📍 광주광역시 5개 자치구 지원정보</h2>
+                    <p>
+                        거주하고 있는 자치구를 선택하면 해당 지역의
+                        청년·주거·출산·일자리·소상공인 지원정보를 확인할 수 있습니다.
+                    </p>
+                </div>
+            </div>
+
+            <div class="region-grid">
+                <a href="gwangju-donggu-benefits.html" class="region-card">
+                    <strong>동구</strong>
+                    <span>지원정보 보기 →</span>
+                </a>
+
+                <a href="gwangju-seogu-benefits.html" class="region-card">
+                    <strong>서구</strong>
+                    <span>지원정보 보기 →</span>
+                </a>
+
+                <a href="gwangju-namgu-benefits.html" class="region-card">
+                    <strong>남구</strong>
+                    <span>지원정보 보기 →</span>
+                </a>
+
+                <a href="gwangju-bukgu-benefits.html" class="region-card">
+                    <strong>북구</strong>
+                    <span>지원정보 보기 →</span>
+                </a>
+
+                <a href="gwangju-gwangsangu-benefits.html" class="region-card">
+                    <strong>광산구</strong>
+                    <span>지원정보 보기 →</span>
+                </a>
+            </div>
+        </section>
 
         <div class="status-box">
             <strong>2026년 핵심 확인사항</strong>
@@ -1037,7 +1162,7 @@
     </div>
 
     <p class="updated">
-        최종 내용 확인: 2026년 7월 12일
+        최종 내용 확인: 2026년 8월 8일
     </p>
 
 </main>
