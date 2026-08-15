@@ -1,0 +1,602 @@
+/*
+ * 경상남도 시·군 지원금 페이지 공통 디자인
+ * 창원시 페이지의 카드형 정보 구조를 나머지 17개 시·군에도 적용합니다.
+ */
+
+body.gyeongnam-city-page {
+    margin: 0;
+    color: #172033;
+    background: #f7f9fc;
+    font-family: "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    line-height: 1.65;
+}
+
+.gyeongnam-city-page *,
+.gyeongnam-city-page *::before,
+.gyeongnam-city-page *::after {
+    box-sizing: border-box;
+}
+
+.gyeongnam-city-page a {
+    transition: color .2s ease, background-color .2s ease,
+        border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.gyeongnam-city-page .container {
+    width: min(1120px, calc(100% - 32px));
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* 상단 지역 제목 */
+.gyeongnam-city-page.page-hero-header > header:first-of-type {
+    padding: 58px 20px 54px;
+    color: #fff;
+    text-align: center;
+    background:
+        radial-gradient(circle at 12% 15%, rgba(255,255,255,.22), transparent 30%),
+        linear-gradient(135deg, #087fbd 0%, #245fca 58%, #343fa7 100%);
+}
+
+.gyeongnam-city-page.page-hero-header > header:first-of-type h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3.35rem);
+    line-height: 1.18;
+    letter-spacing: -.045em;
+}
+
+.gyeongnam-city-page.page-hero-header > header:first-of-type p {
+    max-width: 720px;
+    margin: 16px auto 0;
+    color: rgba(255,255,255,.88);
+    font-size: 1.02rem;
+}
+
+/* 상단 메뉴 */
+.gyeongnam-city-page.page-hero-header > .top-nav,
+.gyeongnam-city-page.page-hero-header > nav.top-nav {
+    display: flex;
+    position: sticky;
+    z-index: 20;
+    top: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    padding: 10px 16px;
+    background: rgba(255,255,255,.97);
+    border-bottom: 1px solid #dfe7f1;
+    box-shadow: 0 4px 16px rgba(15,23,42,.05);
+    backdrop-filter: blur(10px);
+}
+
+.gyeongnam-city-page.page-hero-header > .top-nav .container,
+.gyeongnam-city-page.page-hero-header > nav.top-nav .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+}
+
+.gyeongnam-city-page .top-nav a,
+.gyeongnam-city-page .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 9px 12px;
+    color: #334155;
+    border-radius: 10px;
+    font-size: .9rem;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.gyeongnam-city-page .top-nav a:hover,
+.gyeongnam-city-page .nav-links a:hover {
+    color: #0b69b2;
+    background: #eef7ff;
+}
+
+/* 상단 메뉴 안에 제목이 있는 후기형 페이지 */
+.gyeongnam-city-page.page-hero-intro > .site-header {
+    background: #fff;
+    border-bottom: 1px solid #dfe7f1;
+    box-shadow: 0 4px 16px rgba(15,23,42,.05);
+}
+
+.gyeongnam-city-page.page-hero-intro > .site-header .container,
+.gyeongnam-city-page.page-hero-intro > .site-header .top-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 18px;
+    min-height: 68px;
+}
+
+.gyeongnam-city-page .site-logo {
+    color: #075985;
+    font-size: 1.06rem;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.gyeongnam-city-page .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
+}
+
+/* 본문 */
+.gyeongnam-city-page main.container {
+    padding-top: 34px;
+    padding-bottom: 54px;
+}
+
+.gyeongnam-city-page .intro-box {
+    width: 100%;
+    margin: 0 0 24px;
+    padding: 30px 32px;
+    background: #fff;
+    border: 1px solid #dfe7f1;
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(15,23,42,.07);
+}
+
+.gyeongnam-city-page .intro-box .intro-content {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+.gyeongnam-city-page.page-hero-intro .intro-box {
+    position: relative;
+    overflow: hidden;
+    padding: 48px 42px;
+    color: #fff;
+    background:
+        radial-gradient(circle at 90% 12%, rgba(255,255,255,.22), transparent 28%),
+        linear-gradient(135deg, #087fbd 0%, #245fca 58%, #343fa7 100%);
+    border: 0;
+    box-shadow: 0 18px 40px rgba(27,85,177,.2);
+}
+
+.gyeongnam-city-page.page-hero-intro .intro-box h1,
+.gyeongnam-city-page.page-hero-intro .intro-box h2 {
+    margin: 12px 0 14px;
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.18;
+    letter-spacing: -.045em;
+}
+
+.gyeongnam-city-page.page-hero-intro .intro-box p {
+    max-width: 780px;
+    color: rgba(255,255,255,.9);
+}
+
+.gyeongnam-city-page .region-label,
+.gyeongnam-city-page .section-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 7px 12px;
+    color: #075985;
+    background: #e0f2fe;
+    border: 1px solid #bae6fd;
+    border-radius: 999px;
+    font-size: .78rem;
+    font-weight: 850;
+}
+
+.gyeongnam-city-page.page-hero-intro .region-label {
+    color: #fff;
+    background: rgba(255,255,255,.16);
+    border-color: rgba(255,255,255,.28);
+}
+
+.gyeongnam-city-page .intro-box h1,
+.gyeongnam-city-page .intro-box h2 {
+    margin: 12px 0 14px;
+    color: #172033;
+    font-size: clamp(1.65rem, 3.5vw, 2.35rem);
+    line-height: 1.25;
+    letter-spacing: -.035em;
+}
+
+.gyeongnam-city-page .intro-box p {
+    margin: 8px 0;
+    color: #526077;
+}
+
+.gyeongnam-city-page .update-date {
+    font-size: .88rem;
+    font-weight: 700;
+}
+
+/* 페이지 빠른 메뉴 */
+.gyeongnam-city-page .quick-menu {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    margin: 0 0 24px;
+    padding: 18px;
+    background: #fff;
+    border: 1px solid #dfe7f1;
+    border-radius: 18px;
+    box-shadow: 0 8px 22px rgba(15,23,42,.05);
+}
+
+.gyeongnam-city-page .quick-menu a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 11px 10px;
+    color: #23405f;
+    background: #f4f8fc;
+    border: 1px solid #dce8f3;
+    border-radius: 12px;
+    font-size: .89rem;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+}
+
+.gyeongnam-city-page .quick-menu a:hover {
+    color: #075985;
+    background: #e8f5fd;
+    border-color: #9fd5ed;
+    transform: translateY(-2px);
+}
+
+/* 창원 페이지와 같은 흰색 섹션 카드 */
+.gyeongnam-city-page main > section:not(.intro-box) {
+    margin: 24px 0;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid #dfe7f1;
+    border-radius: 22px;
+    box-shadow: 0 10px 26px rgba(15,23,42,.055);
+}
+
+.gyeongnam-city-page main > section > h2,
+.gyeongnam-city-page .section-heading h2,
+.gyeongnam-city-page h2.section-heading,
+.gyeongnam-city-page .content-section > h2 {
+    margin: 0 0 10px;
+    color: #12395c;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    line-height: 1.3;
+    letter-spacing: -.025em;
+}
+
+.gyeongnam-city-page .section-heading {
+    margin-bottom: 20px;
+}
+
+.gyeongnam-city-page .section-heading p {
+    margin: 5px 0 0;
+    color: #64748b;
+}
+
+.gyeongnam-city-page .notice-box,
+.gyeongnam-city-page .final-notice {
+    margin: 18px 0 22px;
+    padding: 16px 18px;
+    color: #70531b;
+    background: #fff8e7;
+    border: 1px solid #f1dda7;
+    border-radius: 14px;
+}
+
+.gyeongnam-city-page main > section.final-notice {
+    color: #70531b;
+    background: #fff8e7;
+    border-color: #f1dda7;
+}
+
+/* 지원사업 카드 */
+.gyeongnam-city-page .policy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.gyeongnam-city-page .policy-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 22px;
+    background: #fff;
+    border: 1px solid #dce6f0;
+    border-radius: 17px;
+    box-shadow: 0 7px 18px rgba(15,23,42,.045);
+}
+
+.gyeongnam-city-page .policy-card:hover {
+    border-color: #9ecde5;
+    box-shadow: 0 12px 26px rgba(15,78,120,.1);
+    transform: translateY(-2px);
+}
+
+.gyeongnam-city-page .card-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.gyeongnam-city-page .card-badge,
+.gyeongnam-city-page .status-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: .74rem;
+    font-weight: 850;
+    line-height: 1.2;
+}
+
+.gyeongnam-city-page .card-badge {
+    color: #075985;
+    background: #e7f5fc;
+}
+
+.gyeongnam-city-page .status-badge,
+.gyeongnam-city-page .status-badge.open,
+.gyeongnam-city-page .status-badge.status-open {
+    color: #087443;
+    background: #e7f8ef;
+}
+
+.gyeongnam-city-page .status-badge.status-check {
+    color: #8a4b08;
+    background: #fff4d6;
+}
+
+.gyeongnam-city-page .status-badge.status-closed {
+    color: #64748b;
+    background: #eef2f7;
+}
+
+.gyeongnam-city-page .policy-card h3 {
+    margin: 0 0 12px;
+    color: #172033;
+    font-size: 1.12rem;
+    line-height: 1.4;
+}
+
+.gyeongnam-city-page .policy-card p {
+    margin: 0 0 13px;
+    color: #526077;
+}
+
+.gyeongnam-city-page .policy-card ul,
+.gyeongnam-city-page .step-list {
+    margin: 0 0 16px;
+    padding-left: 1.15rem;
+}
+
+.gyeongnam-city-page .policy-card li,
+.gyeongnam-city-page .step-list li {
+    margin: 7px 0;
+    color: #445268;
+}
+
+.gyeongnam-city-page .card-note {
+    padding: 12px 13px;
+    background: #f8fafc;
+    border-radius: 10px;
+    font-size: .9rem;
+}
+
+.gyeongnam-city-page .official-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 42px;
+    margin-top: auto;
+    padding: 9px 14px;
+    color: #fff;
+    background: #087fbd;
+    border: 1px solid #087fbd;
+    border-radius: 10px;
+    font-size: .88rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.gyeongnam-city-page .official-link:hover {
+    color: #fff;
+    background: #075985;
+    border-color: #075985;
+    transform: translateY(-1px);
+}
+
+.gyeongnam-city-page .official-link-grid,
+.gyeongnam-city-page .link-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.gyeongnam-city-page .official-link-grid .official-link,
+.gyeongnam-city-page .link-grid .official-link {
+    width: 100%;
+}
+
+/* FAQ와 지역 이동 */
+.gyeongnam-city-page .faq-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.gyeongnam-city-page .faq-item {
+    padding: 17px 18px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 13px;
+}
+
+.gyeongnam-city-page .faq-item h3,
+.gyeongnam-city-page .faq-item strong {
+    color: #193c5a;
+}
+
+.gyeongnam-city-page .faq-item p:last-child {
+    margin-bottom: 0;
+}
+
+.gyeongnam-city-page .region-links,
+.gyeongnam-city-page .region-link-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.gyeongnam-city-page .region-links a,
+.gyeongnam-city-page .region-link-grid a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 10px 7px;
+    color: #075985;
+    background: #f0f8fc;
+    border: 1px solid #cce7f2;
+    border-radius: 11px;
+    font-size: .86rem;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+}
+
+.gyeongnam-city-page .region-links a:hover,
+.gyeongnam-city-page .region-link-grid a:hover,
+.gyeongnam-city-page .region-links a.active,
+.gyeongnam-city-page .region-link-grid a.active {
+    color: #fff;
+    background: #087fbd;
+    border-color: #087fbd;
+}
+
+/* 하단 */
+.gyeongnam-city-page > footer,
+.gyeongnam-city-page > .site-footer {
+    padding: 30px 20px;
+    color: #64748b;
+    text-align: center;
+    background: #eef3f8;
+    border-top: 1px solid #dce5ee;
+}
+
+.gyeongnam-city-page > footer a,
+.gyeongnam-city-page > .site-footer a {
+    color: #36536f;
+}
+
+.gyeongnam-city-page a:focus-visible {
+    outline: 3px solid rgba(14,165,233,.45);
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .gyeongnam-city-page .quick-menu {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .gyeongnam-city-page .region-links,
+    .gyeongnam-city-page .region-link-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    .gyeongnam-city-page .container {
+        width: min(100% - 20px, 1120px);
+    }
+
+    .gyeongnam-city-page.page-hero-header > header:first-of-type {
+        padding: 42px 18px 40px;
+    }
+
+    .gyeongnam-city-page.page-hero-header > header:first-of-type h1,
+    .gyeongnam-city-page.page-hero-intro .intro-box h1,
+    .gyeongnam-city-page.page-hero-intro .intro-box h2 {
+        font-size: 2rem;
+    }
+
+    .gyeongnam-city-page.page-hero-intro > .site-header .container,
+    .gyeongnam-city-page.page-hero-intro > .site-header .top-nav {
+        align-items: flex-start;
+        padding: 10px 0;
+    }
+
+    .gyeongnam-city-page .site-logo {
+        padding: 8px 2px 2px;
+    }
+
+    .gyeongnam-city-page .nav-links {
+        width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+
+    .gyeongnam-city-page .nav-links a,
+    .gyeongnam-city-page .top-nav a {
+        flex: 0 0 auto;
+        font-size: .82rem;
+    }
+
+    .gyeongnam-city-page main.container {
+        padding-top: 20px;
+    }
+
+    .gyeongnam-city-page .intro-box,
+    .gyeongnam-city-page.page-hero-intro .intro-box,
+    .gyeongnam-city-page main > section:not(.intro-box) {
+        padding: 20px;
+        border-radius: 17px;
+    }
+
+    .gyeongnam-city-page .quick-menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 13px;
+    }
+
+    .gyeongnam-city-page .policy-grid,
+    .gyeongnam-city-page .official-link-grid,
+    .gyeongnam-city-page .link-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gyeongnam-city-page .policy-card {
+        padding: 18px;
+    }
+
+    .gyeongnam-city-page .region-links,
+    .gyeongnam-city-page .region-link-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 400px) {
+    .gyeongnam-city-page .quick-menu,
+    .gyeongnam-city-page .region-links,
+    .gyeongnam-city-page .region-link-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
