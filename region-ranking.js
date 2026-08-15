@@ -1,7 +1,7 @@
 (function(){
 "use strict";
 var data=Array.isArray(window.BENEFITS_DATA)?window.BENEFITS_DATA:[];
-var regions=["서울","경기","인천","부산","대구","광주","대전","울산","세종","강원","충북","충남","전북","전남","경북","경남","제주"];
+var regions=["서울","경기","인천","부산","대구","전남광주","대전","울산","세종","강원","충북","충남","전북","경북","경남","제주"];
 var categoryWeights={"청년":10,"주거":10,"교육":8,"어르신":8,"출산·육아":8};
 var categoryAliases={"출산":"출산·육아","노인":"어르신","지역 안내":"지역 안내"};
 var params=new URLSearchParams(location.search),selectedRegion=params.get("region")||"서울";if(regions.indexOf(selectedRegion)===-1)selectedRegion="서울";

@@ -729,10 +729,10 @@ window.BENEFITS_DATA = [
         "officialSource": "대구 지역 공식 공고 확인"
     },
     {
-        "id": "region-gwangju",
-        "title": "광주 지원금 안내",
+        "id": "region-jeonnam-gwangju",
+        "title": "전남광주통합특별시 지원금 안내",
         "category": "지역 안내",
-        "region": "광주",
+        "region": "전남광주",
         "district": "",
         "targetGroups": [],
         "ageMin": "",
@@ -745,19 +745,23 @@ window.BENEFITS_DATA = [
         "applicationStart": "",
         "applicationEnd": "",
         "applicationType": "공식 공고 확인",
-        "summary": "광주 지역에서 확인할 수 있는 지원정보를 분야별로 안내합니다.",
-        "url": "gwangju-benefits.html",
+        "summary": "광주권 5개 구와 전남권 22개 시·군의 지원정보를 한 곳에서 안내합니다.",
+        "url": "jeonnam-gwangju-benefits.html",
         "keywords": [
             "광주",
+            "전남광주통합특별시",
             "광주 지원금",
             "광주 복지",
+            "전남",
+            "전남 지원금",
+            "전남 복지",
             "청년",
             "주거",
             "출산",
             "소상공인"
         ],
         "featured": false,
-        "officialSource": "광주 지역 공식 공고 확인"
+        "officialSource": "전남광주통합특별시 및 각 시군구 공식 공고 확인"
     },
     {
         "id": "region-daejeon",
@@ -946,10 +950,10 @@ window.BENEFITS_DATA = [
         "officialSource": "전북 지역 공식 공고 확인"
     },
     {
-        "id": "region-jeonnam",
-        "title": "전남 지원금 안내",
+        "id": "region-jeonnam-area",
+        "title": "전남권 지원금 상세 안내",
         "category": "지역 안내",
-        "region": "전남",
+        "region": "전남광주",
         "district": "",
         "targetGroups": [],
         "ageMin": "",
@@ -962,10 +966,12 @@ window.BENEFITS_DATA = [
         "applicationStart": "",
         "applicationEnd": "",
         "applicationType": "공식 공고 확인",
-        "summary": "전남 지역에서 확인할 수 있는 지원정보를 분야별로 안내합니다.",
+        "summary": "전남광주통합특별시 가운데 전남권 22개 시·군 지원정보를 안내합니다.",
         "url": "jeonnam-benefits.html",
         "keywords": [
             "전남",
+            "전남권",
+            "전남광주통합특별시",
             "전남 지원금",
             "전남 복지",
             "청년",
@@ -974,7 +980,7 @@ window.BENEFITS_DATA = [
             "소상공인"
         ],
         "featured": false,
-        "officialSource": "전남 지역 공식 공고 확인"
+        "officialSource": "전남권 각 시군 공식 공고 확인"
     },
     {
         "id": "region-gyeongbuk",

@@ -151,16 +151,21 @@ const benefitData = {
     }
   ],
 
-  광주: [
+  전남광주: [
     {
-      title: "🎓 광주 청년정책",
-      description: "광주 청년 구직·생활지원 정보를 확인하세요.",
-      url: "youth-policy-list.html"
+      title: "🌿 전남광주통합특별시 지원정보",
+      description: "광주권 5개 구와 전남권 22개 시·군의 지원정보를 확인하세요.",
+      url: "jeonnam-gwangju-benefits.html"
     },
     {
-      title: "🏠 광주 주거지원",
-      description: "청년월세와 주거급여 지원을 확인하세요.",
-      url: "housing-benefit.html"
+      title: "🎓 광주권 지원정보",
+      description: "광주권 청년·주거·일자리·출산·창업 지원을 확인하세요.",
+      url: "gwangju-benefits.html"
+    },
+    {
+      title: "🌾 전남권 지원정보",
+      description: "전남권 청년·농어촌·주거·출산·소상공인 지원을 확인하세요.",
+      url: "jeonnam-benefits.html"
     }
   ],
 
@@ -252,19 +257,6 @@ const benefitData = {
       title: "🌾 전북 농어촌지원",
       description: "귀농귀촌과 농업인 지원사업을 확인하세요.",
       url: "farm-support.html"
-    }
-  ],
-
-  전남: [
-    {
-      title: "🌾 전남 농어촌지원",
-      description: "귀농어·귀촌 정착과 농어업 지원을 확인하세요.",
-      url: "farm-support.html"
-    },
-    {
-      title: "🏠 전남 주거지원",
-      description: "주거급여와 지역 주거지원 정보를 확인하세요.",
-      url: "housing-benefit.html"
     }
   ],
 
