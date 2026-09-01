@@ -62,6 +62,21 @@ for (const item of sitemapSet) {
   if (!existsSync(resolve(root, item))) errors.push(`sitemap.xml: 없는 페이지 ${item}`);
 }
 
+const indexablePages = new Set(
+  htmlFiles
+    .filter((file) => !verificationFiles.has(file))
+    .filter((file) => {
+      const html = readFileSync(resolve(root, file), "utf8");
+      return !/<meta\s+[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
+    }),
+);
+for (const file of indexablePages) {
+  if (!sitemapSet.has(file)) errors.push(`sitemap.xml: 검색 허용 페이지 누락 ${file}`);
+}
+for (const file of sitemapSet) {
+  if (!indexablePages.has(file)) errors.push(`sitemap.xml: 검색 제외 페이지 포함 ${file}`);
+}
+
 console.log(`HTML ${htmlFiles.length}개, 사이트맵 ${sitemapSet.size}개 점검`);
 if (warnings.length) console.log(`주의 ${warnings.length}건\n${warnings.slice(0, 25).join("\n")}`);
 if (errors.length) {
