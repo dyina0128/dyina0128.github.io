@@ -5,9 +5,9 @@
 const benefitData = {
   전국: [
     {
-      title: "🎓 청년정책",
-      description: "청년월세지원, 청년도약계좌, 청년버팀목 전세대출",
-      url: "youth-policy-list.html"
+      title: "🏠 청년월세지원",
+      description: "지원 대상, 소득·재산 기준과 신청 절차",
+      url: "youth-rent.html"
     },
     {
       title: "🏠 주거지원",
@@ -22,7 +22,7 @@ const benefitData = {
     {
       title: "💼 국민취업지원제도",
       description: "취업지원서비스, 구직촉진수당과 취업성공수당",
-      url: "job-support.html"
+      url: "job-support-guide.html"
     },
     {
       title: "👵 노인복지",
@@ -90,7 +90,7 @@ const benefitData = {
     {
       title: "🎓 서울 청년정책",
       description: "서울 청년수당과 청년 주거지원 정보를 확인하세요.",
-      url: "youth-policy-list.html"
+      url: "seoul-benefits.html"
     },
     {
       title: "🏠 서울 주거지원",
@@ -103,7 +103,7 @@ const benefitData = {
     {
       title: "🎓 인천 청년정책",
       description: "청년월세와 지역 청년지원 제도를 확인하세요.",
-      url: "youth-policy-list.html"
+      url: "incheon-benefits.html"
     },
     {
       title: "🏠 인천 주거지원",
@@ -114,9 +114,9 @@ const benefitData = {
 
   경기: [
     {
-      title: "🎓 경기 청년정책",
-      description: "청년기본소득과 청년 취업·주거지원을 확인하세요.",
-      url: "youth-policy-list.html"
+      title: "🏠 전국 공통 주거지원",
+      description: "경기도 상세 가이드는 공식 출처를 보강 중입니다. 먼저 전국 공통 주거제도를 확인하세요.",
+      url: "housing-benefit.html"
     },
     {
       title: "🏠 경기 주거지원",
@@ -129,7 +129,7 @@ const benefitData = {
     {
       title: "🎓 부산 청년정책",
       description: "부산 청년 취업·자산형성 지원 정보를 확인하세요.",
-      url: "youth-policy-list.html"
+      url: "busan-benefits.html"
     },
     {
       title: "🏠 부산 주거지원",
@@ -140,22 +140,22 @@ const benefitData = {
 
   대구: [
     {
-      title: "🎓 대구 청년정책",
-      description: "대구 청년 자산형성과 생활지원 정보를 확인하세요.",
-      url: "youth-policy-list.html"
+      title: "💰 전국 공통 청년 자산형성",
+      description: "대구 상세 가이드는 공식 출처를 보강 중입니다. 먼저 청년미래적금 안내를 확인하세요.",
+      url: "youth-account-guide.html"
     },
     {
       title: "💼 대구 취업지원",
       description: "청년 구직활동과 직업훈련 지원을 확인하세요.",
-      url: "job-support.html"
+      url: "job-support-guide.html"
     }
   ],
 
   전남광주: [
     {
-      title: "🌿 전남광주통합특별시 지원정보",
-      description: "광주권 5개 구와 전남권 22개 시·군의 지원정보를 확인하세요.",
-      url: "jeonnam-gwangju-benefits.html"
+      title: "🌾 전남권 종합 가이드",
+      description: "전남권 청년·농어촌·주거·출산·소상공인 지원을 확인하세요.",
+      url: "jeonnam-benefits.html"
     },
     {
       title: "🎓 광주권 지원정보",
@@ -173,7 +173,7 @@ const benefitData = {
     {
       title: "🎓 대전 청년정책",
       description: "대전 청년 주거·취업 지원 정보를 확인하세요.",
-      url: "youth-policy-list.html"
+      url: "daejeon-benefits.html"
     },
     {
       title: "🏠 대전 주거지원",
@@ -186,7 +186,7 @@ const benefitData = {
     {
       title: "💼 울산 취업지원",
       description: "청년 취업지원과 직업훈련 정보를 확인하세요.",
-      url: "job-support.html"
+      url: "job-support-guide.html"
     },
     {
       title: "🏠 울산 주거지원",
@@ -199,7 +199,7 @@ const benefitData = {
     {
       title: "🎓 세종 청년정책",
       description: "세종 청년 주거·취업·생활지원 정보를 확인하세요.",
-      url: "youth-policy-list.html"
+      url: "sejong-benefits.html"
     },
     {
       title: "🏠 세종 주거지원",
@@ -225,7 +225,7 @@ const benefitData = {
     {
       title: "💼 충북 취업지원",
       description: "청년 취업지원과 직업훈련 정보를 확인하세요.",
-      url: "job-support.html"
+      url: "job-support-guide.html"
     },
     {
       title: "🌾 충북 농어촌지원",
@@ -251,7 +251,7 @@ const benefitData = {
     {
       title: "🎓 전북 청년정책",
       description: "청년 생활·취업·자산형성 지원을 확인하세요.",
-      url: "youth-policy-list.html"
+      url: "jeonbuk-benefits.html"
     },
     {
       title: "🌾 전북 농어촌지원",
@@ -264,7 +264,7 @@ const benefitData = {
     {
       title: "💼 경북 취업지원",
       description: "청년 일자리와 취업지원 정보를 확인하세요.",
-      url: "job-support.html"
+      url: "job-support-guide.html"
     },
     {
       title: "🌾 경북 농어촌지원",
@@ -290,7 +290,7 @@ const benefitData = {
     {
       title: "✈️ 제주 청년정책",
       description: "제주 청년 정착·취업·주거 지원을 확인하세요.",
-      url: "youth-policy-list.html"
+      url: "jeju-benefits.html"
     },
     {
       title: "🏠 제주 주거지원",

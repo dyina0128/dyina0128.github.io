@@ -3,8 +3,9 @@ import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
 
-// 승인 심사 동안에는 광역자치단체 대표 페이지만 검색에 노출한다.
-// 시·군·구 페이지는 삭제하지 않아 사이트 안에서는 계속 이용할 수 있다.
+// 승인 심사 동안에는 내용과 공식 출처가 충분한 광역자치단체 대표 페이지만
+// 검색에 노출한다. 아래 목록에 있더라도 별도 품질 점검에서 제외된 페이지는
+// duplicateOrThinPages에 넣어 noindex 처리한다.
 const flagshipRegionPages = new Set([
   "seoul-benefits.html",
   "busan-benefits.html",
@@ -28,10 +29,13 @@ const flagshipRegionPages = new Set([
 // 내용이 더 충실한 새 가이드와 주제가 겹치거나, 검색용 독립 문서로는 얇은 페이지.
 const duplicateOrThinPages = new Set([
   "daegu-junggu.html",
+  "daegu-benefits.html",
+  "gyeonggi-benefits.html",
   "job-support.html",
   "terms.html",
   "work-incentive.html",
   "youth-account.html",
+  "youth-jeonse-loan.html",
   "youth-policy-list.html",
 ]);
 
