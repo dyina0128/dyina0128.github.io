@@ -1,136 +1,16 @@
 window.BENEFIT_RULES_V2 = [
-  {
-    id: 'incheon-safety-insurance-2026',
-    title: '인천시민안전보험',
-    agency: '인천광역시',
-    category: '안전·생활',
-    region: '인천',
-    district: '',
-    automaticEnrollment: true,
-    applicationStatus: 'automatic',
-    officialUrl: 'https://www.incheon.go.kr/IC010205/view?repDt=2026-01-20&repSeq=DOM_0000000013980881',
-    lastVerifiedAt: '2026-09-10',
-    rules: {
-      residenceRequired: true,
-      ageMin: null,
-      ageMax: null,
-      employmentAllowed: ['employed','jobseeker','business','student','farmer','other']
-    },
-    summary: '인천시에 주민등록을 둔 시민 등은 별도 가입 절차 없이 자동으로 보장받는 시민안전보험입니다.'
-  },
-  {
-    id: 'training-card-2026',
-    title: '국민내일배움카드',
-    agency: '고용노동부·고용24',
-    category: '교육·직업훈련',
-    region: '전국',
-    district: '',
-    automaticEnrollment: false,
-    applicationStatus: 'open_or_ongoing',
-    officialUrl: 'https://www.work24.go.kr/hr/h/a/1100/selectIssuGudn.do',
-    lastVerifiedAt: '2026-09-10',
-    rules: {
-      ageMin: null,
-      ageMax: 74,
-      employmentAllowed: ['employed','jobseeker','business','student','farmer','other'],
-      exclusionsNeedCheck: true
-    },
-    summary: '직업훈련과 역량개발을 지원하는 카드입니다. 일부 직군·소득·신분 조건은 추가 확인이 필요합니다.'
-  },
-  {
-    id: 'incheon-middle-career-2026',
-    title: '잡스인천 중장년 취업·경력설계 지원',
-    agency: '인천광역시·인천테크노파크',
-    category: '일자리·경력',
-    region: '인천',
-    district: '',
-    automaticEnrollment: false,
-    applicationStatus: 'check_current_program',
-    officialUrl: 'https://www.incheon.go.kr/jobs/jobsincheon/pst/view.do?pst_id=o_notice&pst_sn=1632&search=',
-    lastVerifiedAt: '2026-09-10',
-    rules: {
-      residenceRequired: true,
-      ageMin: 40,
-      ageMax: 69,
-      employmentAllowed: ['employed','jobseeker','business','other']
-    },
-    summary: '인천 거주 40~60대 중장년을 대상으로 상담, 경력진단, 진로탐색, 취업·경력설계를 지원합니다.'
-  },
-  {
-    id: 'incheon-ipass-2026',
-    title: '인천 i-패스',
-    agency: '인천광역시',
-    category: '교통',
-    region: '인천',
-    district: '',
-    automaticEnrollment: false,
-    applicationStatus: 'ongoing',
-    officialUrl: 'https://www.incheon.go.kr/traffic/TR080201',
-    lastVerifiedAt: '2026-09-10',
-    rules: {
-      residenceRequired: true,
-      ageMin: 19,
-      ageMax: null,
-      employmentAllowed: ['employed','jobseeker','business','student','farmer','other'],
-      needsPublicTransitUse: true
-    },
-    summary: '인천 시민의 대중교통비 부담을 줄이는 제도입니다. 실제 이용 여부에 따라 실질 혜택이 달라집니다.'
-  },
-  {
-    id: 'housing-benefit-2026',
-    title: '주거급여',
-    agency: '국토교통부·보건복지부',
-    category: '주거',
-    region: '전국',
-    district: '',
-    automaticEnrollment: false,
-    applicationStatus: 'ongoing',
-    officialUrl: 'https://www.bokjiro.go.kr/',
-    lastVerifiedAt: '2026-09-10',
-    rules: {
-      ageMin: null,
-      ageMax: null,
-      employmentAllowed: ['employed','jobseeker','business','student','farmer','other'],
-      requiresIncomeAssetsCheck: true
-    },
-    summary: '소득인정액 등 기준을 충족하는 가구의 주거비를 지원합니다. 단순 월급만으로 자격을 확정할 수 없습니다.'
-  },
-  {
-    id: 'middle-career-support-unemployed-2026',
-    title: '중장년 경력지원제',
-    agency: '고용노동부',
-    category: '일자리·경력',
-    region: '전국',
-    district: '',
-    automaticEnrollment: false,
-    applicationStatus: 'check_current_program',
-    officialUrl: 'https://www.incheon.go.kr/jobs/main/support/business/view.do?plcy_sprt_sn=2646',
-    lastVerifiedAt: '2026-09-10',
-    rules: {
-      birthYearMin: 1961,
-      birthYearMax: 1976,
-      employmentAllowed: ['jobseeker','other'],
-      unemploymentRequired: true
-    },
-    summary: '주된 일자리에서 퇴직 후 전직·재취업을 준비하는 중장년 대상 경력지원 프로그램입니다.'
-  },
-  {
-    id: 'namdong-youth-challenge-2026',
-    title: '남동구 청년도전 지원사업',
-    agency: '인천광역시 남동구',
-    category: '청년·일자리',
-    region: '인천',
-    district: '남동구',
-    automaticEnrollment: false,
-    applicationStatus: 'check_current_program',
-    officialUrl: '',
-    lastVerifiedAt: '2026-09-10',
-    rules: {
-      residenceRequired: true,
-      ageMin: 19,
-      ageMax: 39,
-      employmentAllowed: ['jobseeker','other']
-    },
-    summary: '구직단념청년 등 청년층의 노동시장 참여를 돕는 지원사업입니다.'
-  }
+  {id:'incheon-safety-insurance-2026',title:'인천시민안전보험',agency:'인천광역시',category:'안전·생활',region:'인천',district:'',automaticEnrollment:true,applicationStatus:'automatic',officialUrl:'https://www.incheon.go.kr/IC010205/view?repDt=2026-01-20&repSeq=DOM_0000000013980881',lastVerifiedAt:'2026-09-10',rules:{residenceRequired:true,employmentAllowed:['employed','jobseeker','business','student','farmer','other']},summary:'인천시에 주민등록을 둔 시민 등은 별도 가입 절차 없이 자동으로 보장받는 시민안전보험입니다.'},
+  {id:'training-card-2026',title:'국민내일배움카드',agency:'고용노동부·고용24',category:'교육·직업훈련',region:'전국',district:'',automaticEnrollment:false,applicationStatus:'open_or_ongoing',officialUrl:'https://www.work24.go.kr/hr/h/a/1100/selectIssuGudn.do',lastVerifiedAt:'2026-09-10',rules:{ageMax:74,employmentAllowed:['employed','jobseeker','business','student','farmer','other'],exclusionsNeedCheck:true},summary:'직업훈련과 역량개발을 지원하는 카드입니다. 일부 직군·소득·신분 조건은 추가 확인이 필요합니다.'},
+  {id:'incheon-middle-career-2026',title:'잡스인천 중장년 취업·경력설계 지원',agency:'인천광역시·인천테크노파크',category:'일자리·경력',region:'인천',district:'',automaticEnrollment:false,applicationStatus:'check_current_program',officialUrl:'https://www.incheon.go.kr/jobs/jobsincheon/pst/view.do?pst_id=o_notice&pst_sn=1632&search=',lastVerifiedAt:'2026-09-10',rules:{residenceRequired:true,ageMin:40,ageMax:69,employmentAllowed:['employed','jobseeker','business','other']},summary:'인천 거주 40~60대 중장년을 대상으로 상담, 경력진단, 진로탐색, 취업·경력설계를 지원합니다.'},
+  {id:'incheon-ipass-2026',title:'인천 i-패스',agency:'인천광역시',category:'교통',region:'인천',district:'',automaticEnrollment:false,applicationStatus:'ongoing',officialUrl:'https://www.incheon.go.kr/traffic/TR080201',lastVerifiedAt:'2026-09-10',rules:{residenceRequired:true,ageMin:19,employmentAllowed:['employed','jobseeker','business','student','farmer','other'],needsPublicTransitUse:true},summary:'인천 시민의 대중교통비 부담을 줄이는 제도입니다. 실제 이용 여부에 따라 실질 혜택이 달라집니다.'},
+  {id:'housing-benefit-2026',title:'주거급여',agency:'국토교통부·보건복지부',category:'주거',region:'전국',district:'',automaticEnrollment:false,applicationStatus:'ongoing',officialUrl:'https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00003201',lastVerifiedAt:'2026-09-10',rules:{employmentAllowed:['employed','jobseeker','business','student','farmer','other'],requiresIncomeAssetsCheck:true},summary:'소득인정액 등 기준을 충족하는 가구의 주거비를 지원합니다. 단순 월급만으로 자격을 확정할 수 없습니다.'},
+  {id:'middle-career-support-unemployed-2026',title:'중장년 경력지원제',agency:'고용노동부',category:'일자리·경력',region:'전국',district:'',automaticEnrollment:false,applicationStatus:'check_current_program',officialUrl:'https://www.incheon.go.kr/jobs/main/support/business/view.do?plcy_sprt_sn=2646',lastVerifiedAt:'2026-09-10',rules:{birthYearMin:1961,birthYearMax:1976,employmentAllowed:['jobseeker','other'],unemploymentRequired:true},summary:'주된 일자리에서 퇴직 후 전직·재취업을 준비하는 중장년 대상 경력지원 프로그램입니다.'},
+  {id:'namdong-youth-challenge-2026',title:'남동구 청년도전 지원사업',agency:'인천광역시 남동구',category:'청년·일자리',region:'인천',district:'남동구',automaticEnrollment:false,applicationStatus:'check_current_program',officialUrl:'',lastVerifiedAt:'2026-09-10',rules:{residenceRequired:true,ageMin:19,ageMax:39,employmentAllowed:['jobseeker','other']},summary:'구직단념청년 등 청년층의 노동시장 참여를 돕는 지원사업입니다.'},
+  {id:'worker-vacation-2026',title:'2026 근로자 휴가지원사업',agency:'문화체육관광부·한국관광공사',category:'여행·근로자',region:'전국',district:'',automaticEnrollment:false,applicationStatus:'first_come',officialUrl:'https://vacation.visitkorea.or.kr/travel/worker/renewal/workerNotyView.do?bwrtSeq=1000001080',lastVerifiedAt:'2026-09-10',rules:{employmentAllowed:['employed'],needsEmployerParticipation:true},summary:'대상 기업이 참여하면 근로자·기업·정부가 함께 국내여행 경비를 조성합니다. 근로자 개인이 단독 신청하는 방식은 아닙니다.'},
+  {id:'incheon-ferry-citizen-2026',title:'인천시민 여객선 운임 지원사업',agency:'인천광역시',category:'교통·여행',region:'인천',district:'',automaticEnrollment:false,applicationStatus:'ongoing',officialUrl:'https://www.incheon.go.kr/icbenefit/ICB010201/view?srvcId=25',lastVerifiedAt:'2026-09-10',rules:{residenceRequired:true,employmentAllowed:['employed','jobseeker','business','student','farmer','other'],needsFerryUse:true},summary:'인천시민이 강화·옹진의 지원 대상 섬을 방문할 때 여객선 정규운임을 시내버스 요금 수준으로 이용할 수 있도록 지원합니다.'},
+  {id:'incheon-smart-rest-center-2026',title:'지능정보서비스 과의존 예방·상담',agency:'인천광역시·인천스마트쉼센터',category:'생활·상담',region:'인천',district:'',automaticEnrollment:false,applicationStatus:'ongoing',officialUrl:'https://www.incheon.go.kr/icbenefit/ICB010201/view?srvcId=107',lastVerifiedAt:'2026-09-10',rules:{residenceRequired:true,employmentAllowed:['employed','jobseeker','business','student','farmer','other'],needsServiceInterest:true},summary:'인천시민을 대상으로 인터넷·스마트폰 과의존 예방교육과 전문상담을 상시 제공합니다.'},
+  {id:'incheon-didimdol-income-2026',title:'인천형 디딤돌 안정소득',agency:'인천광역시',category:'생계·복지',region:'인천',district:'',automaticEnrollment:false,applicationStatus:'ongoing',officialUrl:'https://www.incheon.go.kr/icbenefit/ICB010201/view?curPage=1&srvcId=88',lastVerifiedAt:'2026-09-10',rules:{employmentAllowed:['employed','jobseeker','business','student','farmer','other'],requiresIncomeAssetsCheck:true},summary:'기준 중위소득·재산·금융재산 등 요건을 충족하는 저소득 가구의 생활 안정을 지원합니다.'},
+  {id:'basic-pension-2026',title:'기초연금',agency:'보건복지부·남동구',category:'어르신·소득',region:'전국',district:'',automaticEnrollment:false,applicationStatus:'ongoing',officialUrl:'https://biz.namdong.go.kr/welfare/life/senior/incheon_policy.jsp',lastVerifiedAt:'2026-09-10',rules:{ageMin:65,employmentAllowed:['employed','jobseeker','business','student','farmer','other'],requiresIncomeAssetsCheck:true},summary:'만 65세 이상이면서 소득인정액이 선정기준액 이하인 경우 지급되는 연금입니다.'},
+  {id:'incheon-lifelong-learning-voucher-2026',title:'인천 평생교육이용권',agency:'인천광역시',category:'교육·평생학습',region:'인천',district:'',automaticEnrollment:false,applicationStatus:'closed',officialUrl:'https://www.incheon.go.kr/IC010205/view?repSeq=DOM_0000000014342060',lastVerifiedAt:'2026-09-10',rules:{ageMin:19,employmentAllowed:['employed','jobseeker','business','student','farmer','other'],requiresIncomeAssetsCheck:true},summary:'2026년 저소득층 등 대상에게 1인당 연 35만원 상당의 평생학습비를 지원한 사업입니다. 현재 2026 신청기간은 종료된 유형이 있어 다음 공고 확인이 필요합니다.'},
+  {id:'namdong-job-center-2026',title:'남동구 일자리센터 취업상담·알선',agency:'인천광역시 남동구',category:'일자리·상담',region:'인천',district:'남동구',automaticEnrollment:false,applicationStatus:'ongoing',officialUrl:'https://biz.namdong.go.kr/job/introduction/guidance.jsp',lastVerifiedAt:'2026-09-10',rules:{residenceRequired:true,employmentAllowed:['jobseeker','other']},summary:'남동구민 구직자를 대상으로 전문 직업상담, 구인·구직 정보와 취업알선을 제공합니다.'}
 ];
