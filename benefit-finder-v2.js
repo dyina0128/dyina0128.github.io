@@ -1,0 +1,247 @@
+(function () {
+  'use strict';
+
+  var benefits = Array.isArray(window.BENEFITS_DATA) ? window.BENEFITS_DATA : [];
+  var form = document.getElementById('personalBenefitForm');
+  var results = document.getElementById('matchResults');
+  var summary = document.getElementById('profileSummary');
+  var count = document.getElementById('matchCount');
+  var resetBtn = document.getElementById('resetMatcher');
+
+  var REGION_DISTRICTS = {
+    '서울': ['강남구','강동구','강북구','강서구','관악구','광진구','구로구','금천구','노원구','도봉구','동대문구','동작구','마포구','서대문구','서초구','성동구','성북구','송파구','양천구','영등포구','용산구','은평구','종로구','중구','중랑구'],
+    '인천': ['강화군','계양구','남동구','동구','미추홀구','부평구','서구','연수구','옹진군','중구'],
+    '부산': ['강서구','금정구','기장군','남구','동구','동래구','부산진구','북구','사상구','사하구','서구','수영구','연제구','영도구','중구','해운대구'],
+    '대구': ['군위군','남구','달서구','달성군','동구','북구','서구','수성구','중구']
+  };
+
+  var AGE_HINTS = {
+    youth: ['청년','청년도약','청년월세','청년주거','청년취업'],
+    senior: ['어르신','노인','기초연금','노년'],
+    middle: ['중장년','중년','신중년']
+  };
+
+  var STATUS_WORDS = {
+    employed: ['근로자','재직','직장인','취업'],
+    jobseeker: ['구직','미취업','취업준비'],
+    business: ['소상공인','자영업','사업자'],
+    student: ['학생','대학생','교육'],
+    farmer: ['농업','어업','농어업']
+  };
+
+  function norm(v) {
+    return String(v || '').toLocaleLowerCase('ko-KR').replace(/\s+/g, '');
+  }
+
+  function textOf(b) {
+    return norm([
+      b.title, b.category, b.region, b.district, b.summary, b.incomeLevel,
+      (b.targetGroups || []).join(' '), (b.employment || []).join(' '),
+      (b.keywords || []).join(' ')
+    ].join(' '));
+  }
+
+  function containsAny(text, words) {
+    return (words || []).some(function (w) { return text.indexOf(norm(w)) !== -1; });
+  }
+
+  function getAge(birthYear) {
+    var y = Number(birthYear);
+    var now = new Date().getFullYear();
+    if (!Number.isFinite(y) || y < 1900 || y > now) return null;
+    return now - y;
+  }
+
+  function getProfile() {
+    var fd = new FormData(form);
+    return {
+      birthYear: fd.get('birthYear'),
+      age: getAge(fd.get('birthYear')),
+      region: fd.get('region') || '',
+      district: fd.get('district') || '',
+      household: Number(fd.get('household') || 1),
+      spouse: fd.get('spouse') === 'yes',
+      children: fd.get('children') === 'yes',
+      status: fd.get('status') || '',
+      earners: fd.get('earners') || '',
+      incomeBand: fd.get('incomeBand') || '',
+      housing: fd.get('housing') || ''
+    };
+  }
+
+  function scoreBenefit(b, p) {
+    var text = textOf(b);
+    var score = 0;
+    var reasons = [];
+    var warnings = [];
+    var excluded = false;
+
+    if (b.region === '전국' || !b.region) {
+      score += 18;
+      reasons.push('전국 공통 지원정보');
+    } else if (p.region && b.region === p.region) {
+      score += 28;
+      reasons.push(p.region + ' 거주지역 일치');
+    } else if (p.region && b.region && b.region !== p.region) {
+      score -= 45;
+    }
+
+    if (b.district) {
+      if (p.district && b.district === p.district) {
+        score += 32;
+        reasons.unshift(p.district + ' 지역 조건 일치');
+      } else if (p.district && b.region === p.region && b.district !== p.district) {
+        excluded = true;
+      } else {
+        warnings.push('시·군·구 조건 확인 필요');
+      }
+    }
+
+    var min = b.ageMin === '' || b.ageMin == null ? null : Number(b.ageMin);
+    var max = b.ageMax === '' || b.ageMax == null ? null : Number(b.ageMax);
+    if (p.age != null && (min != null || max != null)) {
+      if ((min == null || p.age >= min) && (max == null || p.age <= max)) {
+        score += 26;
+        reasons.push('연령 조건 일치');
+      } else {
+        excluded = true;
+      }
+    } else if (p.age != null) {
+      if (p.age < 40 && containsAny(text, AGE_HINTS.youth)) {
+        score += 14;
+        reasons.push('청년 연령대 관련 정보');
+      } else if (p.age >= 65 && containsAny(text, AGE_HINTS.senior)) {
+        score += 16;
+        reasons.push('어르신 연령대 관련 정보');
+      } else if (p.age >= 40 && p.age < 65 && containsAny(text, AGE_HINTS.middle)) {
+        score += 16;
+        reasons.push('중장년 연령대 관련 정보');
+      } else if (p.age >= 40 && containsAny(text, AGE_HINTS.youth)) {
+        score -= 18;
+      } else if (p.age < 65 && containsAny(text, AGE_HINTS.senior)) {
+        score -= 18;
+      }
+    }
+
+    var sw = STATUS_WORDS[p.status] || [];
+    if (sw.length && containsAny(text, sw)) {
+      score += 18;
+      reasons.push('현재 경제활동 상태와 관련');
+    }
+    if (p.status === 'employed' && containsAny(text, ['미취업자','구직자만','미취업'])) score -= 22;
+    if (p.status === 'jobseeker' && containsAny(text, ['재직자','근로자'])) score -= 8;
+
+    if (p.housing === 'jeonse' && containsAny(text, ['전세','임차보증금','전세대출','주거'])) {
+      score += 15;
+      reasons.push('전세 거주 조건과 관련');
+    } else if (p.housing === 'rent' && containsAny(text, ['월세','임대료','주거'])) {
+      score += 15;
+      reasons.push('월세 거주 조건과 관련');
+    } else if (p.housing === 'owner' && containsAny(text, ['무주택','전세','월세'])) {
+      score -= 14;
+    }
+
+    if (!p.children && containsAny(text, ['자녀','출산','육아','영유아','한부모'])) score -= 15;
+    if (p.children && containsAny(text, ['자녀','출산','육아','영유아','교육'])) {
+      score += 10;
+      reasons.push('자녀 가구 관련 정보');
+    }
+
+    if (p.spouse && containsAny(text, ['부부','신혼','배우자','가구'])) score += 5;
+
+    if (p.incomeBand) {
+      if (containsAny(text, ['저소득','기초생활','차상위','중위소득','소득기준','소득인정액'])) {
+        warnings.push('소득·재산 기준 추가 확인 필요');
+        if (p.incomeBand === 'under300') score += 9;
+        if (p.incomeBand === 'over700') score -= 7;
+      }
+    }
+
+    if (b.featured) score += 3;
+    if (['신청 가능','상시 신청'].indexOf(b.applicationStatus) !== -1) score += 5;
+    if (b.category === '지역 안내') score -= 8;
+
+    var uniqueReasons = reasons.filter(function (x, i, arr) { return arr.indexOf(x) === i; }).slice(0, 4);
+    var uniqueWarnings = warnings.filter(function (x, i, arr) { return arr.indexOf(x) === i; }).slice(0, 2);
+
+    return { benefit: b, score: score, reasons: uniqueReasons, warnings: uniqueWarnings, excluded: excluded };
+  }
+
+  function band(item) {
+    if (item.score >= 70) return { key:'high', label:'높은 관련성' };
+    if (item.score >= 45) return { key:'medium', label:'추가 확인 추천' };
+    return { key:'low', label:'참고 후보' };
+  }
+
+  function esc(v) {
+    return String(v || '').replace(/[&<>"']/g, function (c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function renderCard(item) {
+    var b = item.benefit;
+    var level = band(item);
+    var reasonHtml = item.reasons.length
+      ? '<ul>' + item.reasons.map(function (r) { return '<li>✓ ' + esc(r) + '</li>'; }).join('') + '</ul>'
+      : '<p>선택한 조건과 일부 관련성이 있습니다.</p>';
+    var warningHtml = item.warnings.length
+      ? '<div class="match-warning">⚠ ' + item.warnings.map(esc).join(' · ') + '</div>' : '';
+    return '<article class="match-card match-' + level.key + '">' +
+      '<div class="match-top"><span class="match-level">' + level.label + '</span><span class="match-score">적합도 ' + Math.min(99, Math.max(1, item.score)) + '</span></div>' +
+      '<h3>' + esc(b.title) + '</h3>' +
+      '<p class="match-meta">' + esc(b.category || '지원정보') + ' · ' + esc(b.district || b.region || '전국') + '</p>' +
+      '<p>' + esc(b.summary || '') + '</p>' +
+      '<div class="match-reasons"><strong>왜 추천됐나요?</strong>' + reasonHtml + '</div>' +
+      warningHtml +
+      '<p class="match-disclaimer">이 결과는 자동 선별 결과이며 실제 수급 자격을 확정하지 않습니다. 신청 전 공식 공고의 소득·재산·가구·거주기간 조건을 확인하세요.</p>' +
+      (b.url ? '<a class="match-link" href="' + encodeURI(b.url) + '">자세히 보기 →</a>' : '') +
+      '</article>';
+  }
+
+  function updateDistricts() {
+    var region = form.elements.region.value;
+    var select = form.elements.district;
+    var list = REGION_DISTRICTS[region] || [];
+    select.innerHTML = '<option value="">시·군·구 선택 안 함</option>' + list.map(function (d) {
+      return '<option value="' + esc(d) + '">' + esc(d) + '</option>';
+    }).join('');
+    select.disabled = list.length === 0;
+    document.getElementById('districtHelp').textContent = list.length ? '선택하면 지역 혜택을 더 정확히 걸러냅니다.' : 'MVP에서는 일부 광역시만 시·군·구 선택을 지원합니다.';
+  }
+
+  function runMatcher(e) {
+    if (e) e.preventDefault();
+    var p = getProfile();
+    if (p.age == null || !p.region || !p.status || !p.incomeBand || !p.housing) {
+      document.getElementById('formError').textContent = '필수 항목을 모두 입력해 주세요.';
+      return;
+    }
+    document.getElementById('formError').textContent = '';
+
+    var matched = benefits.map(function (b) { return scoreBenefit(b, p); })
+      .filter(function (x) { return !x.excluded && x.score >= 28; })
+      .sort(function (a, b) { return b.score - a.score || a.benefit.title.localeCompare(b.benefit.title, 'ko-KR'); })
+      .slice(0, 30);
+
+    var high = matched.filter(function (x) { return x.score >= 70; }).length;
+    var medium = matched.filter(function (x) { return x.score >= 45 && x.score < 70; }).length;
+    var low = matched.filter(function (x) { return x.score < 45; }).length;
+
+    summary.textContent = p.region + (p.district ? ' ' + p.district : '') + ' · ' + p.birthYear + '년생 · ' + p.household + '인 가구 · ' + ({employed:'직장인',jobseeker:'구직 중',business:'자영업·소상공인',student:'학생',farmer:'농어업',other:'기타'}[p.status] || p.status) + ' · ' + ({jeonse:'전세',rent:'월세',owner:'자가',other:'기타'}[p.housing] || p.housing);
+    count.innerHTML = '<strong>' + matched.length + '개</strong> 후보 · 높은 관련성 ' + high + ' · 추가 확인 ' + medium + ' · 참고 ' + low;
+    results.innerHTML = matched.length ? matched.map(renderCard).join('') : '<div class="match-empty">현재 입력조건으로 우선 추천할 후보를 찾지 못했습니다. 조건을 다시 확인하거나 전체 혜택 검색을 이용해 주세요.</div>';
+    document.getElementById('resultsSection').hidden = false;
+    document.getElementById('resultsSection').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  form.addEventListener('submit', runMatcher);
+  form.elements.region.addEventListener('change', updateDistricts);
+  resetBtn.addEventListener('click', function () {
+    form.reset(); updateDistricts(); document.getElementById('resultsSection').hidden = true; results.innerHTML = '';
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  updateDistricts();
+  window.PersonalBenefitMatcherV2 = { scoreBenefit: scoreBenefit, getAge: getAge };
+}());
