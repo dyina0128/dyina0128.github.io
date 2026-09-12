@@ -114,13 +114,13 @@ const benefitData = {
 
   경기: [
     {
-      title: "🏠 전국 공통 주거지원",
-      description: "경기도 상세 가이드는 공식 출처를 보강 중입니다. 먼저 전국 공통 주거제도를 확인하세요.",
-      url: "housing-benefit.html"
+      title: "🌳 경기도 종합 지원정보",
+      description: "경기도 공통 지원과 31개 시·군별 지원정보를 확인하세요.",
+      url: "gyeonggi-benefits.html"
     },
     {
-      title: "🏠 경기 주거지원",
-      description: "청년 전월세와 공공임대 지원 정보를 확인하세요.",
+      title: "🏠 전국 공통 주거지원",
+      description: "주거급여, 청년월세와 공공임대 지원을 확인하세요.",
       url: "housing-benefit.html"
     }
   ],
@@ -140,9 +140,9 @@ const benefitData = {
 
   대구: [
     {
-      title: "💰 전국 공통 청년 자산형성",
-      description: "대구 상세 가이드는 공식 출처를 보강 중입니다. 먼저 청년미래적금 안내를 확인하세요.",
-      url: "youth-account-guide.html"
+      title: "🍎 대구 종합 지원정보",
+      description: "대구 공통 지원과 9개 구·군별 지원정보를 확인하세요.",
+      url: "daegu-benefits.html"
     },
     {
       title: "💼 대구 취업지원",
@@ -153,9 +153,9 @@ const benefitData = {
 
   전남광주: [
     {
-      title: "🌾 전남권 종합 가이드",
-      description: "전남권 청년·농어촌·주거·출산·소상공인 지원을 확인하세요.",
-      url: "jeonnam-benefits.html"
+      title: "🌿 전남광주통합특별시 지원정보",
+      description: "광주권 5개 구와 전남권 22개 시·군의 지원정보를 확인하세요.",
+      url: "jeonnam-gwangju-benefits.html"
     },
     {
       title: "🎓 광주권 지원정보",
