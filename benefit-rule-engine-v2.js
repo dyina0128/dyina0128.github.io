@@ -1,6 +1,6 @@
 (function(){
 'use strict';
-var rules=Array.isArray(window.BENEFIT_RULES_V2)?window.BENEFIT_RULES_V2:[];
+var rules=(Array.isArray(window.BENEFIT_RULES_V2)?window.BENEFIT_RULES_V2:[]).concat(Array.isArray(window.BENEFIT_BUSINESS_RULES_V2)?window.BENEFIT_BUSINESS_RULES_V2:[]);
 var form=document.getElementById('personalBenefitForm'),results=document.getElementById('matchResults'),summary=document.getElementById('profileSummary'),count=document.getElementById('matchCount'),resetBtn=document.getElementById('resetMatcher'),childFollowup=document.getElementById('childFollowup'),businessFollowup=document.getElementById('businessFollowup');
 var REGION_DISTRICTS={'서울':['강남구','강동구','강북구','강서구','관악구','광진구','구로구','금천구','노원구','도봉구','동대문구','동작구','마포구','서대문구','서초구','성동구','성북구','송파구','양천구','영등포구','용산구','은평구','종로구','중구','중랑구'],'인천':['강화군','계양구','남동구','동구','미추홀구','부평구','서구','연수구','옹진군','중구'],'부산':['강서구','금정구','기장군','남구','동구','동래구','부산진구','북구','사상구','사하구','서구','수영구','연제구','영도구','중구','해운대구'],'대구':['군위군','남구','달서구','달성군','동구','북구','서구','수성구','중구']};
 function esc(v){return String(v||'').replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
