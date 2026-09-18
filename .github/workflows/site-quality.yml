@@ -1,0 +1,36 @@
+name: Site quality checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Validate site structure and indexability
+        run: node tools/check-site.mjs
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check script.js
+          node --check tools/check-site.mjs
+          node --check tools/prepare-adsense-review.mjs
+          node --check benefit-rule-engine-v2.js
+          node --check benefit-rules-v2.js
+          node --check benefit-business-rules-v2.js
+          node --check benefit-veteran-rules-v2.js
+          node --check benefit-v2-integration.js
