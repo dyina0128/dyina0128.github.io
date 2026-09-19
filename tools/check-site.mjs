@@ -222,7 +222,7 @@ for (const [file, minimum] of requiredDirectoryLinks) {
 const requiredHomepageLinks = [
   "download-center.html",
   "benefit-search.html",
-  "benefit-finder.html",
+  "benefit-finder-v2.html",
   "calendar.html",
   "top-benefits.html",
   "region-ranking.html",
