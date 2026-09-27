@@ -2,7 +2,7 @@ import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { relative, resolve } from "node:path";
 
 const root = process.cwd();
-const htmlFiles = readdirSync(root).filter((name) => name.endsWith(".html"));
+const htmlFiles = readdirSync(root).filter((name) => /\.html?$/i.test(name));
 const htmlByFile = new Map(
   htmlFiles.map((file) => [file, readFileSync(resolve(root, file), "utf8")]),
 );
@@ -67,11 +67,15 @@ for (const file of htmlFiles) {
   const h1Count = (html.match(/<h1\b/gi) || []).length;
   const noindex = /<meta\s+[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
   const canonicalMatches = [...html.matchAll(/<link\s+[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/gi)];
+  const refreshTag = [...html.matchAll(/<meta\b[^>]*>/gi)]
+    .map((match) => match[0])
+    .find((tag) => /http-equiv=["']refresh["']/i.test(tag));
+  const legacyRedirect = file.endsWith(".htm") && refreshTag;
   const sectionOpenCount = (html.match(/<section\b/gi) || []).length;
   const sectionCloseCount = (html.match(/<\/section>/gi) || []).length;
 
   if (titleCount !== 1) errors.push(`${file}: title ${titleCount}개`);
-  if (h1Count !== 1) warnings.push(`${file}: h1 ${h1Count}개`);
+  if (h1Count !== 1 && !legacyRedirect) warnings.push(`${file}: h1 ${h1Count}개`);
   if (sectionOpenCount !== sectionCloseCount) {
     errors.push(
       `${file}: section 태그 불균형 (열기 ${sectionOpenCount}, 닫기 ${sectionCloseCount})`,
@@ -130,9 +134,6 @@ for (const file of htmlFiles) {
     }
   }
 
-  const refreshTag = [...html.matchAll(/<meta\b[^>]*>/gi)]
-    .map((match) => match[0])
-    .find((tag) => /http-equiv=["']refresh["']/i.test(tag));
   if (refreshTag) {
     const content = refreshTag.match(/content=["']([^"']+)["']/i)?.[1] || "";
     const redirect = content.match(/url\s*=\s*([^;\s]+)/i)?.[1];
@@ -145,6 +146,17 @@ for (const file of htmlFiles) {
           `${file}: meta refresh 대상과 canonical 불일치 (${redirect})`,
         );
       }
+    }
+  }
+
+  if (file.endsWith(".htm")) {
+    if (!noindex) errors.push(`${file}: 레거시 URL noindex 누락`);
+    if (!refreshTag) errors.push(`${file}: 레거시 URL 이동 설정 누락`);
+    if (canonicalMatches.length !== 1) {
+      errors.push(`${file}: 레거시 URL canonical ${canonicalMatches.length}개`);
+    }
+    if (visibleText(html).length > 120) {
+      errors.push(`${file}: 레거시 URL에 중복 본문 존재 (${visibleText(html).length}자)`);
     }
   }
 
