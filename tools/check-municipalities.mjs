@@ -75,20 +75,28 @@ const groups = {
 
 let total = 0;
 let missing = 0;
-let omittedFromSitemap = 0;
+let policyMismatches = 0;
 const sitemap = readFileSync(resolve(process.cwd(), "sitemap.xml"), "utf8");
+const sitemapFiles = new Set(
+  [...sitemap.matchAll(/<loc>https:\/\/dyina0128\.github\.io\/([^<]+)<\/loc>/g)]
+    .map((match) => match[1]),
+);
 
 for (const [region, files] of Object.entries(groups)) {
   const absent = files.filter((file) => !existsSync(resolve(process.cwd(), file)));
-  const omitted = files.filter(
-    (file) => !sitemap.includes(`<loc>https://dyina0128.github.io/${file}</loc>`),
-  );
+  const policyErrors = [];
+  for (const file of files.filter((item) => !absent.includes(item))) {
+    const html = readFileSync(resolve(process.cwd(), file), "utf8");
+    const noindex = /<meta\s+[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
+    if (!noindex) policyErrors.push(`${file}: noindex 누락`);
+    if (sitemapFiles.has(file)) policyErrors.push(`${file}: noindex 페이지가 사이트맵에 포함됨`);
+  }
   total += files.length;
   missing += absent.length;
-  omittedFromSitemap += omitted.length;
-  console.log(`${region}: ${files.length - absent.length}/${files.length}`);
+  policyMismatches += policyErrors.length;
+  console.log(`${region}: ${files.length - absent.length}/${files.length} · 색인정책 오류 ${policyErrors.length}건`);
   if (absent.length) console.log(`  누락: ${absent.join(", ")}`);
-  if (omitted.length) console.log(`  사이트맵 누락: ${omitted.join(", ")}`);
+  if (policyErrors.length) console.log(`  ${policyErrors.join("\n  ")}`);
 }
 
 console.log(`합계: ${total - missing}/${total}`);
@@ -97,5 +105,5 @@ if (total !== 227) {
   process.exit(1);
 }
 if (missing) process.exit(1);
-if (omittedFromSitemap) process.exit(1);
-console.log("누락 0곳");
+if (policyMismatches) process.exit(1);
+console.log("누락 0곳 · 227개 상세 페이지 noindex/사이트맵 제외 정책 일치");

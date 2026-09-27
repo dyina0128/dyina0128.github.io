@@ -24,10 +24,18 @@ jobs:
       - name: Validate site structure and indexability
         run: node tools/check-site.mjs
 
+      - name: Validate nationwide municipality coverage
+        run: node tools/check-municipalities.mjs
+
+      - name: Validate personalized benefit matcher
+        run: node tools/check-benefit-matcher.mjs
+
       - name: Validate JavaScript syntax
         run: |
           node --check script.js
           node --check tools/check-site.mjs
+          node --check tools/check-municipalities.mjs
+          node --check tools/check-benefit-matcher.mjs
           node --check tools/prepare-adsense-review.mjs
           node --check benefit-rule-engine-v2.js
           node --check benefit-rules-v2.js
