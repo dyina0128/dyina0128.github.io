@@ -149,7 +149,7 @@ for (const file of htmlFiles) {
     }
   }
 
-  if (file.endsWith(".htm")) {
+  if (/\.htm$/i.test(file)) {
     if (!noindex) errors.push(`${file}: 레거시 URL noindex 누락`);
     if (!refreshTag) errors.push(`${file}: 레거시 URL 이동 설정 누락`);
     if (canonicalMatches.length !== 1) {
@@ -157,6 +157,28 @@ for (const file of htmlFiles) {
     }
     if (visibleText(html).length > 120) {
       errors.push(`${file}: 레거시 URL에 중복 본문 존재 (${visibleText(html).length}자)`);
+    }
+
+    const refreshContent = refreshTag?.match(/content=["']([^"']+)["']/i)?.[1] || "";
+    const redirect = refreshContent.match(/url\s*=\s*([^;\s]+)/i)?.[1];
+    const target = redirect ? localTarget(redirect) : null;
+    if (!target || !target.startsWith(root) || !existsSync(target)) {
+      errors.push(`${file}: 이동 대상이 없거나 로컬 HTML 파일이 아님 (${redirect || "URL 없음"})`);
+    } else {
+      const targetFile = relative(root, target).replaceAll("\\", "/");
+      if (!htmlByFile.has(targetFile) || !/\.html$/i.test(targetFile)) {
+        errors.push(`${file}: 이동 대상이 로컬 .html 페이지가 아님 (${redirect})`);
+      } else {
+        const targetHtml = htmlByFile.get(targetFile);
+        const targetCanonical = [...targetHtml.matchAll(/<link\s+[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/gi)];
+        const expectedCanonical = targetFile === "index.html" ? baseUrl : `${baseUrl}${targetFile}`;
+        if (targetCanonical.length !== 1 || targetCanonical[0][1] !== expectedCanonical) {
+          errors.push(`${file}: 이동 대상 canonical이 자기 URL과 일치하지 않음 (${targetFile})`);
+        }
+        if (canonicalMatches.length === 1 && canonicalMatches[0][1] !== expectedCanonical) {
+          errors.push(`${file}: canonical과 실제 이동 대상 불일치 (${targetFile})`);
+        }
+      }
     }
   }
 

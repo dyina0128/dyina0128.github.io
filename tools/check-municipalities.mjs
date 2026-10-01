@@ -73,9 +73,30 @@ const groups = {
   ].map((slug) => `gyeongnam-${slug}-benefits.html`),
 };
 
+// Keep a compact baseline for group sizes and uniqueness so dropped groups,
+// count drift, or accidental duplicate entries cannot pass on the total alone.
+const expectedGroupCounts = new Map([
+  ["서울특별시", 25], ["부산광역시", 16], ["대구광역시", 9], ["인천광역시", 11],
+  ["전남광주통합특별시 광주권", 5], ["대전광역시", 5], ["울산광역시", 5],
+  ["경기도", 31], ["강원특별자치도", 18], ["충청북도", 11], ["충청남도", 15],
+  ["전북특별자치도", 14], ["전남광주통합특별시 전남권", 22],
+  ["경상북도", 22], ["경상남도", 18],
+]);
+
 let total = 0;
 let missing = 0;
 let policyMismatches = 0;
+const inventoryErrors = [];
+const inventoryFiles = Object.values(groups).flat();
+if (Object.keys(groups).length !== expectedGroupCounts.size) {
+  inventoryErrors.push(`광역 그룹 수가 예상과 다릅니다 (${Object.keys(groups).length}/${expectedGroupCounts.size})`);
+}
+for (const [region, expected] of expectedGroupCounts) {
+  const actual = groups[region]?.length ?? 0;
+  if (actual !== expected) inventoryErrors.push(`${region}: 기준 목록 수 오류 (${actual}/${expected})`);
+}
+const duplicateInventoryFiles = [...new Set(inventoryFiles.filter((file, index) => inventoryFiles.indexOf(file) !== index))];
+if (duplicateInventoryFiles.length) inventoryErrors.push(`중복 상세 페이지 기준값: ${duplicateInventoryFiles.join(", ")}`);
 const sitemap = readFileSync(resolve(process.cwd(), "sitemap.xml"), "utf8");
 const sitemapFiles = new Set(
   [...sitemap.matchAll(/<loc>https:\/\/dyina0128\.github\.io\/([^<]+)<\/loc>/g)]
@@ -100,6 +121,10 @@ for (const [region, files] of Object.entries(groups)) {
 }
 
 console.log(`합계: ${total - missing}/${total}`);
+if (inventoryErrors.length) {
+  console.error(`기준 목록 오류 ${inventoryErrors.length}건\n${inventoryErrors.join("\n")}`);
+  process.exitCode = 1;
+}
 if (total !== 227) {
   console.error(`검사 기준 오류: 시군구 합계가 227이 아니라 ${total}입니다.`);
   process.exit(1);
