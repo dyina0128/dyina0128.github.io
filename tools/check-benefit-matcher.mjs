@@ -7,18 +7,26 @@ const root = process.cwd();
 const read = (file) => readFileSync(resolve(root, file), "utf8");
 
 function fakeElement(initial = {}) {
-  return Object.assign({
+  const listeners = new Map();
+  const element = Object.assign({
     value: "",
     innerHTML: "",
     textContent: "",
     hidden: false,
     disabled: false,
     required: false,
-    addEventListener() {},
+    addEventListener(type, callback) {
+      if (!listeners.has(type)) listeners.set(type, []);
+      listeners.get(type).push(callback);
+    },
+    dispatch(type) {
+      for (const callback of listeners.get(type) || []) callback({ target: element });
+    },
     insertAdjacentHTML() {},
     scrollIntoView() {},
     remove() {},
   }, initial);
+  return element;
 }
 
 const form = fakeElement({
@@ -127,11 +135,14 @@ const expectedRegionChoices = [
   "세종", "충북", "충남", "전북", "전남", "경북", "경남", "제주",
 ];
 assert.deepEqual(Object.keys(context.window.V2_DISTRICTS), expectedRegionChoices, "지역 선택값과 시·군·구 데이터 키가 다릅니다.");
-assert.equal(context.window.V2_DISTRICTS.서울.length, 25, "서울 자치구 수 오류");
-assert.equal(context.window.V2_DISTRICTS.경기.length, 31, "경기 시·군 수 오류");
-assert.equal(context.window.V2_DISTRICTS.인천.length, 11, "인천 2026 행정구역 수 오류");
+const expectedDistrictCounts = {
+  서울: 25, 부산: 16, 인천: 11, 경기: 31, 강원: 18, 대구: 9, 광주: 5,
+  대전: 5, 울산: 5, 세종: 1, 충북: 11, 충남: 15, 전북: 14, 전남: 22,
+  경북: 22, 경남: 18, 제주: 2,
+};
 for (const [region, districts] of Object.entries(context.window.V2_DISTRICTS)) {
   assert.equal(new Set(districts).size, districts.length, `${region}: 시·군·구 중복`);
+  assert.equal(districts.length, expectedDistrictCounts[region], `${region}: 시·군·구 기준 수 오류`);
 }
 
 function selectValues(id) {
@@ -145,6 +156,28 @@ assert.deepEqual(selectValues("region"), expectedRegionChoices, "거주지역 �
 assert.deepEqual(selectValues("businessRegion"), expectedRegionChoices, "사업장지역 선택값 오류");
 assert.match(read("benefit-finder-v2.html"), /value="광주">전남광주통합특별시 · 광주권/);
 assert.match(read("benefit-finder-v2.html"), /value="전남">전남광주통합특별시 · 전남권/);
+
+// Exercise the real cascading-select listeners from benefit-v2-integration.js,
+// rather than checking only that its data object exists.
+const regionField = form.elements.region;
+const districtField = form.elements.district;
+const businessRegionField = form.elements.businessRegion;
+const businessDistrictField = form.elements.businessDistrict;
+for (const region of expectedRegionChoices) {
+  regionField.value = region;
+  regionField.dispatch("change");
+  const residenceOptions = [...districtField.innerHTML.matchAll(/<option value="([^"]*)">([^<]*)<\/option>/g)]
+    .map((match) => match[1]).filter(Boolean);
+  assert.deepEqual(residenceOptions, Array.from(context.window.V2_DISTRICTS[region]), `${region}: 거주지 선택 후 시·군·구 옵션 불일치`);
+  assert.equal(districtField.disabled, false, `${region}: 거주지 시·군·구 선택이 비활성화됨`);
+
+  businessRegionField.value = region;
+  businessRegionField.dispatch("change");
+  const businessOptions = [...businessDistrictField.innerHTML.matchAll(/<option value="([^"]*)">([^<]*)<\/option>/g)]
+    .map((match) => match[1]).filter(Boolean);
+  assert.deepEqual(businessOptions, Array.from(context.window.V2_DISTRICTS[region]), `${region}: 사업장 선택 후 시·군·구 옵션 불일치`);
+  assert.equal(businessDistrictField.disabled, false, `${region}: 사업장 시·군·구 선택이 비활성화됨`);
+}
 
 function rule(id) {
   const item = personalRules.concat(businessRules).find((candidate) => candidate.id === id);
