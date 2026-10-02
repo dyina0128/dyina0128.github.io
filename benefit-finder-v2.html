@@ -63,12 +63,12 @@
     .section-head p{margin:0;color:#6a7c80}
     .form-grid,.match-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
     .field label,.field-title{display:block;font-weight:800;margin-bottom:7px;color:#314a51}
-    .field input,.field select{width:100%;min-height:54px;padding:11px 13px;border:1.5px solid #cbdad7;border-radius:13px;background:#fbfdfc;color:#26394a;font:inherit;transition:.2s}
-    .field input:focus,.field select:focus{outline:none;border-color:#48a994;box-shadow:0 0 0 4px rgba(72,169,148,.12);background:#fff}
+    .field input:not([type="radio"]):not([type="checkbox"]),.field select{width:100%;min-height:54px;padding:11px 13px;border:1.5px solid #cbdad7;border-radius:13px;background:#fbfdfc;color:#26394a;font:inherit;transition:.2s}
+    .field input:not([type="radio"]):not([type="checkbox"]):focus,.field select:focus{outline:none;border-color:#48a994;box-shadow:0 0 0 4px rgba(72,169,148,.12);background:#fff}
     .radio-row{display:flex;flex-wrap:wrap;gap:9px}
     .radio-row label{display:flex;align-items:center;gap:6px;padding:11px 14px;border:1.5px solid #d1ddda;border-radius:13px;background:#fff;cursor:pointer;min-height:48px}
     .radio-row label:has(input:checked){border-color:#52a995;background:#edf9f5;color:#176d5c;font-weight:800}
-    .radio-row input{accent-color:#16866f}
+    .radio-row input[type="radio"]{flex:0 0 auto;width:1.1rem;min-width:1.1rem;height:1.1rem;min-height:1.1rem;margin:0;padding:0;accent-color:#16866f}
     .wide,.child-followup,.business-followup{grid-column:1/-1}
     .child-followup,.business-followup{padding:20px;background:#f3faf8;border:1px solid #d9ebe6;border-radius:17px}
     .business-followup{background:#f5fbf4;border-color:#deebd8}
