@@ -99,7 +99,7 @@ const duplicateInventoryFiles = [...new Set(inventoryFiles.filter((file, index) 
 if (duplicateInventoryFiles.length) inventoryErrors.push(`중복 상세 페이지 기준값: ${duplicateInventoryFiles.join(", ")}`);
 const sitemap = readFileSync(resolve(process.cwd(), "sitemap.xml"), "utf8");
 const sitemapFiles = new Set(
-  [...sitemap.matchAll(/<loc>https:\/\/dyina0128\.github\.io\/([^<]+)<\/loc>/g)]
+  [...sitemap.matchAll(/<loc>https:\/\/dyinabenefitguide\.com\/([^<]+)<\/loc>/g)]
     .map((match) => match[1]),
 );
 
