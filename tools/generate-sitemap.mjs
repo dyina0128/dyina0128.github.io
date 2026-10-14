@@ -3,7 +3,7 @@ import { readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
-const baseUrl = "https://dyina0128.github.io/";
+const baseUrl = "https://dyinabenefitguide.com/";
 const excluded = new Set([
   "google9a37b7e5e6d98f1c.html",
   "naverd8023812e149436cdeb649ab5599a315.html",

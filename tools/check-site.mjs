@@ -11,7 +11,7 @@ const verificationFiles = new Set(
 );
 const errors = [];
 const warnings = [];
-const baseUrl = "https://dyina0128.github.io/";
+const baseUrl = "https://dyinabenefitguide.com/";
 const utilityPages = new Set(["about.html", "contact.html", "index.html", "privacy.html"]);
 
 const ignoredSchemes = /^(?:https?:|mailto:|tel:|javascript:|data:|#|\/\/)/i;
@@ -192,7 +192,7 @@ for (const file of htmlFiles) {
 }
 
 const sitemap = readFileSync(resolve(root, "sitemap.xml"), "utf8");
-const sitemapUrls = [...sitemap.matchAll(/<loc>https:\/\/dyina0128\.github\.io\/([^<]*)<\/loc>/g)]
+const sitemapUrls = [...sitemap.matchAll(/<loc>https:\/\/dyinabenefitguide\.com\/([^<]*)<\/loc>/g)]
   .map((match) => match[1] || "index.html");
 const sitemapSet = new Set(sitemapUrls);
 
