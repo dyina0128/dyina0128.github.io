@@ -103,14 +103,29 @@ const sitemapFiles = new Set(
     .map((match) => match[1]),
 );
 
+const indexableExceptions = new Set([
+  "hwaseong-benefits.html",
+  "gangwon-taebaek-benefits.html",
+]);
+
 for (const [region, files] of Object.entries(groups)) {
   const absent = files.filter((file) => !existsSync(resolve(process.cwd(), file)));
   const policyErrors = [];
   for (const file of files.filter((item) => !absent.includes(item))) {
     const html = readFileSync(resolve(process.cwd(), file), "utf8");
     const noindex = /<meta\s+[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
-    if (!noindex) policyErrors.push(`${file}: noindex 누락`);
-    if (sitemapFiles.has(file)) policyErrors.push(`${file}: noindex 페이지가 사이트맵에 포함됨`);
+    const shouldBeIndexable = indexableExceptions.has(file);
+
+    if (shouldBeIndexable && noindex) {
+      policyErrors.push(`${file}: 색인 허용 예외 페이지에 noindex 설정됨`);
+    } else if (!shouldBeIndexable && !noindex) {
+      policyErrors.push(`${file}: noindex 누락`);
+    }
+    if (shouldBeIndexable && !sitemapFiles.has(file)) {
+      policyErrors.push(`${file}: 색인 허용 페이지가 사이트맵에서 누락됨`);
+    } else if (!shouldBeIndexable && sitemapFiles.has(file)) {
+      policyErrors.push(`${file}: noindex 페이지가 사이트맵에 포함됨`);
+    }
   }
   total += files.length;
   missing += absent.length;
@@ -131,4 +146,4 @@ if (total !== 227) {
 }
 if (missing) process.exit(1);
 if (policyMismatches) process.exit(1);
-console.log("누락 0곳 · 227개 상세 페이지 noindex/사이트맵 제외 정책 일치");
+console.log("누락 0곳 · 225개 상세 페이지 noindex/사이트맵 제외 · 2개 허용 예외 색인 정책 일치");
