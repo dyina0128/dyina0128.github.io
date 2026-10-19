@@ -1,6 +1,15 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
+function hasNoindexDirective(html) {
+  return [...html.matchAll(/<meta\b[^>]*>/gi)].some(([tag]) => {
+    const name = tag.match(/\bname\s*=\s*(["'])(.*?)\1/i)?.[2]?.toLowerCase();
+    const content = tag.match(/\bcontent\s*=\s*(["'])(.*?)\1/i)?.[2] ?? "";
+    return ["robots", "googlebot"].includes(name)
+      && /(?:^|[\s,])noindex(?:[\s,]|$)/i.test(content);
+  });
+}
+
 const groups = {
   "서울특별시": [
     "gangnam", "gangdong", "gangbuk", "gangseo", "gwanak", "gwangjin", "guro",
@@ -113,7 +122,7 @@ for (const [region, files] of Object.entries(groups)) {
   const policyErrors = [];
   for (const file of files.filter((item) => !absent.includes(item))) {
     const html = readFileSync(resolve(process.cwd(), file), "utf8");
-    const noindex = /<meta\s+[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
+    const noindex = hasNoindexDirective(html);
     const shouldBeIndexable = indexableExceptions.has(file);
 
     if (shouldBeIndexable && noindex) {
