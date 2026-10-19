@@ -60,12 +60,21 @@ function hasId(html, id) {
   return new RegExp(`\\bid\\s*=\\s*["']${escaped}["']`, "i").test(html);
 }
 
+function hasNoindexDirective(html) {
+  return [...html.matchAll(/<meta\b[^>]*>/gi)].some(([tag]) => {
+    const name = tag.match(/\bname\s*=\s*(["'])(.*?)\1/i)?.[2]?.toLowerCase();
+    const content = tag.match(/\bcontent\s*=\s*(["'])(.*?)\1/i)?.[2] ?? "";
+    return ["robots", "googlebot"].includes(name)
+      && /(?:^|[\s,])noindex(?:[\s,]|$)/i.test(content);
+  });
+}
+
 for (const file of htmlFiles) {
   const html = htmlByFile.get(file);
   if (verificationFiles.has(file)) continue;
   const titleCount = (html.match(/<title\b/gi) || []).length;
   const h1Count = (html.match(/<h1\b/gi) || []).length;
-  const noindex = /<meta\s+[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
+  const noindex = hasNoindexDirective(html);
   const canonicalMatches = [...html.matchAll(/<link\s+[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/gi)];
   const refreshTag = [...html.matchAll(/<meta\b[^>]*>/gi)]
     .map((match) => match[0])
@@ -206,7 +215,7 @@ const indexablePages = new Set(
     .filter((file) => !verificationFiles.has(file))
     .filter((file) => {
       const html = htmlByFile.get(file);
-      return !/<meta\s+[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
+      return !hasNoindexDirective(html);
     }),
 );
 
