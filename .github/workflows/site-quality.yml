@@ -15,6 +15,32 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check whitespace errors
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE: ${{ github.event.before }}
+          PUSH_AFTER: ${{ github.event.after }}
+        run: |
+          set -euo pipefail
+          if [[ "$EVENT_NAME" == "pull_request" ]]; then
+            git diff --check "$PR_BASE...$PR_HEAD" --
+          elif [[ "$EVENT_NAME" == "push" ]]; then
+            if [[ "$PUSH_BEFORE" =~ ^0+$ ]]; then
+              base="$(git hash-object -t tree /dev/null)"
+            else
+              base="$PUSH_BEFORE"
+            fi
+            git diff --check "$base" "$PUSH_AFTER" --
+          else
+            echo "Unsupported event: $EVENT_NAME" >&2
+            exit 1
+          fi
 
       - name: Use Node.js 24
         uses: actions/setup-node@v4
