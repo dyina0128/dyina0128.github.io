@@ -595,7 +595,264 @@
                 text-align: center;
             }
         }
-    </style>
+    
+
+        /* Homepage visual refresh: clear hierarchy, softer surfaces, and warmer contrast */
+        body.home-page {
+            color: #24364b;
+            background: #f3f7fa;
+            letter-spacing: -0.012em;
+        }
+
+        body.home-page .page-header {
+            position: relative;
+            overflow: hidden;
+            padding: 68px 20px 82px;
+            isolation: isolate;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(75, 214, 198, 0.23), transparent 28%),
+                radial-gradient(circle at 88% 0%, rgba(119, 180, 255, 0.25), transparent 30%),
+                linear-gradient(128deg, #102b46 0%, #124b68 55%, #087c88 100%);
+        }
+
+        body.home-page .page-header::after {
+            position: absolute;
+            z-index: -1;
+            right: max(3vw, calc((100vw - 1180px) / 2));
+            bottom: -125px;
+            width: 290px;
+            height: 290px;
+            content: "";
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 50%;
+            box-shadow: 0 0 0 32px rgba(255, 255, 255, 0.035), 0 0 0 68px rgba(255, 255, 255, 0.025);
+            pointer-events: none;
+        }
+
+        body.home-page .page-header h1 {
+            max-width: 1000px;
+            margin: 0 auto;
+            font-size: clamp(2rem, 4.6vw, 3.25rem);
+            font-weight: 800;
+            letter-spacing: -0.055em;
+        }
+
+        body.home-page .page-header p {
+            max-width: 650px;
+            margin-top: 16px;
+            color: rgba(255, 255, 255, 0.88);
+            font-size: clamp(1rem, 1.6vw, 1.16rem);
+            line-height: 1.75;
+        }
+
+        body.home-page .top-nav {
+            position: relative;
+            z-index: 2;
+            max-width: 1160px;
+            margin: -25px auto 0;
+            padding: 9px 14px;
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(216, 228, 236, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 26px rgba(27, 53, 75, 0.09);
+        }
+
+        body.home-page .top-nav a {
+            margin: 4px 3px;
+            padding: 9px 12px;
+            color: #34516a;
+            border-radius: 9px;
+            transition: color 0.18s ease, background 0.18s ease;
+        }
+
+        body.home-page .top-nav a:hover {
+            color: #087c88;
+            background: #eaf7f6;
+            text-decoration: none;
+        }
+
+        body.home-page .container {
+            max-width: 1160px;
+            padding-top: 22px;
+        }
+
+        body.home-page .finder-spotlight {
+            gap: 34px;
+            padding: clamp(26px, 4vw, 44px);
+            background:
+                radial-gradient(circle at 94% 5%, rgba(255, 255, 255, 0.2), transparent 26%),
+                linear-gradient(128deg, #153c5a 0%, #14677a 58%, #13948d 100%);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 22px;
+            box-shadow: 0 18px 42px rgba(25, 74, 96, 0.17);
+        }
+
+        body.home-page .finder-primary {
+            color: #123b53;
+            background: #f4ca72;
+            box-shadow: 0 8px 20px rgba(7, 31, 48, 0.22);
+        }
+
+        body.home-page .finder-primary:hover {
+            background: #ffda8c;
+        }
+
+        body.home-page .finder-secondary {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        body.home-page .section-box {
+            margin-bottom: 22px;
+            padding: clamp(22px, 3.2vw, 32px);
+            border-color: #e3ebf0;
+            border-radius: 19px;
+            box-shadow: 0 8px 28px rgba(31, 55, 75, 0.045);
+        }
+
+        body.home-page .section-box h2 {
+            padding-left: 0;
+            color: #183c54;
+            font-size: clamp(1.3rem, 2.2vw, 1.58rem);
+            letter-spacing: -0.035em;
+            border: 0;
+        }
+
+        body.home-page .section-description {
+            color: #647689;
+        }
+
+        body.home-page .featured-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        body.home-page .featured-card {
+            min-height: 128px;
+            padding: 22px;
+            background: linear-gradient(145deg, #fbfdff, #f4f9fc);
+            border-color: #e1ebf0;
+            border-radius: 16px;
+        }
+
+        body.home-page .featured-card strong {
+            color: #126879;
+            font-size: 1.06rem;
+            letter-spacing: -0.02em;
+        }
+
+        body.home-page .featured-card:hover,
+        body.home-page .benefit-card:hover,
+        body.home-page .region-card:hover {
+            border-color: #7ccbc5;
+            box-shadow: 0 13px 28px rgba(21, 73, 91, 0.1);
+        }
+
+        body.home-page .region-grid {
+            gap: 13px;
+        }
+
+        body.home-page .region-card {
+            min-height: 116px;
+            justify-content: center;
+            padding: 20px;
+            border-color: #e3ebf0;
+            border-radius: 16px;
+            box-shadow: 0 5px 16px rgba(31, 55, 75, 0.04);
+        }
+
+        body.home-page .region-card strong {
+            color: #126879;
+        }
+
+        body.home-page .search-area select,
+        body.home-page .search-area input {
+            min-height: 50px;
+            border-color: #c9d7df;
+            border-radius: 11px;
+        }
+
+        body.home-page .search-area select:focus,
+        body.home-page .search-area input:focus {
+            border-color: #0b918d;
+            box-shadow: 0 0 0 4px rgba(11, 145, 141, 0.12);
+        }
+
+        body.home-page .benefit-card {
+            border-color: #e3ebf0;
+            border-radius: 16px;
+            box-shadow: 0 5px 18px rgba(31, 55, 75, 0.045);
+        }
+
+        body.home-page .detail-btn {
+            background: #126879;
+            border-radius: 10px;
+        }
+
+        body.home-page .detail-btn:hover {
+            background: #0c5365;
+        }
+
+        body.home-page footer {
+            color: #d6e3ec;
+            background: #17364e;
+            border-top: 0;
+        }
+
+        body.home-page .footer-links a {
+            color: #c2e9e5;
+        }
+
+        body.home-page .footer-note {
+            color: #a9bfcd;
+        }
+
+        @media (max-width: 1000px) {
+            body.home-page .featured-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 700px) {
+            body.home-page .page-header {
+                padding: 52px 18px 67px;
+            }
+
+            body.home-page .top-nav {
+                margin: -18px 12px 0;
+                padding: 8px;
+            }
+
+            body.home-page .top-nav a {
+                padding: 8px 9px;
+                font-size: 0.88rem;
+            }
+
+            body.home-page .container {
+                padding-top: 17px;
+            }
+
+            body.home-page .finder-spotlight {
+                border-radius: 18px;
+            }
+
+            body.home-page .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            body.home-page .featured-card {
+                min-height: 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body.home-page *,
+            body.home-page *::before,
+            body.home-page *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+</style>
 
     <script type="application/ld+json">
 {
@@ -610,7 +867,7 @@
 </script>
 </head>
 
-<body>
+<body class="home-page">
 
 <header class="page-header">
     <h1>대한민국 혜택 생활 가이드</h1>
