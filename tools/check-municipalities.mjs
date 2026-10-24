@@ -115,6 +115,7 @@ const sitemapFiles = new Set(
 const indexableExceptions = new Set([
   "hwaseong-benefits.html",
   "gangwon-taebaek-benefits.html",
+  "incheon-namdonggu-benefits.html",
 ]);
 
 for (const [region, files] of Object.entries(groups)) {
@@ -155,4 +156,4 @@ if (total !== 227) {
 }
 if (missing) process.exit(1);
 if (policyMismatches) process.exit(1);
-console.log("누락 0곳 · 225개 상세 페이지 noindex/사이트맵 제외 · 2개 허용 예외 색인 정책 일치");
+console.log("누락 0곳 · 224개 상세 페이지 noindex/사이트맵 제외 · 3개 허용 예외 색인 정책 일치");
