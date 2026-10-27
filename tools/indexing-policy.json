@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "indexableExceptions": [
+    {
+      "file": "hwaseong-benefits.html",
+      "canonical": "https://dyinabenefitguide.com/hwaseong-benefits.html",
+      "linkedFrom": ["gyeonggi-benefits.html"]
+    },
+    {
+      "file": "gangwon-taebaek-benefits.html",
+      "canonical": "https://dyinabenefitguide.com/gangwon-taebaek-benefits.html",
+      "linkedFrom": ["gangwon-benefits.html"]
+    },
+    {
+      "file": "gangwon-donghae-benefits.html",
+      "canonical": "https://dyinabenefitguide.com/gangwon-donghae-benefits.html",
+      "linkedFrom": ["gangwon-benefits.html"]
+    },
+    {
+      "file": "incheon-namdonggu-benefits.html",
+      "canonical": "https://dyinabenefitguide.com/incheon-namdonggu-benefits.html",
+      "linkedFrom": ["incheon-benefits.html"]
+    }
+  ]
+}
