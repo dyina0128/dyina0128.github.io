@@ -112,12 +112,20 @@ const sitemapFiles = new Set(
     .map((match) => match[1]),
 );
 
-const indexableExceptions = new Set([
-  "hwaseong-benefits.html",
-  "gangwon-taebaek-benefits.html",
-  "gangwon-donghae-benefits.html",
-  "incheon-namdonggu-benefits.html",
-]);
+const indexingPolicy = JSON.parse(
+  readFileSync(resolve(process.cwd(), "tools/indexing-policy.json"), "utf8"),
+);
+const indexableExceptions = new Set(
+  indexingPolicy.indexableExceptions.map(({ file }) => file),
+);
+const unsupportedExceptions = [...indexableExceptions].filter(
+  (file) => !inventoryFiles.includes(file),
+);
+if (unsupportedExceptions.length) {
+  inventoryErrors.push(
+    `색인 예외가 시군구 기준 목록에 없습니다: ${unsupportedExceptions.join(", ")}`,
+  );
+}
 
 for (const [region, files] of Object.entries(groups)) {
   const absent = files.filter((file) => !existsSync(resolve(process.cwd(), file)));
