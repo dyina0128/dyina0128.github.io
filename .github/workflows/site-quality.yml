@@ -53,6 +53,9 @@ jobs:
       - name: Validate nationwide municipality coverage
         run: node tools/check-municipalities.mjs
 
+      - name: Validate indexable exceptions and parent links
+        run: node tools/check-indexing-exceptions.mjs
+
       - name: Validate personalized benefit matcher
         run: node tools/check-benefit-matcher.mjs
 
@@ -61,6 +64,7 @@ jobs:
           node --check script.js
           node --check tools/check-site.mjs
           node --check tools/check-municipalities.mjs
+          node --check tools/check-indexing-exceptions.mjs
           node --check tools/check-benefit-matcher.mjs
           node --check tools/prepare-adsense-review.mjs
           node --check benefit-rule-engine-v2.js
