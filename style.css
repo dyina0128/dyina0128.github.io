@@ -618,6 +618,22 @@ button:focus-visible {
   background: #f8fafc;
   line-height: 1.7;
 }
+.calendar-skip {
+  position: fixed;
+  z-index: 100;
+  top: 12px;
+  left: 12px;
+  padding: 10px 16px;
+  color: #fff;
+  background: #075985;
+  border-radius: 8px;
+  font-weight: 800;
+  text-decoration: none;
+  transform: translateY(-160%);
+}
+.calendar-skip:focus {
+  transform: translateY(0);
+}
 .calendar-header {
   padding: 52px 20px;
   color: #fff;
@@ -679,6 +695,56 @@ button:focus-visible {
   background: #eff8ff;
   border-color: #7dd3fc;
 }
+.calendar-static-guide,.calendar-noscript {
+  margin-top: 20px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #dbe5ee;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(15,23,42,.05);
+}
+.calendar-static-guide h2,.calendar-noscript h2 {
+  margin-top: 0;
+  color: #173d5c;
+}
+.calendar-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 14px;
+}
+.calendar-guide-grid article {
+  padding: 18px;
+  background: #f8fafc;
+  border: 1px solid #dbe5ee;
+  border-radius: 12px;
+}
+.calendar-guide-grid strong {
+  color: #075985;
+}
+.calendar-guide-grid p {
+  margin: 8px 0 0;
+}
+.calendar-official-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.calendar-official-links a {
+  display: inline-block;
+  padding: 9px 14px;
+  color: #075985;
+  background: #e0f2fe;
+  border: 1px solid #7dd3fc;
+  border-radius: 8px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.calendar-noscript {
+  color: #7c2d12;
+  background: #fff7ed;
+  border-color: #fdba74;
+}
 .calendar-summary {
   display: grid;
   grid-template-columns: repeat(4,minmax(0,1fr));
@@ -700,6 +766,9 @@ button:focus-visible {
   display: block;
   color: #0879bd;
   font-size: 2rem;
+}
+.calendar-summary[aria-busy="true"] strong {
+  color: #64748b;
 }
 .calendar-filter-panel {
   margin-bottom: 20px;
@@ -870,7 +939,7 @@ button:focus-visible {
   overflow: hidden;
   clip: rect(0,0,0,0);
 }
-.calendar-controls button:focus-visible,.calendar-day:focus-visible,.calendar-item a:focus-visible,.calendar-search input:focus-visible,.calendar-filters select:focus-visible {
+.calendar-controls button:focus-visible,.calendar-day:focus-visible,.calendar-item a:focus-visible,.calendar-search input:focus-visible,.calendar-filters select:focus-visible,.calendar-official-links a:focus-visible {
   outline: 3px solid #f59e0b;
   outline-offset: 3px;
 }
@@ -881,8 +950,14 @@ button:focus-visible {
   .calendar-header h1 {
     font-size: 1.75rem;
   }
-  .calendar-summary,.calendar-filters,.calendar-card-grid {
+  .calendar-summary,.calendar-filters,.calendar-card-grid,.calendar-guide-grid {
     grid-template-columns: 1fr;
+  }
+  .calendar-official-links {
+    display: grid;
+  }
+  .calendar-official-links a {
+    text-align: center;
   }
   .calendar-controls {
     grid-template-columns: 1fr 1fr;
