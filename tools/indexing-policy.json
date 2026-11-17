@@ -2,27 +2,6 @@
   "version": 2,
   "indexableExceptions": [
     {
-      "file": "chungbuk-benefits.html",
-      "canonical": "https://dyinabenefitguide.com/chungbuk-benefits.html",
-      "linkedFrom": [
-        "index.html"
-      ]
-    },
-    {
-      "file": "chungnam-benefits.html",
-      "canonical": "https://dyinabenefitguide.com/chungnam-benefits.html",
-      "linkedFrom": [
-        "index.html"
-      ]
-    },
-    {
-      "file": "daejeon-benefits.html",
-      "canonical": "https://dyinabenefitguide.com/daejeon-benefits.html",
-      "linkedFrom": [
-        "index.html"
-      ]
-    },
-    {
       "file": "dongjak-benefits.html",
       "canonical": "https://dyinabenefitguide.com/dongjak-benefits.html",
       "linkedFrom": [
@@ -30,66 +9,10 @@
       ]
     },
     {
-      "file": "gyeongbuk-benefits.html",
-      "canonical": "https://dyinabenefitguide.com/gyeongbuk-benefits.html",
-      "linkedFrom": [
-        "index.html"
-      ]
-    },
-    {
-      "file": "gyeongnam-benefits.html",
-      "canonical": "https://dyinabenefitguide.com/gyeongnam-benefits.html",
-      "linkedFrom": [
-        "index.html"
-      ]
-    },
-    {
       "file": "hwaseong-benefits.html",
       "canonical": "https://dyinabenefitguide.com/hwaseong-benefits.html",
       "linkedFrom": [
         "gyeonggi-benefits.html"
-      ]
-    },
-    {
-      "file": "incheon-benefits.html",
-      "canonical": "https://dyinabenefitguide.com/incheon-benefits.html",
-      "linkedFrom": [
-        "index.html"
-      ]
-    },
-    {
-      "file": "jeju-benefits.html",
-      "canonical": "https://dyinabenefitguide.com/jeju-benefits.html",
-      "linkedFrom": [
-        "index.html"
-      ]
-    },
-    {
-      "file": "jeonbuk-benefits.html",
-      "canonical": "https://dyinabenefitguide.com/jeonbuk-benefits.html",
-      "linkedFrom": [
-        "index.html"
-      ]
-    },
-    {
-      "file": "jeonnam-benefits.html",
-      "canonical": "https://dyinabenefitguide.com/jeonnam-benefits.html",
-      "linkedFrom": [
-        "jeonnam-muan-benefits.html"
-      ]
-    },
-    {
-      "file": "sejong-benefits.html",
-      "canonical": "https://dyinabenefitguide.com/sejong-benefits.html",
-      "linkedFrom": [
-        "index.html"
-      ]
-    },
-    {
-      "file": "ulsan-benefits.html",
-      "canonical": "https://dyinabenefitguide.com/ulsan-benefits.html",
-      "linkedFrom": [
-        "index.html"
       ]
     }
   ]
