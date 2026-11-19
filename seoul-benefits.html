@@ -2,39 +2,30 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <!-- [구역 1] 치명적 고장 수리: noindex 차단 스위치 해제 및 실제 유입 검색어(서울시 지원금 / 서울 청년지원금) 정밀 타겟팅 -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
 
-    <title>2026 서울시 지원금 총정리 | 청년수당·월세·출산·일자리 지원</title>
+    <title>2026 서울시 지원금 및 서울 청년지원금 총정리 | 청년수당·청년월세·출산·소상공인 | 청년 꿀팁</title>
+    <meta name="description" content="2026년 서울시 지원금 및 서울 청년지원금 총정리! 서울 청년수당(월 50만원), 서울시 청년월세지원(최대 240만원), 임차보증금 이자지원, 출산·육아, 소상공인 지원 신청방법과 자격조건을 한눈에 확인하세요.">
+    <meta name="keywords" content="서울시 지원금, 서울 청년지원금, 서울시 청년 지원금, 2026 서울 지원금, 서울 청년수당, 서울시 청년월세지원, 서울 주거지원, 서울 소상공인 지원">
+    <meta name="author" content="대한민국 혜택 생활 가이드 편집자">
 
-    <meta name="description"
-          content="2026년 서울시 청년수당, 청년월세지원, 임차보증금 이자지원, 출산·육아, 마음건강, 일자리와 소상공인 지원 정보를 확인하세요.">
+    <link rel="canonical" href="https://dyinabenefitguide.com/seoul-benefits.html">
 
-    <meta name="keywords"
-          content="2026 서울 지원금, 서울 청년수당, 서울 청년월세지원, 서울 주거지원, 서울 출산지원, 서울 일자리 지원, 서울 소상공인 지원">
+    <!-- [구역 2] SNS / 카카오톡 공유 최적화 (오픈그래프) -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="대한민국 혜택 생활 가이드">
+    <meta property="og:title" content="2026 서울시 지원금 및 서울 청년지원금 총정리 | 청년수당·청년월세">
+    <meta property="og:description" content="서울시 청년수당, 청년월세, 출산·육아, 일자리, 소상공인 지원제도를 한눈에 확인하세요.">
+    <meta property="og:url" content="https://dyinabenefitguide.com/seoul-benefits.html">
 
-
-
-    <link rel="canonical"
-          href="https://dyinabenefitguide.com/seoul-benefits.html">
-
-    <meta property="og:type"
-          content="article">
-
-    <meta property="og:title"
-          content="2026 서울시 지원금 총정리">
-
-    <meta property="og:description"
-          content="서울시 청년·주거·출산·일자리·소상공인 지원제도를 한눈에 확인하세요.">
-
-    <meta property="og:url"
-          content="https://dyinabenefitguide.com/seoul-benefits.html">
-
-    <link rel="stylesheet"
-          href="style.css">
+    <link rel="stylesheet" href="style.css">
 
     <style>
+        /* [구역 3] 레이아웃 스타일 (CSS 첫 줄 - { → * { 문법 오류 수정 완료) */
         * {
             box-sizing: border-box;
         }
@@ -45,11 +36,7 @@
 
         body {
             margin: 0;
-            font-family:
-                "Malgun Gothic",
-                "Apple SD Gothic Neo",
-                Arial,
-                sans-serif;
+            font-family: "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif;
             line-height: 1.75;
             color: #334155;
             background: #f8fafc;
@@ -184,10 +171,7 @@
             border: 1px solid #e2e8f0;
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease,
-                border-color 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
         }
 
         .policy-card:hover {
@@ -427,102 +411,129 @@
                 width: 100%;
             }
         }
+
         .district-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
-}
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+        }
 
-.district-card {
-    display: flex;
-    flex-direction: column;
-    min-height: 145px;
-    padding: 20px;
-    color: #334155;
-    text-decoration: none;
-    background: #f9fcfe;
-    border: 1px solid #dce8ee;
-    border-radius: 12px;
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
-}
+        .district-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 145px;
+            padding: 20px;
+            color: #334155;
+            text-decoration: none;
+            background: #f9fcfe;
+            border: 1px solid #dce8ee;
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
 
-.district-card:hover {
-    transform: translateY(-3px);
-    border-color: #79c2df;
-    box-shadow: 0 9px 22px rgba(15, 23, 42, 0.08);
-}
+        .district-card:hover {
+            transform: translateY(-3px);
+            border-color: #79c2df;
+            box-shadow: 0 9px 22px rgba(15, 23, 42, 0.08);
+        }
 
-.district-card strong {
-    display: block;
-    margin-bottom: 7px;
-    color: #126e91;
-    font-size: 1.08rem;
-}
+        .district-card strong {
+            display: block;
+            margin-bottom: 7px;
+            color: #126e91;
+            font-size: 1.08rem;
+        }
 
-.district-card span {
-    color: #526274;
-    font-size: 0.92rem;
-}
+        .district-card span {
+            color: #526274;
+            font-size: 0.92rem;
+        }
 
-.district-card.active {
-    background: #eef8fc;
-    border-color: #8bcde4;
-}
+        .district-card.active {
+            background: #eef8fc;
+            border-color: #8bcde4;
+        }
 
-.district-card.pending {
-    cursor: default;
-    opacity: 0.68;
-}
+        .district-card.pending {
+            cursor: default;
+            opacity: 0.68;
+        }
 
-@media (max-width: 900px) {
-    .district-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
+        @media (max-width: 900px) {
+            .district-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
 
-@media (max-width: 560px) {
-    .district-grid {
-        grid-template-columns: 1fr;
-    }
-}
+        @media (max-width: 560px) {
+            .district-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 
+    <!-- [구역 4] 구글 검색 노출 면적 확장용 구조화 데이터 (Article + FAQPage) -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "2026 서울시 지원금 총정리",
-        "description": "서울시 청년수당, 청년월세, 주거, 출산육아, 일자리와 소상공인 지원 안내",
-        "inLanguage": "ko-KR",
-        "dateModified": "2026-07-17",
-        "mainEntityOfPage": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "2026 서울시 지원금 및 서울 청년지원금 총정리 | 청년수당·청년월세·출산·소상공인",
+          "description": "서울시 청년수당, 청년월세, 주거, 출산육아, 일자리와 소상공인 지원 안내",
+          "inLanguage": "ko-KR",
+          "dateModified": "2026-11-19",
+          "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://dyinabenefitguide.com/seoul-benefits.html"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "2026 서울 청년지원금(서울 청년수당) 대상과 지원금액은 어떻게 되나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "서울에 거주하는 만 19~34세 미취업·단기근로 청년을 대상으로 월 50만 원씩 최대 6개월(총 300만 원)과 성장지원 프로그램을 제공합니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "서울시 청년월세지원은 얼마까지 받을 수 있나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "서울 거주 무주택 청년에게 월 최대 20만 원씩 최대 12개월(생애 1회, 최대 240만 원)까지 지원합니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "서울에 직장이 있지만 경기도에 거주하면 서울시 지원금을 신청할 수 있나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "주민등록상 서울 거주를 요구하는 사업이 많아 직장 소재지만 서울인 경우에는 신청이 제한될 수 있으므로 사업별 거주 요건을 확인해야 합니다."
+              }
+            }
+          ]
         }
+      ]
     }
     </script>
-<meta name="author" content="대한민국 혜택 생활 가이드 편집자">
-    <meta name="robots" content="noindex, follow">
-    <meta name="googlebot" content="noindex, follow">
 </head>
 
 <body>
 
 <header class="page-header">
-    <h1>🏙️ 2026년 서울시 지원금 총정리</h1>
+    <h1>🏙️ 2026 서울시 지원금 · 서울 청년지원금 총정리</h1>
 
     <p>
-        서울 청년수당·청년월세·주거·출산육아·일자리와
+        서울 청년수당·서울시 청년월세지원·주거·출산육아·일자리와
         소상공인 지원 정보를 분야별로 확인하세요.
     </p>
 </header>
 
-<nav class="top-nav"
-     aria-label="주요 메뉴">
-
+<nav class="top-nav" aria-label="주요 메뉴">
     <a href="/">메인</a>
     <a href="youth-policy-list.html">청년정책</a>
     <a href="about.html">사이트 소개</a>
@@ -538,12 +549,12 @@
 </aside>
 
     <section class="intro-box">
-        <h2>서울시 지원제도, 어디서 찾아야 할까요?</h2>
+        <h2>2026 서울시 지원금 및 서울 청년지원금, 어디서 찾아야 할까요?</h2>
 
         <p>
             서울시는 청년, 무주택 가구, 임산부와 양육가정,
             취업준비생, 소상공인 등을 대상으로
-            다양한 지원사업을 운영하고 있습니다.
+            다양한 <strong>서울시 지원금</strong> 및 <strong>서울 청년지원금</strong> 사업을 운영하고 있습니다.
         </p>
 
         <p>
@@ -554,19 +565,20 @@
         </p>
 
         <div class="status-box">
-            <strong>2026년 7월 확인사항</strong>
+            <strong>2026년 핵심 확인사항</strong>
 
             <p>
-                서울 청년수당과 청년월세지원처럼
-                모집기간이 정해진 사업은 현재 접수가 끝났을 수 있습니다.
-                다음 모집 또는 추가모집 여부는
+                서울 청년수당과 서울시 청년월세지원처럼
+                모집기간이 정해진 사업은 차수별 또는 추가 모집 일정이 다릅니다.
+                최신 모집 및 추가모집 여부는
                 청년몽땅정보통과 서울주거포털 공지사항을 확인하세요.
             </p>
         </div>
 
         <div class="quick-menu">
-            <a href="#youth">청년 지원</a>
-            <a href="#housing">주거 지원</a>
+            <a href="#youth">서울 청년지원금 (청년수당)</a>
+            <a href="#housing">주거 지원 (청년월세)</a>
+            <a href="#districts">25개 자치구별 찾기</a>
             <a href="#family">출산·육아</a>
             <a href="#jobs">취업·창업</a>
             <a href="#small-business">소상공인</a>
@@ -574,176 +586,9 @@
         </div>
     </section>
 
-<section class="content-section"
-         id="districts">
-
-    <h2>서울 25개 자치구별 지원금 찾기</h2>
-
-    <p>
-        서울시 공통 지원사업 외에도 자치구마다
-        청년, 출산·육아, 어르신, 주거와 소상공인 지원사업이
-        다르게 운영될 수 있습니다.
-        거주 중인 자치구를 선택해 확인하세요.
-    </p>
-
-    <div class="district-grid">
-
-        <a href="gangnam-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 강남구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="gangdong-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 강동구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="gangbuk-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 강북구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="gangseo-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 강서구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="gwanak-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 관악구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="gwangjin-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 광진구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="guro-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 구로구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="geumcheon-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 금천구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="nowon-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 노원구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="dobong-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 도봉구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="dongdaemun-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 동대문구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="dongjak-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 동작구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="mapo-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 마포구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="seodaemun-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 서대문구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="seocho-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 서초구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="seongdong-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 성동구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="seongbuk-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 성북구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="songpa-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 송파구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="yangcheon-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 양천구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="yeongdeungpo-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 영등포구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="yongsan-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 용산구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="eunpyeong-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 은평구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="jongno-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 종로구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="junggu-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 중구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-        <a href="jungnang-benefits.html"
-           class="district-card active">
-            <strong>🏙️ 중랑구</strong>
-            <span>자치구 지원정보 확인</span>
-        </a>
-
-    </div>
-</section>
-    <section class="content-section"
-             id="youth">
-
-        <h2>1. 서울 청년 지원</h2>
+    <!-- [구역 5] 서치콘솔 유입 키워드(서울 청년지원금/청년수당/청년월세) 섹션을 최상단으로 전진 배치 -->
+    <section class="content-section" id="youth">
+        <h2>1. 서울 청년지원금 (서울 청년수당 등)</h2>
 
         <div class="policy-grid">
 
@@ -831,9 +676,7 @@
         </div>
     </section>
 
-    <section class="content-section"
-             id="housing">
-
+    <section class="content-section" id="housing">
         <h2>2. 서울 청년·신혼부부 주거지원</h2>
 
         <div class="policy-grid">
@@ -970,9 +813,145 @@
         </div>
     </section>
 
-    <section class="content-section"
-             id="family">
+    <section class="content-section" id="districts">
+        <h2>서울 25개 자치구별 지원금 찾기</h2>
 
+        <p>
+            서울시 공통 지원사업 외에도 자치구마다
+            청년, 출산·육아, 어르신, 주거와 소상공인 지원사업이
+            다르게 운영될 수 있습니다.
+            거주 중인 자치구를 선택해 확인하세요.
+        </p>
+
+        <div class="district-grid">
+            <a href="gangnam-benefits.html" class="district-card active">
+                <strong>🏙️ 강남구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="gangdong-benefits.html" class="district-card active">
+                <strong>🏙️ 강동구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="gangbuk-benefits.html" class="district-card active">
+                <strong>🏙️ 강북구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="gangseo-benefits.html" class="district-card active">
+                <strong>🏙️ 강서구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="gwanak-benefits.html" class="district-card active">
+                <strong>🏙️ 관악구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="gwangjin-benefits.html" class="district-card active">
+                <strong>🏙️ 광진구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="guro-benefits.html" class="district-card active">
+                <strong>🏙️ 구로구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="geumcheon-benefits.html" class="district-card active">
+                <strong>🏙️ 금천구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="nowon-benefits.html" class="district-card active">
+                <strong>🏙️ 노원구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="dobong-benefits.html" class="district-card active">
+                <strong>🏙️ 도봉구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="dongdaemun-benefits.html" class="district-card active">
+                <strong>🏙️ 동대문구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="dongjak-benefits.html" class="district-card active">
+                <strong>🏙️ 동작구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="mapo-benefits.html" class="district-card active">
+                <strong>🏙️ 마포구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="seodaemun-benefits.html" class="district-card active">
+                <strong>🏙️ 서대문구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="seocho-benefits.html" class="district-card active">
+                <strong>🏙️ 서초구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="seongdong-benefits.html" class="district-card active">
+                <strong>🏙️ 성동구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="seongbuk-benefits.html" class="district-card active">
+                <strong>🏙️ 성북구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="songpa-benefits.html" class="district-card active">
+                <strong>🏙️ 송파구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="yangcheon-benefits.html" class="district-card active">
+                <strong>🏙️ 양천구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="yeongdeungpo-benefits.html" class="district-card active">
+                <strong>🏙️ 영등포구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="yongsan-benefits.html" class="district-card active">
+                <strong>🏙️ 용산구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="eunpyeong-benefits.html" class="district-card active">
+                <strong>🏙️ 은평구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="jongno-benefits.html" class="district-card active">
+                <strong>🏙️ 종로구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="junggu-benefits.html" class="district-card active">
+                <strong>🏙️ 중구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+
+            <a href="jungnang-benefits.html" class="district-card active">
+                <strong>🏙️ 중랑구</strong>
+                <span>자치구 지원정보 확인</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="content-section" id="family">
         <h2>3. 서울 출산·육아 지원</h2>
 
         <div class="policy-grid">
@@ -1061,9 +1040,7 @@
         </div>
     </section>
 
-    <section class="content-section"
-             id="jobs">
-
+    <section class="content-section" id="jobs">
         <h2>4. 서울 취업·창업 지원</h2>
 
         <div class="policy-grid">
@@ -1152,9 +1129,7 @@
         </div>
     </section>
 
-    <section class="content-section"
-             id="small-business">
-
+    <section class="content-section" id="small-business">
         <h2>5. 서울 소상공인 지원</h2>
 
         <div class="policy-grid">
@@ -1242,37 +1217,14 @@
         <h2>6. 신청 전 확인할 사항</h2>
 
         <ul class="check-list">
-            <li>
-                신청일 현재 서울시 주민등록 요건
-            </li>
-
-            <li>
-                나이와 취업·근로 상태
-            </li>
-
-            <li>
-                가구소득과 건강보험료 기준
-            </li>
-
-            <li>
-                보증금·월세와 주택 소유 여부
-            </li>
-
-            <li>
-                서울시 유사사업 참여 또는 중복수급 제한
-            </li>
-
-            <li>
-                접수 시작일과 마감시간
-            </li>
-
-            <li>
-                주민등록초본·임대차계약서 등 준비서류
-            </li>
-
-            <li>
-                선정 후 의무교육·보고서 제출 여부
-            </li>
+            <li>신청일 현재 서울시 주민등록 요건</li>
+            <li>나이와 취업·근로 상태</li>
+            <li>가구소득과 건강보험료 기준</li>
+            <li>보증금·월세와 주택 소유 여부</li>
+            <li>서울시 유사사업 참여 또는 중복수급 제한</li>
+            <li>접수 시작일과 마감시간</li>
+            <li>주민등록초본·임대차계약서 등 준비서류</li>
+            <li>선정 후 의무교육·보고서 제출 여부</li>
         </ul>
 
         <div class="tip-box">
@@ -1287,14 +1239,11 @@
         </div>
     </section>
 
-    <section class="content-section"
-             id="faq">
-
+    <section class="content-section" id="faq">
         <h2>7. 자주 묻는 질문</h2>
 
         <div class="faq-item">
             <h3>Q. 서울에 직장이 있지만 경기도에 거주하면 신청할 수 있나요?</h3>
-
             <p>
                 주민등록상 서울 거주를 요구하는 사업이 많아
                 직장 소재지만 서울인 경우에는 신청이 제한될 수 있습니다.
@@ -1304,7 +1253,6 @@
 
         <div class="faq-item">
             <h3>Q. 서울 청년수당과 국민취업지원제도를 함께 받을 수 있나요?</h3>
-
             <p>
                 같은 기간의 현금성 구직지원 사업은
                 중복 참여가 제한될 수 있습니다.
@@ -1314,7 +1262,6 @@
 
         <div class="faq-item">
             <h3>Q. 청년월세지원은 매년 자동으로 지급되나요?</h3>
-
             <p>
                 아닙니다. 모집기간에 신청하고
                 소득·주택·임대차 조건 심사를 거쳐
@@ -1324,7 +1271,6 @@
 
         <div class="faq-item">
             <h3>Q. 서울시 지원사업은 모두 소득기준이 있나요?</h3>
-
             <p>
                 사업마다 다릅니다.
                 소득기준이 있는 사업도 있고,
@@ -1334,7 +1280,6 @@
 
         <div class="faq-item">
             <h3>Q. 신청기간이 끝난 사업은 어떻게 하나요?</h3>
-
             <p>
                 추가모집 여부를 확인하거나
                 청년몽땅정보통·서울주거포털의 다음 모집공고를
@@ -1344,7 +1289,6 @@
 
         <div class="faq-item">
             <h3>Q. 서울시와 중앙정부 지원금을 같이 받을 수 있나요?</h3>
-
             <p>
                 지원 목적이 다르면 중복 가능한 경우도 있지만,
                 동일 목적의 현금성 지원은 제한될 수 있습니다.
@@ -1358,52 +1302,26 @@
 
         <ul>
             <li>
-                <a href="https://youth.seoul.go.kr/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    청년몽땅정보통
-                </a>
+                <a href="https://youth.seoul.go.kr/" target="_blank" rel="noopener noreferrer">청년몽땅정보통</a>
                 — 청년수당·마음건강·일자리·청년정책
             </li>
-
             <li>
-                <a href="https://housing.seoul.go.kr/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    서울주거포털
-                </a>
+                <a href="https://housing.seoul.go.kr/" target="_blank" rel="noopener noreferrer">서울주거포털</a>
                 — 청년월세·임차보증금·공공주택
             </li>
-
             <li>
-                <a href="https://umppa.seoul.go.kr/hmpg/main.do"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    탄생육아 몽땅정보통
-                </a>
+                <a href="https://umppa.seoul.go.kr/hmpg/main.do" target="_blank" rel="noopener noreferrer">탄생육아 몽땅정보통</a>
                 — 결혼·임신·출산·육아 지원
             </li>
-
             <li>
-                <a href="https://seoul-agi.seoul.go.kr/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    서울시 임신·출산 정보센터
-                </a>
+                <a href="https://seoul-agi.seoul.go.kr/" target="_blank" rel="noopener noreferrer">서울시 임신·출산 정보센터</a>
             </li>
-
             <li>
-                <a href="https://www.seoulsbdc.or.kr/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    서울신용보증재단
-                </a>
+                <a href="https://www.seoulsbdc.or.kr/" target="_blank" rel="noopener noreferrer">서울신용보증재단</a>
                 — 소상공인 금융·경영·재기 지원
             </li>
-
             <li>
-                서울시 다산콜센터:
-                국번 없이 120
+                서울시 다산콜센터: 국번 없이 120
             </li>
         </ul>
 
@@ -1415,45 +1333,21 @@
     </section>
 
     <div class="bottom-buttons">
-        <a href="https://youth.seoul.go.kr/"
-           class="btn"
-           target="_blank"
-           rel="noopener noreferrer">
-            서울 청년정책 확인
-        </a>
-
-        <a href="https://housing.seoul.go.kr/"
-           class="btn"
-           target="_blank"
-           rel="noopener noreferrer">
-            서울 주거지원 확인
-        </a>
-
-        <a href="/"
-           class="btn btn-light">
-            ← 메인으로 돌아가기
-        </a>
-
-        <a href="benefit-search.html" class="btn btn-light">
-            🔍 전체 지원금 검색
-        </a>
-
-        <a href="benefit-finder.html" class="btn btn-light">
-            🎯 맞춤 지원금 찾기
-        </a>
-
+        <a href="https://youth.seoul.go.kr/" class="btn" target="_blank" rel="noopener noreferrer">서울 청년정책 확인</a>
+        <a href="https://housing.seoul.go.kr/" class="btn" target="_blank" rel="noopener noreferrer">서울 주거지원 확인</a>
+        <a href="/" class="btn btn-light">← 메인으로 돌아가기</a>
+        <a href="benefit-search.html" class="btn btn-light">🔍 전체 지원금 검색</a>
+        <a href="benefit-finder.html" class="btn btn-light">🎯 맞춤 지원금 찾기</a>
     </div>
 
     <p class="updated">
-        최종 내용 확인: 2026년 7월 12일
+        최종 내용 확인: 2026년 11월 19일
     </p>
 
-
-<aside class="page-info" aria-label="정보 확인일 및 공식 출처" style="margin:24px 0;padding:16px 18px;background:#f1f7fb;border-left:4px solid #1683b6;border-radius:8px;font-size:.95rem;line-height:1.7;">
-<p style="margin:0 0 6px;"><strong>정보 확인일:</strong> 2026년 7월 12일</p>
-<p style="margin:0;"><strong>공식 출처:</strong> <a href="https://youth.seoul.go.kr/" target="_blank" rel="noopener noreferrer">공식 공고 확인</a> · <a href="https://housing.seoul.go.kr/site/main/content/sh01_060513" target="_blank" rel="noopener noreferrer">서울주거포털 확인</a> · <a href="https://housing.seoul.go.kr/" target="_blank" rel="noopener noreferrer">최신 공고 확인</a> · <a href="https://umppa.seoul.go.kr/hmpg/main.do" target="_blank" rel="noopener noreferrer">공식 통합정보</a></p>
-
-</aside>
+    <aside class="page-info" aria-label="정보 확인일 및 공식 출처" style="margin:24px 0;padding:16px 18px;background:#f1f7fb;border-left:4px solid #1683b6;border-radius:8px;font-size:.95rem;line-height:1.7;">
+        <p style="margin:0 0 6px;"><strong>정보 확인일:</strong> 2026년 11월 19일</p>
+        <p style="margin:0;"><strong>공식 출처:</strong> <a href="https://youth.seoul.go.kr/" target="_blank" rel="noopener noreferrer">공식 공고 확인</a> · <a href="https://housing.seoul.go.kr/site/main/content/sh01_060513" target="_blank" rel="noopener noreferrer">서울주거포털 확인</a> · <a href="https://housing.seoul.go.kr/" target="_blank" rel="noopener noreferrer">최신 공고 확인</a> · <a href="https://umppa.seoul.go.kr/hmpg/main.do" target="_blank" rel="noopener noreferrer">공식 통합정보</a></p>
+    </aside>
 </main>
 
 <footer>
@@ -1471,5 +1365,7 @@
     </div>
 </footer>
 
-<script src="benefits-data.js"></script><script src="bookmarks.js"></script></body>
+<script src="benefits-data.js"></script>
+<script src="bookmarks.js"></script>
+</body>
 </html>
