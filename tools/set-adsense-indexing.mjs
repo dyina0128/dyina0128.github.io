@@ -29,8 +29,6 @@ const flagshipRegionPages = new Set([
 // 내용이 더 충실한 새 가이드와 주제가 겹치거나, 검색용 독립 문서로는 얇은 페이지.
 const duplicateOrThinPages = new Set([
   "daegu-junggu.html",
-  "daegu-benefits.html",
-  "gyeonggi-benefits.html",
   "job-support.html",
   "terms.html",
   "work-incentive.html",
