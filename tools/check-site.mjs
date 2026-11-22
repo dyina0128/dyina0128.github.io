@@ -262,18 +262,14 @@ for (const [file, minimum] of requiredDirectoryLinks) {
   }
 }
 
+// 홈에서는 검색 허용 페이지로만 연결한다(푸터의 이용약관은 예외로 유지).
+// 전남광주는 noindex 통합 허브 대신 공개 중인 광주권·전남권 허브로 연결한다.
 const requiredHomepageLinks = [
-  "download-center.html",
-  "benefit-search.html",
   "benefit-finder-v2.html",
-  "calendar.html",
-  "top-benefits.html",
-  "region-ranking.html",
-  "benefit-compare.html",
-  "bookmarks.html",
   "gyeonggi-benefits.html",
   "daegu-benefits.html",
-  "jeonnam-gwangju-benefits.html",
+  "gwangju-benefits.html",
+  "jeonnam-benefits.html",
 ];
 const homepageLinks = new Set(
   [...htmlByFile.get("index.html").matchAll(/<a\b[^>]*href=["']([^"']+)["']/gi)]
@@ -318,7 +314,7 @@ if (!benefitDataBody) {
 const requiredScriptRoutes = new Map([
   ["경기", "gyeonggi-benefits.html"],
   ["대구", "daegu-benefits.html"],
-  ["전남광주", "jeonnam-gwangju-benefits.html"],
+  ["전남광주", "gwangju-benefits.html"],
 ]);
 for (const [region, required] of requiredScriptRoutes) {
   if (!urlsByRegion.get(region)?.includes(required)) {

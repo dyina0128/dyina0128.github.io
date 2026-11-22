@@ -153,11 +153,6 @@ const benefitData = {
 
   전남광주: [
     {
-      title: "🌿 전남광주통합특별시 지원정보",
-      description: "광주권 5개 구와 전남권 22개 시·군의 지원정보를 확인하세요.",
-      url: "jeonnam-gwangju-benefits.html"
-    },
-    {
       title: "🎓 광주권 지원정보",
       description: "광주권 청년·주거·일자리·출산·창업 지원을 확인하세요.",
       url: "gwangju-benefits.html"
