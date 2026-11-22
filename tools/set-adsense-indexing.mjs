@@ -37,6 +37,15 @@ const duplicateOrThinPages = new Set([
   "youth-policy-list.html",
 ]);
 
+// tools/indexing-policy.json에 등록된 시군구 페이지는 별도 품질 점검을 통과해
+// 검색 허용으로 연 페이지이므로 noindex로 되돌리지 않는다.
+const indexingPolicy = JSON.parse(
+  await readFile(path.join(root, "tools/indexing-policy.json"), "utf8"),
+);
+const indexableExceptions = new Set(
+  (indexingPolicy.indexableExceptions ?? []).map(({ file }) => file),
+);
+
 function setNoindex(html) {
   const metaPattern = /<meta\s+name=["'](?:robots|googlebot)["']\s+content=["'][^"']*["']\s*\/?\s*>/gi;
   let sawRobots = false;
@@ -59,6 +68,7 @@ const entries = await readdir(root, { withFileTypes: true });
 let changed = 0;
 for (const entry of entries) {
   if (!entry.isFile() || !entry.name.endsWith(".html")) continue;
+  if (indexableExceptions.has(entry.name)) continue;
 
   const isLocalRegion = entry.name.endsWith("-benefits.html") && !flagshipRegionPages.has(entry.name);
   if (!isLocalRegion && !duplicateOrThinPages.has(entry.name)) continue;
