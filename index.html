@@ -58,16 +58,6 @@
     <meta name="twitter:description"
           content="대한민국 정부 지원금과 복지 혜택을 대상별·지역별로 쉽게 확인하세요.">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "대한민국 혜택 생활 가이드",
-      "alternateName": "혜택 생활 가이드",
-      "url": "https://dyinabenefitguide.com"
-    }
-    </script>
-
     <link rel="stylesheet"
           href="style.css">
 
@@ -948,6 +938,30 @@
         body.home-page .visually-hidden { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
         @media(max-width:1000px){body.home-page .audience-grid{grid-template-columns:repeat(2,minmax(0,1fr));}body.home-page .home-directory{grid-template-columns:1fr;}body.home-page .featured-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
         @media(max-width:700px){body.home-page .top-nav.reference-nav{margin:10px auto 0;padding:0 12px;}body.home-page .nav-inner{align-items:stretch;flex-direction:column;gap:7px;padding:9px 13px;border-radius:14px;}body.home-page .nav-links{justify-content:space-between;gap:2px 10px;}body.home-page .nav-links a{padding:6px 0;font-size:.78rem;}body.home-page .nav-search{flex:1 1 auto;width:100%;}body.home-page .home-hero.page-header{padding:34px 18px 30px;background-position:58% center;}body.home-page .home-hero h1{font-size:2.15rem;}body.home-page .home-hero .finder-spotlight{grid-template-columns:1fr;gap:15px;margin-top:21px;}body.home-page .finder-spotlight-copy{padding:19px 17px;}body.home-page .home-hero .finder-spotlight h2{font-size:1.5rem;}body.home-page .finder-actions{align-items:stretch;flex-direction:column;}body.home-page .finder-primary,body.home-page .finder-secondary{width:100%;}body.home-page .finder-steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;}body.home-page .finder-step{grid-template-columns:1fr;justify-items:center;padding:7px 2px;text-align:center;}body.home-page .finder-step span{font-size:.68rem;}body.home-page .finder-step strong{font-size:.75rem;}body.home-page .container{padding:20px 13px 42px;}body.home-page .audience-grid{grid-template-columns:1fr;gap:9px;}body.home-page .audience-card{min-height:88px;padding:12px 14px;}body.home-page .audience-icon{width:44px;height:44px;font-size:1.7rem;}body.home-page .section-heading-row{align-items:flex-start;}body.home-page .section-heading-row h2{font-size:1.2rem;}body.home-page .section-heading-row p{font-size:.8rem;}body.home-page .region-grid{grid-template-columns:repeat(2,minmax(0,1fr));}body.home-page .region-card{min-height:76px;}body.home-page .section-box{padding:19px 16px;}body.home-page .featured-grid{grid-template-columns:1fr;}body.home-page #cards.card-container{grid-template-columns:1fr;}}
+        /* 홈 디렉터리: 지역 바로가기와 혜택 검색을 위아래로 쌓아 각각 전체 너비를 쓰게 한다 */
+        body.home-page .home-directory { display:block; }
+        body.home-page .home-directory .section-description { font-size:1rem; line-height:1.65; color:#5f6f7c; }
+        body.home-page .region-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr)); gap:12px; }
+        body.home-page .region-card { min-height:100px; gap:6px; padding:16px 14px; }
+        body.home-page .region-card strong { font-size:1.06rem; line-height:1.4; word-break:keep-all; }
+        body.home-page .region-card span { max-width:none; color:#5f6f7c; font-size:1rem; line-height:1.5; word-break:keep-all; }
+        body.home-page .search-area { display:grid; grid-template-columns:minmax(220px,300px) minmax(0,1fr); gap:10px; }
+        body.home-page .search-area select,body.home-page .search-area input { font-size:1rem; }
+        body.home-page .popular-searches>strong { font-size:.95rem; }
+        body.home-page .search-chip,body.home-page .search-chip-link { padding:8px 13px; font-size:.9rem; }
+        /* style.css의 4열 고정(!important)을 홈에서만 자동 배치로 덮어쓴다 */
+        body.home-page #cards.card-container { grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr)) !important; gap:16px !important; max-width:none !important; margin:0 !important; padding:0 !important; }
+        body.home-page #cards .card { padding:20px !important; text-align:left !important; word-break:keep-all; overflow-wrap:break-word; }
+        body.home-page #cards .card h3 { font-size:1.12rem !important; line-height:1.4 !important; }
+        body.home-page #cards .card p { font-size:1rem !important; line-height:1.6 !important; }
+        body.home-page #cards .card .btn-group { justify-content:flex-start !important; }
+        @media(max-width:700px){
+            body.home-page .search-area { grid-template-columns:1fr; }
+            body.home-page .region-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+            body.home-page .region-card { min-height:90px; padding:12px 10px; }
+            body.home-page .region-card strong { font-size:1rem; }
+            body.home-page .region-card span { font-size:.9rem; }
+        }
         @media(prefers-reduced-motion:reduce){body.home-page *,body.home-page *::before,body.home-page *::after{scroll-behavior:auto!important;transition-duration:.01ms!important;}}
 </style>
 
