@@ -198,6 +198,35 @@
             background: #fef3c7;
         }
 
+        .status.closed {
+            color: #475569;
+            background: #e2e8f0;
+        }
+
+        .jeju-table {
+            width: 100%;
+            margin: 14px 0 6px;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .jeju-table th,
+        .jeju-table td {
+            padding: 10px 8px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .jeju-table th {
+            color: #1e3a5f;
+            background: #f1f8fc;
+        }
+
+        .situation-list li {
+            margin-bottom: 8px;
+        }
+
         .card h3 {
             margin: 0 0 10px;
             color: #1e3a5f;
@@ -340,7 +369,7 @@
         "description": "현재 확인할 수 있는 제주특별자치도 청년, 주거, 출산, 소상공인, 농업 지원정책",
         "inLanguage": "ko-KR",
         "datePublished": "2026-08-14",
-        "dateModified": "2026-08-14",
+        "dateModified": "2026-11-23",
         "author": {
             "@type": "Organization",
             "name": "대한민국 혜택 생활 가이드"
@@ -398,7 +427,7 @@
 <header class="page-header">
     <h1>🍊 2026 제주특별자치도 지원금 총정리</h1>
     <p>현재 확인할 수 있는 청년·주거·출산·소상공인·농업 지원을 살펴보세요.</p>
-    <p class="update-date">최종 업데이트: 2026년 8월 14일</p>
+    <p class="update-date">최종 업데이트: 2026년 11월 23일</p>
 </header>
 
 <nav class="top-nav" aria-label="주요 메뉴">
@@ -417,6 +446,7 @@
 </aside>
     <nav class="quick-menu" aria-label="페이지 바로가기">
         <a href="#guide">지원제도 안내</a>
+        <a href="#my-case">내 상황별 안내</a>
         <a href="#youth">청년</a>
         <a href="#housing">주거</a>
         <a href="#family">출산·육아</a>
@@ -436,6 +466,34 @@
             <strong>중요:</strong>
             예산이 소진되면 접수가 조기에 종료될 수 있습니다.
             신청 전 반드시 공식 홈페이지에서 접수 가능 여부를 확인하세요.
+        </div>
+    </section>
+
+    <section class="section" id="my-case">
+        <h2>내 상황에 맞는 지원부터 확인하세요</h2>
+
+        <ul class="situation-list">
+            <li><strong>제주에 오래 산 근로 청년(만 19~39세):</strong> 고금리 대출이 있다면 빛나는 제주청년 희망대출로 대환할 수 있는지 먼저 봅니다. 제주 거주기간 36개월 이상이 필요합니다.</li>
+            <li><strong>올해 제주로 이사 온 청년:</strong> 탐라청년출발패키지는 2026년 접수가 예산 소진으로 일찍 끝났으므로, 2027년 사업 공고가 나오는지 확인하세요.</li>
+            <li><strong>신혼부부·출산 7년 이내 가구:</strong> 전세라면 전세대출 이자지원, 공공임대주택에 살면 3만원 주택, 집을 샀다면 하영드림 주택마련 지원을 봅니다. 셋은 서로 중복이 제한될 수 있습니다.</li>
+            <li><strong>아이를 낳았거나 키우는 가정:</strong> 해피아이 육아지원금(첫째 500만 원, 둘째 이상 1,000만 원)과 산모·신생아 건강관리 본인부담금 지원을 함께 확인합니다.</li>
+            <li><strong>1인 여성 소상공인·농업인:</strong> 출산 시 1인 소상공인 출산지원, 농업인은 농민수당 대상인지 확인합니다.</li>
+        </ul>
+
+        <h3>사업마다 다른 제주 거주기간 기준</h3>
+        <table class="jeju-table">
+            <tr><th>사업</th><th>필요한 거주·운영 기간</th></tr>
+            <tr><td>빛나는 제주청년 희망대출</td><td>제주 거주 36개월 이상</td></tr>
+            <tr><td>해피아이 육아지원금</td><td>첫째 출생 전 6개월, 둘째 이상 출생 전 12개월</td></tr>
+            <tr><td>제주 농민수당</td><td>제주 3년 이상 계속 거주, 농업경영체 2년 이상 등록</td></tr>
+            <tr><td>1인 소상공인 출산지원</td><td>제주에서 6개월 이상 사업 운영</td></tr>
+            <tr><td>탐라청년출발패키지</td><td>2026년 1월 1일 이후 전입, 6개월 거주 유지 시 2차 지급</td></tr>
+        </table>
+        <p>같은 '제주 거주'라도 사업마다 기준 기간이 다릅니다. 전입일은 주민등록초본으로 확인할 수 있습니다.</p>
+
+        <div class="notice">
+            <strong>연말 마감 확인:</strong>
+            빛나는 제주청년 희망대출과 아동건강체험활동비는 2026년 12월 31일까지 신청할 수 있지만, 예산이 먼저 소진되면 일찍 끝날 수 있습니다.
         </div>
     </section>
 
@@ -479,6 +537,43 @@
                         rel="noopener noreferrer"
                     >
                         제주도 공고 확인
+                    </a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-top">
+                    <span class="tag">청년 전입</span>
+                    <span class="status closed">2026년 접수 마감</span>
+                </div>
+
+                <h3>🧳 탐라청년출발패키지</h3>
+
+                <p>
+                    제주로 주소를 옮긴 청년에게 제주지역화폐
+                    탐나는전을 지급하는 전입 지원사업입니다.
+                </p>
+
+                <ul>
+                    <li><strong>대상:</strong> 2026년 1월 1일 이후 제주로 전입한 만 19~39세 청년</li>
+                    <li><strong>지급:</strong> 전입 축하금 + 6개월 거주 유지 시 정주 장려금</li>
+                    <li><strong>지급수단:</strong> 탐나는전</li>
+                    <li><strong>신청:</strong> 정부24(2026년 2월 23일 접수 시작)</li>
+                </ul>
+
+                <div class="info">
+                    2026년 접수는 신청이 몰려 예산 소진으로 일찍 마감됐습니다.
+                    이미 1차 지원을 받은 사람은 6개월 거주를 유지해야 2차 장려금을 받습니다.
+                </div>
+
+                <div class="btns">
+                    <a
+                        href="https://www.gov.kr/"
+                        class="btn btn-light"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        정부24에서 공고 확인
                     </a>
                 </div>
             </article>
@@ -560,6 +655,88 @@
                         rel="noopener noreferrer"
                     >
                         제주 인구정책 확인
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" id="housing-more">
+        <h2>공공임대·주택구입 가구 지원</h2>
+
+        <div class="grid">
+            <article class="card">
+                <div class="card-top">
+                    <span class="tag">공공임대</span>
+                    <span class="status check">차수별 모집</span>
+                </div>
+
+                <h3>🏠 제주 3만원 주택</h3>
+
+                <p>
+                    공공임대주택에 사는 신혼부부·출산 가구의 월 임대료를
+                    3만 원만 내도록 나머지를 제주도가 지원합니다.
+                </p>
+
+                <ul>
+                    <li><strong>대상:</strong> 도내 공공임대주택 거주, 혼인 또는 출산 후 7년 이내 가구(분양전환형 제외)</li>
+                    <li><strong>소득:</strong> 도시근로자 월평균소득 130% 이하(맞벌이 200% 이하)</li>
+                    <li><strong>본인 부담:</strong> 월 임대료 3만 원(보증금·관리비는 별도)</li>
+                    <li><strong>지원기간:</strong> 선정 시 최대 10개월분</li>
+                    <li><strong>신청:</strong> 정부24에서 '제주 3만원 주택' 검색</li>
+                </ul>
+
+                <div class="info">
+                    예: 월 임대료가 20만 원이면 입주자가 3만 원, 도가 17만 원을 냅니다.
+                    주택 보유자나 주거급여·청년월세·신혼부부 전세대출 이자지원을
+                    받는 가구는 신청할 수 없습니다. 2026년 3차 모집은 9월 16일~10월 9일이었습니다.
+                </div>
+
+                <div class="btns">
+                    <a
+                        href="https://www.gov.kr/"
+                        class="btn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        정부24 확인
+                    </a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-top">
+                    <span class="tag">주택구입</span>
+                    <span class="status closed">2026년 모집 종료</span>
+                </div>
+
+                <h3>🔑 하영드림 주택마련 지원</h3>
+
+                <p>
+                    신혼부부와 자녀출산 가구가 제주에서 집을 살 때 받은
+                    주택구입자금 대출이자 일부를 지원합니다.
+                </p>
+
+                <ul>
+                    <li><strong>대상:</strong> 혼인 또는 자녀출산 7년 이내 가구</li>
+                    <li><strong>지원:</strong> 대출금 최대 3억 원에 대해 연 1.5% 이내 이자 지원</li>
+                    <li><strong>주택:</strong> 도내 전용면적 85㎡ 이하, 매매가 6억 원 이하</li>
+                    <li><strong>소득:</strong> 부부합산 연 1억 원 이하(민간 대출은 1억 3,000만 원 이하)</li>
+                </ul>
+
+                <div class="info">
+                    2026년 신규 모집은 5월 4일~6월 22일 정부24에서 받았습니다.
+                    다음 모집 일정은 제주도 공고를 확인하세요.
+                </div>
+
+                <div class="btns">
+                    <a
+                        href="https://www.jeju.go.kr/lifecycle/index.htm"
+                        class="btn btn-light"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        인구정책 플랫폼
                     </a>
                 </div>
             </article>
@@ -868,6 +1045,31 @@
         </div>
 
         <div class="faq">
+            <h3>Q. 제주로 이사 온 지 1년 됐는데 희망대출을 받을 수 있나요?</h3>
+            <p>
+                빛나는 제주청년 희망대출은 제주 거주기간이 36개월 이상이어야
+                합니다. 거주기간이 부족하면 신청할 수 없으니 전입일을 먼저 확인하세요.
+            </p>
+        </div>
+
+        <div class="faq">
+            <h3>Q. 전세대출 이자지원을 받고 있는데 3만원 주택도 신청할 수 있나요?</h3>
+            <p>
+                3만원 주택은 주거급여, 청년월세, 신혼부부 전세자금 대출이자 지원 등
+                다른 주거비 지원을 받는 가구는 신청할 수 없습니다. 둘 중 유리한 쪽을
+                골라야 합니다.
+            </p>
+        </div>
+
+        <div class="faq">
+            <h3>Q. 희망대출은 어디서 신청하나요?</h3>
+            <p>
+                NH농협은행 제주본부나 지점에서 대출 상담을 받은 뒤, 제주도의 융자지원
+                추천서를 발급받아 제출하는 방식입니다.
+            </p>
+        </div>
+
+        <div class="faq">
             <h3>Q. 중앙정부 지원과 중복으로 받을 수 있나요?</h3>
             <p>
                 지원 목적이 다르면 가능한 경우도 있지만 동일한 주거비나
@@ -877,6 +1079,22 @@
     </section>
 
 
+
+    <section class="section" id="sources">
+        <h2>출처 및 최종 확인</h2>
+
+        <ul class="check-list">
+            <li>제주특별자치도 누리집과 인구정책 플랫폼(육아지원금, 주거임차비, 산모·신생아, 돌봄, 농민수당)</li>
+            <li>제주특별자치도 발표: 빛나는 제주청년 희망대출 개편, 탐라청년출발패키지 접수 현황(2026년 7월), 하영드림 주택마련 지원 모집(2026년 4월), 3만원 주택 3차 모집(2026년 9월)</li>
+            <li>제주신용보증재단, 정부24 서비스 정보</li>
+        </ul>
+
+        <p>
+            <strong>최종 확인:</strong> 2026년 11월 23일 ·
+            본 사이트는 정부기관이 아니며, 실제 대상 여부와 금액은 신청 시점의
+            제주특별자치도 공고로 최종 결정됩니다.
+        </p>
+    </section>
 
     <section class="section">
         <h2>공식 확인처</h2>
@@ -933,7 +1151,7 @@
         </div>
 
         <p style="margin-top:22px;color:#718096;font-size:.86rem;">
-            최종 내용 확인: 2026년 8월 14일
+            최종 내용 확인: 2026년 11월 23일
         </p>
     </section>
 </main>
