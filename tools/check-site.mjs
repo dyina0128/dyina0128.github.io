@@ -232,24 +232,15 @@ for (const file of sitemapSet) {
   if (!indexablePages.has(file)) errors.push(`sitemap.xml: 검색 제외 페이지 포함 ${file}`);
 }
 
+// 승인 심사 기간에는 검색 허용(indexing-policy.json)된 시군구 페이지만 남긴다.
+// 광역 허브는 남아 있는 시군구 상세 페이지를 모두 연결해야 한다.
 const requiredDirectoryLinks = new Map([
-  ["seoul-benefits.html", 25],
-  ["incheon-benefits.html", 11],
-  ["gyeonggi-benefits.html", 31],
-  ["busan-benefits.html", 16],
-  ["daegu-benefits.html", 9],
-  ["gwangju-benefits.html", 5],
-  ["daejeon-benefits.html", 5],
-  ["ulsan-benefits.html", 5],
-  ["gangwon-benefits.html", 18],
-  ["chungbuk-benefits.html", 11],
-  ["chungnam-benefits.html", 15],
-  ["jeonbuk-benefits.html", 14],
-  ["jeonnam-benefits.html", 22],
-  ["gyeongbuk-benefits.html", 22],
-  ["gyeongnam-benefits.html", 18],
-  ["jeju-benefits.html", 2],
-  ["jeonnam-gwangju-benefits.html", 27],
+  ["seoul-benefits.html", 1],
+  ["incheon-benefits.html", 10],
+  ["gyeonggi-benefits.html", 2],
+  ["chungnam-benefits.html", 1],
+  ["jeonbuk-benefits.html", 2],
+  ["jeonnam-benefits.html", 5],
 ]);
 for (const [file, minimum] of requiredDirectoryLinks) {
   const links = new Set(
