@@ -532,7 +532,7 @@ window.BENEFITS_DATA = [
         "applicationStart": "",
         "applicationEnd": "",
         "applicationType": "공식 공고 확인",
-        "summary": "전기자동차 구매 관련 보조금과 확인 절차를 안내합니다.",
+        "summary": "2026년 전기차 국비·지방비 보조금, 차량가격 구간, 내연차 전환지원금과 신청 절차를 안내합니다.",
         "url": "ev-subsidy.html",
         "keywords": [
             "전기차 보조금",
