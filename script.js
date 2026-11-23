@@ -36,7 +36,7 @@ const benefitData = {
     },
     {
       title: "🚗 자동차지원",
-      description: "전기차 보조금, 조기폐차 지원과 자동차세 감면",
+      description: "전기차 보조금, 전환지원금과 세금 감면",
       url: "ev-subsidy.html"
     },
     {
