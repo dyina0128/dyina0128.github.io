@@ -128,9 +128,18 @@ if (unsupportedExceptions.length) {
 }
 
 for (const [region, files] of Object.entries(groups)) {
-  const absent = files.filter((file) => !existsSync(resolve(process.cwd(), file)));
+  // 승인 심사 기간에는 색인 예외로 등록된 시군구 페이지만 둔다. 나머지는 파일을
+  // 삭제해 두었다가(기록은 git에 남음) 내용을 보강한 뒤 다시 추가한다.
+  const absent = files.filter(
+    (file) => indexableExceptions.has(file) && !existsSync(resolve(process.cwd(), file)),
+  );
   const policyErrors = [];
-  for (const file of files.filter((item) => !absent.includes(item))) {
+  for (const file of files.filter((item) => !indexableExceptions.has(item))) {
+    if (existsSync(resolve(process.cwd(), file))) {
+      policyErrors.push(`${file}: 색인 예외가 아닌 시군구 페이지가 남아 있음 (승인 심사 기간에는 삭제)`);
+    }
+  }
+  for (const file of files.filter((item) => existsSync(resolve(process.cwd(), item)))) {
     const html = readFileSync(resolve(process.cwd(), file), "utf8");
     const noindex = hasNoindexDirective(html);
     const shouldBeIndexable = indexableExceptions.has(file);
@@ -149,12 +158,13 @@ for (const [region, files] of Object.entries(groups)) {
   total += files.length;
   missing += absent.length;
   policyMismatches += policyErrors.length;
-  console.log(`${region}: ${files.length - absent.length}/${files.length} · 색인정책 오류 ${policyErrors.length}건`);
+  const present = files.filter((file) => existsSync(resolve(process.cwd(), file))).length;
+  console.log(`${region}: 상세 페이지 ${present}곳 (기준 ${files.length}곳) · 색인정책 오류 ${policyErrors.length}건`);
   if (absent.length) console.log(`  누락: ${absent.join(", ")}`);
   if (policyErrors.length) console.log(`  ${policyErrors.join("\n  ")}`);
 }
 
-console.log(`합계: ${total - missing}/${total}`);
+console.log(`기준 시군구 ${total}곳 · 색인 예외 페이지 누락 ${missing}곳`);
 if (inventoryErrors.length) {
   console.error(`기준 목록 오류 ${inventoryErrors.length}건\n${inventoryErrors.join("\n")}`);
   process.exitCode = 1;
@@ -165,4 +175,4 @@ if (total !== 227) {
 }
 if (missing) process.exit(1);
 if (policyMismatches) process.exit(1);
-console.log("누락 0곳 · 지역 상세 페이지 색인 정책과 사이트맵 일치");
+console.log("색인 예외 시군구 페이지 누락 0곳 · 색인 정책과 사이트맵 일치");

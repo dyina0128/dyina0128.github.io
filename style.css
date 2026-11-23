@@ -4389,3 +4389,10 @@ body.download-center-page {
         transform: none;
     }
 }
+
+/* 좁은 휴대폰 화면에서 지역 카드 글자가 세로로 쌓이지 않도록 한 줄에 하나씩 배치 */
+@media (max-width: 520px) {
+    .district-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+}
