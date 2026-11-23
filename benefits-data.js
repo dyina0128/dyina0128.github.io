@@ -112,7 +112,7 @@ window.BENEFITS_DATA = [
         "applicationStart": "",
         "applicationEnd": "",
         "applicationType": "공식 공고 확인",
-        "summary": "취업 지원 서비스와 구직 활동 지원을 안내하는 제도입니다.",
+        "summary": "만 15~69세 구직자에게 취업지원서비스와 구직촉진수당(Ⅰ유형 월 60만 원, 6개월) 또는 취업활동비용(Ⅱ유형)을 지원합니다.",
         "url": "job-support-guide.html",
         "keywords": [
             "국민취업지원제도",
