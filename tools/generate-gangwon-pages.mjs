@@ -58,7 +58,7 @@ function render(slug, name, officeName, officeUrl, profile) {
 </head>
 <body>
   <header class="hero"><h1>📍 2026 ${name} 지원금·복지 찾기</h1><p>${profile}에서 받을 수 있는 ${localType} 자체사업과 강원특별자치도·정부 공통 지원을 공식 공고 기준으로 확인하세요.</p></header>
-  <nav class="top-nav" aria-label="주요 메뉴"><a href="index.html">메인</a><a href="gangwon-benefits.html">강원 지원</a><a href="benefit-finder.html">혜택 찾기</a><a href="youth-policy-list.html">청년정책</a><a href="about.html">사이트 소개</a></nav>
+  <nav class="top-nav" aria-label="주요 메뉴"><a href="index.html">메인</a><a href="gangwon-benefits.html">강원 지원</a><a href="benefit-finder.html">혜택 찾기</a><a href="youth-rent.html">청년월세</a><a href="about.html">사이트 소개</a></nav>
   <nav class="breadcrumb" aria-label="현재 위치"><a href="index.html">메인</a> › <a href="gangwon-benefits.html">강원특별자치도</a> › ${name}</nav>
   <main class="container">
     <section class="section"><h2>${name} 지원정보, 이렇게 확인하세요</h2><p>${name} 지원사업은 연령, 주민등록 주소, 거주기간, 소득·재산, 취업·사업 상태에 따라 대상이 달라집니다. 먼저 분야를 고른 뒤 ${officeName}의 최신 공고에서 접수기간과 제출서류를 확인하세요.</p><div class="notice"><strong>현재 신청 가능 여부는 공식 공고가 기준입니다.</strong><br>모집 종료, 예산 소진, 추가모집이 수시로 바뀔 수 있으므로 금액과 마감일을 임의로 단정하지 않고 공식 확인처를 연결했습니다.</div><div class="quick"><a href="#youth">청년·일자리</a><a href="#family">주거·가족</a><a href="#business">농업·소상공인</a><a href="#check">신청 전 확인</a></div></section>
