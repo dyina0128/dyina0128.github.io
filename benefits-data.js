@@ -142,7 +142,7 @@ window.BENEFITS_DATA = [
         "applicationStart": "",
         "applicationEnd": "",
         "applicationType": "공식 공고 확인",
-        "summary": "대학생의 등록금 부담을 줄이기 위한 국가 장학 제도입니다.",
+        "summary": "가구 소득 구간(2027년부터 가~마 5구간)에 따라 대학 등록금을 지원하는 장학금입니다. 2027학년도 1학기 1차 신청은 2027년 1월 7일까지입니다.",
         "url": "national-scholarship.html",
         "keywords": [
             "국가장학금",
