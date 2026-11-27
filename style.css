@@ -3974,9 +3974,7 @@ body.download-center-page {
 .status-box {
     margin-top: 28px;
     padding: 24px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
+    display: block;
     background: linear-gradient(135deg, #fffaf0, #fff4db);
     border: 1px solid #f2d99e;
     border-radius: 20px;
@@ -4001,8 +3999,12 @@ body.download-center-page {
     font-size: 18px;
 }
 
+.status-box p:last-child {
+    margin-bottom: 0;
+}
+
 .status-box p {
-    margin: 0;
+    margin: 0 0 10px;
     color: #735c3c;
     line-height: 1.75;
 }
